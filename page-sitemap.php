@@ -3,6 +3,40 @@
  * Template Name: HTML Sitemap
  * Description: Lists all published pages, posts, and services.
  */
+
+/**
+ * Recursively render a nested list of pages.
+ */
+if ( ! function_exists( 'ri_legal_render_page_tree' ) ) {
+    function ri_legal_render_page_tree( $pages, $parent_id = 0, $all_pages = null ) {
+        if ( $all_pages === null ) {
+            $all_pages = get_pages( array(
+                'sort_column' => 'menu_order,post_title',
+                'sort_order'  => 'ASC',
+            ) );
+        }
+
+        foreach ( $pages as $page ) {
+            $children = array_filter( $all_pages, function( $p ) use ( $page ) {
+                return (int) $p->post_parent === (int) $page->ID;
+            } );
+            ?>
+            <li>
+                <a href="<?php echo esc_url( get_permalink( $page->ID ) ); ?>"
+                    class="text-[#333333] hover:text-[#884A83] hover:underline transition-colors">
+                    <?php echo esc_html( $page->post_title ); ?>
+                </a>
+                <?php if ( ! empty( $children ) ) : ?>
+                    <ul class="pl-5 mt-2 space-y-2 border-l-2 border-gray-200">
+                        <?php ri_legal_render_page_tree( $children, $page->ID, $all_pages ); ?>
+                    </ul>
+                <?php endif; ?>
+            </li>
+            <?php
+        }
+    }
+}
+
 get_header();
 ?>
 
@@ -125,40 +159,5 @@ get_header();
     <?php get_template_part( 'template-parts/common/newsletter' ); ?>
 
 </main>
-
-<?php
-/**
- * Recursively render a nested list of pages.
- */
-if ( ! function_exists( 'ri_legal_render_page_tree' ) ) :
-    function ri_legal_render_page_tree( $pages, $parent_id = 0, $all_pages = null ) {
-        if ( $all_pages === null ) {
-            $all_pages = get_pages( array(
-                'sort_column' => 'menu_order,post_title',
-                'sort_order'  => 'ASC',
-            ) );
-        }
-
-        foreach ( $pages as $page ) {
-            $children = array_filter( $all_pages, function( $p ) use ( $page ) {
-                return (int) $p->post_parent === (int) $page->ID;
-            } );
-            ?>
-            <li>
-                <a href="<?php echo esc_url( get_permalink( $page->ID ) ); ?>"
-                    class="text-[#333333] hover:text-[#884A83] hover:underline transition-colors">
-                    <?php echo esc_html( $page->post_title ); ?>
-                </a>
-                <?php if ( ! empty( $children ) ) : ?>
-                    <ul class="pl-5 mt-2 space-y-2 border-l-2 border-gray-200">
-                        <?php ri_legal_render_page_tree( $children, $page->ID, $all_pages ); ?>
-                    </ul>
-                <?php endif; ?>
-            </li>
-            <?php
-        }
-    }
-endif;
-?>
 
 <?php get_footer(); ?>
