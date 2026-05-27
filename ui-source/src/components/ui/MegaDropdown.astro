@@ -1,0 +1,37 @@
+---
+const { title, links } = Astro.props;
+---
+<div class="group">
+
+  <!-- TRIGGER -->
+  <button
+    class="inline-flex items-center font-medium
+           text-black hover:text-[#6D3B69]"
+  >
+    {title}
+  </button>
+
+  <!-- FULL-WIDTH DROPDOWN -->
+  <div
+    class="absolute left-24 top-full z-40 hidden
+           w-screen h-[396px]
+           bg-white shadow-xl
+           group-hover:block"
+  >
+    <div class="mx-auto max-w-7xl px-6 py-8">
+      <ul class="grid grid-cols-2 gap-x-12 gap-y-2">
+        {links.map((link: any) => (
+          <li>
+            <a
+              href={link.href}
+              class="block text-[16px] text-[#884A83] hover:underline"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+</div>

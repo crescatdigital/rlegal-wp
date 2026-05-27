@@ -1,0 +1,44 @@
+.simple-page {
+    padding: 5em 0;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.simple-page h1 {
+    text-align: center;
+    color: #884A83;
+    font-size: 2.2em;
+    margin-bottom: 0.5em;
+    font-weight: 800;
+}
+
+.simple-page h2 {
+    color: #884A83;
+    font-size: 1.7rem;
+    padding: 1em 0;
+    font-weight: 600;
+}
+
+.simple-page h3 {
+    color: #884A83;
+    font-size: 1.2rem;
+    padding: 0.3em 0;
+    font-weight: 600;
+}
+
+.simple-page p {
+    margin-bottom: 1em;
+}
+
+@media (min-width: 1024px) {
+    .simple-page {
+        width:1280px;
+    }
+}
+
+@media (max-width: 767px) {
+    .simple-page {
+        padding: 0 20px;
+		width: auto;
+    }
+}

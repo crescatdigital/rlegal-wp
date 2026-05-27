@@ -1,0 +1,121 @@
+---
+import ReviewCard from "../../ui/ReviewCard.astro";
+import { Image } from "astro:assets";
+import backImage from "../../../../public/assets/Back.png";
+import starImage from "../../../../public/assets/Star-with-border.png";
+---
+
+<section class="bg-[#6D3B69] py-12 lg:py-16 overflow-hidden">
+  <div class="mx-auto max-w-7xl lg:px-10 lg:max-h-[400px]">
+    <!-- HEADER -->
+    <div class="mb-8 lg:mb-10 px-4 lg:px-0 text-left lg:text-center">
+      <p
+        class="text-white
+                text-[32px] leading-tight
+                lg:text-[36px]
+                font-semibold"
+      >
+        5000+ Clients Served,
+        <span class="inline-flex items-center gap-1">
+          500+
+          <span class="inline-flex">
+            {
+              [1, 2, 3, 4, 5].map(() => (
+                <Image
+                  src={starImage}
+                  alt="Star"
+                  class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain"
+                />
+              ))
+            }
+          </span>
+          Reviews
+        </span>
+      </p>
+    </div>
+
+    <!-- CARDS + NAVIGATION -->
+    <div
+      class="relative flex items-center justify-center px-4 lg:px-0"
+      data-carousel
+    >
+      <!-- PREV BUTTON -->
+      <button
+  data-prev
+  aria-label="Previous reviews"
+  class="absolute z-10 flex items-center justify-center text-white
+         left-0
+         lg:left-[calc(50%-350px-230px)]"
+>
+  <Image
+    src={backImage}
+    alt="Previous"
+    class="w-[40px] lg:w-[48px] h-[40px] lg:h-[48px]"
+  />
+  </button>
+
+      <!-- CARDS WRAPPER -->
+      <div class="flex gap-6 w-full justify-center px-8 lg:px-0" data-track>
+        <!-- CARD 1 -->
+        <div
+          class="carousel-item w-full max-w-[350px] h-[244px] lg:max-w-none lg:w-auto lg:gap-[30px]"
+        >
+          <ReviewCard
+            title="Excellent Service"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            client="John Smith"
+          />
+        </div>
+
+        <!-- CARD 2 -->
+        <div
+          class="carousel-item w-full max-w-[350px] h-[244px] lg:max-w-none lg:w-auto"
+        >
+          <ReviewCard
+            title="Highly Recommended"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            client="Sarah Johnson"
+          />
+        </div>
+
+        <!-- CARD 3 -->
+        <div
+          class="carousel-item w-full max-w-[350px] h-[244px] lg:max-w-none lg:w-auto"
+        >
+          <ReviewCard
+            title="Professional Team"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            client="Michael Brown"
+          />
+        </div>
+
+        <!-- CARD 4 -->
+        <div
+          class="carousel-item w-full max-w-[350px] h-[244px] lg:max-w-none lg:w-auto"
+        >
+          <ReviewCard
+            title="Outstanding Results"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            client="Emily Davis"
+          />
+        </div>
+      </div>
+
+      <!-- NEXT BUTTON -->
+     <button
+  data-next
+  aria-label="Next reviews"
+  class="absolute z-10 flex items-center justify-center text-white
+         right-0
+         lg:right-[calc(50%-350px-230px)]"
+>
+  <Image
+    src={backImage}
+    alt="Next"
+    class="w-[40px] lg:w-[48px] h-[40px] lg:h-[48px] rotate-180"
+  />
+</button>
+    </div>
+  </div>
+  <script src="/scripts/reviewsCarrousel.js" is:inline></script>
+</section>

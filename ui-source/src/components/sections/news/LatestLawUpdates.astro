@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+
+import sraLogo from "/public/assets/solicitors.png";
+import legal500Logo from "/public/assets/legal-500.png";
+
+const {
+  title = "All the latest immigration law updates, news and insight",
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.",
+} = Astro.props;
+---
+
+<section class="bg-white pt-14 pb-10">
+  <div class="mx-auto max-w-6xl px-6">
+    <!-- CONTENT ROW -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+      <!-- LEFT TEXT -->
+      <div class="max-w-xl">
+        <h2 class="text-[36px] font-semibold text-[#884A83] leading-tight mb-4">
+          {title}
+        </h2> 
+
+        <p class="text-[18px] leading-relaxed text-[#000000]">
+          {description}
+        </p>
+      </div>
+
+      <!-- RIGHT LOGOS -->
+      <div class="flex justify-center lg:justify-end gap-10">
+        <Image
+          src={sraLogo}
+          alt="Solicitors Regulation Authority"
+          class="h-[128px] lg:h-[1What is a Business83px] w-auto object-contain"
+          loading="lazy"
+        />
+
+        <Image
+          src={legal500Logo}
+          alt="Legal 500 Leading Firm"
+          class="h-[110px] lg:h-[157px] w-auto object-contain"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="mt-10 h-[2px] w-full bg-[#884A83]"></div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+---
+const { title, description } = Astro.props;
+---
+
+<div
+  class="bg-white px-6 py-8
+         border-l-[15px] border-[#6D3B69]
+         shadow-sm lg:w-[1140px]"
+>
+  <h4 class="text-[26px] font-semibold text-[#884A83] mb-2">
+    {title}
+  </h4>
+
+  <p class="text-[18px] leading-relaxed text-[#000000]">
+    {description}
+  </p>
+</div>

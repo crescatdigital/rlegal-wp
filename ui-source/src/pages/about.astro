@@ -1,0 +1,34 @@
+---
+import OurPartners from "../components/sections/about/OurPartners.astro";
+import WelcomeSection from "../components/sections/about/WelcomeSection.astro";
+import ClearHonestAdvice from "../components/sections/homepage/ClearHonestAdvice.astro";
+import ClientServed from "../components/sections/homepage/ClientServed.astro";
+import KeepUpToDate from "../components/sections/homepage/KeepUpToDate.astro";
+import RLegalImmigration from "../components/sections/homepage/RLegalImmigration.astro";
+import HeroSection from "../components/ui/HeroSection.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import RLegalJourney from "../components/sections/about/RLegalJourney.astro";
+---
+<MainLayout>
+    <HeroSection
+  subtitle="Welcome to RLegal Solicitors"
+  title={[
+    "About our immigration",
+    "law firm, established",
+    "in 2002",
+  ]}
+/>
+<WelcomeSection/>
+<ClientServed />
+<OurPartners />
+<RLegalJourney/>
+ <ClearHonestAdvice />
+   <KeepUpToDate
+        sectionTitle = "Keep up to date with the latest information in immigration law",
+		articleTitle="Featured Article Title"
+		description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+		readUrl="/articles/featured"
+		allUrl="/articles"
+	/>
+    <RLegalImmigration />
+</MainLayout>

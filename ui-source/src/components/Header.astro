@@ -1,0 +1,128 @@
+---
+import { Image } from "astro:assets";
+import Logo from "/public/assets/logo.png";
+import { MessagesSquare, PhoneCall, Menu } from "@lucide/astro";
+import MegaDropdown from "./ui/MegaDropdown.astro";
+import Button from "./ui/Button.astro";
+import { CORPORATE_IMMIGRATION_LINKS } from "../constants/navigation";
+---
+
+<header
+  class="lg:px-[51px] w-full lg:w-[1440px] mx-auto bg-white relative z-50"
+>
+  <!-- ================= MOBILE HEADER ================= -->
+  <div class="flex items-center justify-between px-4 py-4 lg:hidden">
+    <!-- LEFT: PHONE ICON -->
+    <a
+      href="tel:02070383880"
+      class="flex h-[53px] w-[53px] items-center justify-center
+             rounded-full bg-[#884A83]"
+      aria-label="Call us"
+    >
+      <PhoneCall class="h-6 w-6 stroke-white" />
+    </a>
+
+    <!-- CENTER: LOGO -->
+    <Image src={Logo} alt="R Legal" class="h-[109px] w-auto" />
+
+    <!-- RIGHT: HAMBURGER -->
+    <Menu
+      id="mobile-menu-open"
+      class="h-[53px] w-[53px] stroke-[#884A83] stroke-2"
+    />
+  </div>
+  <!-- ================= MOBILE NAV DRAWER ================= -->
+  <div id="mobile-nav" class="fixed inset-0 z-40 hidden lg:hidden">
+    <!-- OVERLAY -->
+    <div id="mobile-nav-overlay" class="absolute inset-0 bg-black/40"></div>
+
+    <!-- DRAWER -->
+    <div
+      class="absolute right-0 top-0 h-full w-[80%] max-w-[320px]
+           bg-white shadow-xl
+           translate-x-full transition-transform duration-300
+           flex flex-col p-6"
+      id="mobile-nav-panel"
+    >
+      <!-- CLOSE -->
+      <button
+        id="mobile-nav-close"
+        class="self-end mb-6 text-[#884A83] text-2xl font-bold"
+        aria-label="Close menu"
+      >
+        ✕
+      </button>
+
+      <!-- NAV LINKS -->
+      <nav class="flex flex-col gap-6 text-[20px] font-medium text-[#000000]">
+        <a href="#">Corporate Immigration</a>
+        <a href="#">Private Immigration</a>
+        <a href="/about">About Us</a>
+        <a href="/news">News & Insights</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="mt-auto flex flex-col gap-4 pt-8">
+        <Button
+          href="tel:02070383880"
+          variant="primary"
+          size="sm"
+          class="w-full py-3"
+        >
+          <PhoneCall class="h-5 w-5 stroke-white mr-2" />
+          Call Us
+        </Button>
+
+        <Button
+          href="#consultation"
+          variant="secondary"
+          size="sm"
+          class="w-full py-3"
+        >
+          <MessagesSquare class="h-5 w-5 stroke-white mr-2" />
+          Free Consultation
+        </Button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= DESKTOP HEADER (UNCHANGED) ================= -->
+  <div class="mx-auto max-w-screen px-5 pt-10 hidden lg:block">
+    <div class="flex h-[72px] items-center justify-between">
+      <!-- LOGO -->
+      <div class="relative z-50 pr-1">
+        <Image src={Logo} alt="R Legal" class="h-[120px]" />
+      </div>
+
+      <!-- NAV -->
+      <nav class="flex space-evenly items-center gap-8 text-[20px] font-medium">
+        <MegaDropdown
+          title="Corporate Immigration"
+          links={CORPORATE_IMMIGRATION_LINKS}
+        />
+
+        <MegaDropdown
+          title="Private Immigration"
+          links={CORPORATE_IMMIGRATION_LINKS}
+        />
+
+        <a href="/about">About Us</a>
+        <a href="/news">News & Insights</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-3">
+        <Button href="tel:02070383880" variant="primary" size="md">
+          <PhoneCall class="h-4 w-4 stroke-white mr-2" />
+          0207 038 3880
+        </Button>
+
+        <Button href="#consultation" variant="secondary" size="md">
+          <MessagesSquare class="h-4 w-4 stroke-white mr-2" />
+          Free Consultation
+        </Button>
+      </div>
+    </div>
+  </div>
+  <script src="/scripts/mobileNav.js" is:inline></script>
+</header>

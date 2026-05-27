@@ -1,0 +1,44 @@
+---
+import TimeLineItem from "../../ui/TimeLineItem.astro";
+
+const timeline = [
+  {
+    title: "2002: RLegal is Established",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+  },
+  {
+    title: "Date: Timeline title",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+  },
+  {
+    title: "Date: Timeline title",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+  },
+];
+---
+
+<section class="bg-[#9A5B9D] py-10 lg:py-16">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <!-- SECTION TITLE -->
+    <h2
+      class="text-center
+             text-[26px] sm:text-[30px] lg:text-[36px]
+             font-semibold text-white
+             mb-8 lg:mb-10"
+    >
+      The RLegal Journey: Our History
+    </h2>
+
+    <!-- TIMELINE STACK -->
+    <div class="space-y-4 lg:space-y-6 flex flex-col items-center">
+      {
+        timeline.map((item) => (
+          <TimeLineItem title={item.title} description={item.description} />
+        ))
+      }
+    </div>
+  </div>
+</section>

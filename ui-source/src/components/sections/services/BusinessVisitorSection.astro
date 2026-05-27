@@ -1,0 +1,52 @@
+---
+import BuisnessViewAccordion from "../../ui/BuisnessViewAccordion.astro";
+
+const faqs = [
+    {
+        question: "Question about business visitor visas?",
+        answer: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+    },
+    {
+        question: "Question about business visitor visas?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    },
+    {
+        question: "Question about business visitor visas?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    },
+    {
+        question: "Question about business visitor visas?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    },
+];
+---
+<section class="bg-[#9A5B9D] py-10">
+  <div class="mx-auto max-w-4xl px-6">
+
+    <h2 class="text-center text-[36px] font-semibold text-white mb-12">
+      Business Visitor Visa FAQs
+    </h2>
+
+    <div class="space-y-5">
+      <BuisnessViewAccordion
+        question={faqs[0].question}
+        answer={faqs[0].answer}
+        open
+      />
+
+      {faqs.slice(1).map(faq => (
+        <BuisnessViewAccordion
+          question={faq.question}
+          answer={faq.answer}
+        />
+      ))}
+    </div>
+
+  </div>
+
+  <!-- SCRIPT FRAGMENT -->
+  <script src="/scripts/accordion.js" is:inline></script>
+</section>

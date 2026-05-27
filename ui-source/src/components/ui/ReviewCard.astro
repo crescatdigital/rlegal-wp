@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import reviewIO from "../../../public/assets/review-io.png";
+import starImage from "../../../public/assets/Star.png";
+
+const { title, body, client } = Astro.props;
+---
+
+<div
+  class="bg-white rounded-[30px] p-4 w-full max-w-[355px] lg:max-w-[453px] h-[244px]
+         flex flex-col border-[5px] border-[#A3599D]"
+>
+  <!-- TITLE -->
+  <h1 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
+    {title}
+  </h1>
+
+  <!-- BODY (flexible) -->
+  <p class="text-[16px] lg:text-[18px] text-[#000000] leading-relaxed">
+    {body}
+  </p>
+
+  <!-- FOOTER -->
+  <div class="mt-auto pt-4 flex flex-col gap-1">
+    <!-- Client Name -->
+    <span class="text-[16px] lg:text-[18px] font-bold text-[#000000]">
+      {client}
+    </span>
+
+    <!-- Stars + Reviews.io -->
+    <div class="flex items-center gap-5 leading-none">
+      <div class="flex">
+        {
+          [1, 2, 3, 4, 5].map(() => (
+            <Image
+              src={starImage}
+              alt="Star"
+              class="lg:w-[41px] lg:h-[41px] w-[27px] h-[30px] object-contain"
+            />
+          ))
+        }
+      </div>
+
+      <Image
+        src={reviewIO}
+        alt="Reviews.io"
+        class="lg:h-[35px] lg:w-[144px] h-[28px] object-contain"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</div>

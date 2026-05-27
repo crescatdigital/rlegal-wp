@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import mapImage from "/public/assets/location-map.png";
+---
+
+<section class="py-16 bg-[#F9F9F9] lg:h-[623px]">
+  <div class="mx-auto max-w-5xl px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- LEFT CONTENT -->
+      <div class="max-w-md">
+        <h2
+          class="text-[32px] lg:text-[36px] font-semibold text-[#A3599D] mb-[36px]"
+        >
+          Where to find us
+        </h2>
+
+        <p
+          class="text-[24px] lg:text-[30px] leading-relaxed text-[#000000] mb-[44px]"
+        >
+          Third Floor, Linen Hall<br />
+          162-168 Regent Street<br />
+          London<br />
+          W1B 5TD
+        </p>
+
+        <button
+          type="button"
+          class="inline-flex items-center justify-center
+                 rounded-[15px] bg-[#884A83]
+                 px-5 py-2.5 lg:w-[220px]
+                 text-[18px] text-white"
+        >
+          Get Directions
+        </button>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div
+  class="w-full
+         aspect-[4/3]  
+         lg:aspect-auto
+         lg:w-[602px]
+         lg:h-[450px]
+         rounded-lg
+         overflow-hidden"
+>
+  <Image
+    src={mapImage}
+    alt="Map showing office location"
+    class="h-full w-full object-cover"
+    loading="lazy"
+  />
+</div>
+    </div>
+  </div>
+</section>

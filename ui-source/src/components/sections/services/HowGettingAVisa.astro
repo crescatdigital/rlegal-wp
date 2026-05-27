@@ -1,0 +1,36 @@
+---
+import FeatureCard from "../../ui/FeatureCard.astro";
+
+const features = Array(6).fill({
+  title: "Feature title",
+  description: "Lorem ipsum dolor sit amet, consectetur",
+});
+---
+
+<section class="py-16 bg-white border-y-2 border-[#884A83]">
+  <div class="mx-auto max-w-7xl px-6">
+    <!-- SECTION TITLE -->
+    <h2 class="text-center text-[36px] font-semibold text-[#A3599D] mb-10">
+      How Getting a Visa Works with RLegal
+    </h2>
+
+    <!-- GREY PANEL -->
+    <div class="bg-[#EFEFEF] rounded-md p-6 lg:p-10">
+      <!-- GRID -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+               gap-x-8 gap-y-10
+               place-items-center gap-1 lg:gap-y-[49px]"
+      >
+        {
+          features.map((feature) => (
+            <FeatureCard
+              title={feature.title}
+              description={feature.description}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

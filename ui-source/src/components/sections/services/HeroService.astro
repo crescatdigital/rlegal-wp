@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import { MessagesSquare } from "@lucide/astro";
+
+import reviewsIo from "/public/assets/reviews-io.png";
+import googleReviews from "/public/assets/google-rating.png";
+import RequestCallback from "../../ui/RequestCallback.astro";
+---
+
+<section class="relative bg-white overflow-hidden mb-10">
+    <div class="mx-auto py-10 max-w-[1440px]">
+        <div
+            class="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-8 lg:gap-0 items-center"
+        >
+            <!-- LEFT CONTENT (SECOND ON MOBILE) -->
+            <div class="px-6 lg:pl-[165px] lg:pr-8">
+                <div class="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
+                    <!-- Eyebrow -->
+                    <p
+                        class="text-[18px] lg:text-[20px] font-medium text-[#884A83] mb-3"
+                    >
+                        Business Visitor Visas in London
+                    </p>
+
+                    <!-- Heading -->
+                    <h1
+                        class="text-[32px] lg:text-[40px] leading-tight text-black mb-6"
+                    >
+                        Over 20 years<br />
+                        supporting visitor visas<br />
+                        for businesses
+                    </h1>
+
+                    <!-- CTA -->
+                    <div class="flex justify-center lg:justify-start">
+                        <button
+                            type="button"
+                            class="inline-flex items-center gap-2
+                     rounded-lg bg-[#4A884F]
+                     px-5 py-2.5
+                     text-[16px] lg:text-[18px] font-semibold text-white
+                     hover:bg-[#3d7242] transition"
+                        >
+                            <MessagesSquare class="h-4 w-4 stroke-white" />
+                            Get a Free Consultation
+                        </button>
+                    </div>
+
+                    <!-- REVIEWS -->
+                    <div
+                        class="mt-8 flex flex-col items-center lg:items-start gap-2"
+                    >
+                        <div class="flex items-center gap-4">
+                            <Image
+                                src={reviewsIo}
+                                alt="Reviews.io rating"
+                                class="h-[45px] w-auto"
+                            />
+
+                            <Image
+                                src={googleReviews}
+                                alt="Google reviews"
+                                class="h-[78px] w-auto"
+                            />
+                        </div>
+
+                        <p class="text-[16px] text-[#000000]">
+                            Rated 4.9/5 from 515 verified reviews
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE (GRADIENT + FORM) (FIRST ON MOBILE) -->
+            <div
+                class="relative flex items-center order-1 lg:order-2
+         min-h-[500px] lg:min-h-[550px]
+         mx-6 lg:mx-0
+         lg:bg-[linear-gradient(270deg,#6D3B69_0.64%,#FFFFFF_99.11%)] hero-form-container"
+            >
+                <!-- Inner alignment wrapper -->
+                <div
+                    class="w-[550px] flex justify-center lg:justify-end px-0 lg:pr-[10px] lg:pl-[135px]"
+                >
+                    <RequestCallback forceMobile={true} />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

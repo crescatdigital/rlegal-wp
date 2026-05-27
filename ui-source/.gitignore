@@ -1,0 +1,54 @@
+# -----------------------------------------
+# Node
+# -----------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -----------------------------------------
+# Astro build output
+# -----------------------------------------
+dist/
+.server/
+.output/
+.vercel/
+.netlify/
+
+# Astro temp files
+.astro/
+
+# -----------------------------------------
+# Environment / Config
+# -----------------------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------------------
+# Editor / OS junk
+# -----------------------------------------
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# -----------------------------------------
+# Logs
+# -----------------------------------------
+logs/
+*.log
+pnpm-lock.yaml
+package-lock.json
+
+# -----------------------------------------
+# Optional: local dev caches
+# -----------------------------------------
+.cache/
+*.tsbuildinfo
+

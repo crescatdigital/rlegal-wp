@@ -1,0 +1,17 @@
+.footer-menu {
+    color: white;
+    padding: 2rem 0;
+    text-align: start;
+}
+.footer-menu-columns {
+    display: flex;
+    gap: 5em;
+    font-size: 20px;
+}
+
+@media (min-width: 768px) {
+    footer .footer-menu {
+        padding-top: 3rem;
+        margin-left: 2em;
+    }
+}

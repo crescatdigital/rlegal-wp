@@ -1,0 +1,27 @@
+---
+import ClientServed from "../components/sections/homepage/ClientServed.astro";
+import RLegalImmigration from "../components/sections/homepage/RLegalImmigration.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroService from "../components/sections/services/HeroService.astro";
+import WhatIsBuisnessVisitor from "../components/sections/services/WhatIsBuisnessVisitor.astro";
+import HowGettingAVisa from "../components/sections/services/HowGettingAVisa.astro";
+import ClearHonestAdvice from "../components/sections/homepage/ClearHonestAdvice.astro";
+import KeepUpToDate from "../components/sections/homepage/KeepUpToDate.astro";
+import BuisnessViewSection from "../components/sections/services/BusinessVisitorSection.astro";
+---
+<MainLayout>
+    <HeroService />
+    <WhatIsBuisnessVisitor />
+    <ClientServed />
+    <HowGettingAVisa />
+    <BuisnessViewSection/>
+    <ClearHonestAdvice />
+   <KeepUpToDate
+        sectionTitle = "Keep up to date with the latest information in immigration law",
+		articleTitle="Featured Article Title"
+		description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+		readUrl="/articles/featured"
+		allUrl="/articles"
+	/>
+    <RLegalImmigration />
+</MainLayout>

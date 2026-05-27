@@ -1,0 +1,113 @@
+---
+import { Image } from "astro:assets";
+import { MessagesSquare } from "@lucide/astro";
+
+import reviewsIo from "/public/assets/reviews-io.png";
+import googleReviews from "/public/assets/google-rating.png";
+import heroImage from "/public/assets/home-hero.png";
+import heroMobileImage from "/public/assets/hero-mob.png";
+import Button from "./Button.astro";
+
+const { title, subtitle } = Astro.props;
+---
+
+<section class="py-10 lg:py-12">
+  <!-- Mobile: Full-width image (breaks out of container) -->
+  <div class="lg:hidden relative left-1/2 -translate-x-1/2">
+    <div class="lg:h-[480px] sm:h-[400px]">
+      <Image
+        src={heroMobileImage}
+        alt="Immigration consultation"
+        class="h-full w-full object-cover"
+        loading="eager"
+      />
+    </div>
+  </div>
+
+  <div class="mx-auto px-6 lg:px-0 lg:max-w-[1440px]">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+  <!-- RIGHT IMAGE -->
+  <div class="hidden lg:flex order-2 justify-end relative -ml-6">
+    <div
+      class="relative h-[420px] w-full max-w-[720px]
+             overflow-hidden rounded-l-[120px]"
+    >
+      <Image
+        src={heroImage}
+        alt="Immigration consultation"
+        class="h-full w-full object-cover"
+        loading="eager"
+      />
+    </div>
+  </div>
+
+      <!-- LEFT CONTENT (SECOND ON MOBILE) -->
+      <div
+        class="max-w-[620px]
+         order-1
+         text-center lg:text-left
+         mx-auto lg:mx-0
+         lg:pl-[85px]
+         mt-8 lg:mt-0
+         lg:pt-[68px]"
+      >
+        <!-- Eyebrow -->
+        <p
+          class="text-[20px] sm:text-[16px] lg:text-[20px] text-[#884A83] mb-3"
+        >
+          {subtitle}
+        </p>
+
+        <!-- Heading -->
+        <h1
+          class="text-[36px] sm:text-[36px] lg:text-[40px]
+         leading-tight text-[#000000]"
+        >
+          {
+            title.map((line: string) => (
+              <span class="block whitespace-nowrap">{line}</span>
+            ))
+          }
+        </h1>
+
+        <!-- CTA -->
+        <div class="mt-6 flex justify-center lg:justify-start">
+          <Button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-[15px] bg-[#4A884F] px-5 py-2.5 text-[16px] lg:text-[18px] text-white"
+          >
+            <MessagesSquare class="h-5 w-5 lg:h-6 lg:w-6 stroke-white" />
+            Get a Free Consultation
+          </Button>
+        </div>
+
+        <!-- REVIEWS -->
+        <div class="mt-8 flex flex-col items-center lg:items-start gap-2">
+          <div class="flex items-center gap-6">
+            <div class="w-[156px] h-[45px] flex items-center">
+              <Image
+                src={reviewsIo}
+                alt="Reviews.io rating"
+                class="w-full h-full object-contain"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="w-[149px] h-[78px] flex items-center">
+              <Image
+                src={googleReviews}
+                alt="Google reviews"
+                class="w-full h-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <p class="text-[16px] lg:text-[16px] text-[#000000]">
+            Rated 4.9/5 from 515 verified reviews
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

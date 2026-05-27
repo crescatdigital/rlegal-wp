@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+
+import sraLogo from "/public/assets/solicitors.png";
+import legal500Logo from "/public/assets/legal-500.png";
+
+const {
+  title = "Welcome to RLegal Immigration Solicitors",
+  introText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  subTitle = "Who we are",
+  bodyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+} = Astro.props;
+---
+<section class="py-10 bg-white px-2 lg:px-0">
+  <div class="mx-auto max-w-5xl w-full">
+    <!-- TITLE -->
+    <h2 class="text-[36px] font-semibold text-[#884A83] mb-6">
+      {title}
+    </h2>
+
+    <!-- INTRO TEXT -->
+    <p class="text-[18px] leading-relaxed text-[#000000] mb-10 max-w-4xl">
+      {introText}
+    </p>
+
+    <!-- SUB HEADING -->
+    <h3 class="text-[24px] font-semibold text-[#000000] mb-4">
+      {subTitle}
+    </h3>
+
+    <!-- BODY TEXT -->
+    <p class="text-[18px] leading-relaxed text-[#000000] mb-14 max-w-4xl">
+      {bodyText}
+    </p>
+
+    <!-- TRUST BADGES -->
+    <div class="flex justify-center">
+      <div class="flex items-center gap-10">
+        <Image
+          src={sraLogo}
+          alt="Solicitors Regulation Authority"
+          class="h-[164px] lg:h-[183px] w-auto object-contain"
+          loading="lazy"
+        />
+
+        <Image
+          src={legal500Logo}
+          alt="Legal 500 Leading Firm"
+          class="h-[110px] lg:h-[157px] w-auto object-contain"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>

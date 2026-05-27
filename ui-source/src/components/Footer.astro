@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import sraLogo from "/public/assets/solicitors.png";
+---
+
+<section class="bg-[#6D3B69] pt-0 pb-8 h-[650px] md:h-[400px]">
+  <div class="mx-auto max-w-7xl px-6 h-full">
+    <div
+      class="flex flex-col items-center text-center h-full justify-between
+             md:flex-row md:items-start md:justify-between md:text-left"
+    >
+      <!-- CONTACT DETAILS -->
+      <div
+        class="text-white text-[18px] md:text-[22px] leading-relaxed pt-8 md:pt-12"
+      >
+        <p>
+          Third Floor, Linen Hall,<br />
+          162-168 Regent Street,<br />
+          London W1B 5TD
+        </p>
+
+        <div class="mt-4">
+          <p>+44 (0)20 7038 3980</p>
+          <p>
+            <a href="mailto:info@rlegal.com" class="hover:underline">
+              info@rlegal.com
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- SRA BADGE -->
+      <div
+        class="md:mt-12
+               flex flex-col items-center md:items-end
+               gap-3 text-white"
+      >
+        <div class="bg-white p-2">
+          <Image
+            src={sraLogo}
+            alt="Solicitors Regulation Authority"
+            class="h-[120px] md:h-[139px] w-auto object-contain"
+            loading="lazy"
+          />
+        </div>
+
+        <p class="text-[14px] md:text-[18px] leading-tight md:text-right">
+          Regulated by the SRA.<br />
+          Reg No: 00380691
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

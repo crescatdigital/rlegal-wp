@@ -1,0 +1,52 @@
+---
+import PartnerCard from "../../ui/PartnerCard.astro";
+
+import david from "../../../../public/assets/partner-david.png";
+import evan from "../../../../public/assets/partner-evan.png";
+import julian from "../../../../public/assets/partner-julian.png";
+
+const partners = [
+    {
+        name: "David Robinson",
+        image: david,
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+    },
+    {
+        name: "Evan Remedios",
+        image: evan,
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+    },
+    {
+        name: "Julian Torreggiani",
+        image: julian,
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+    },
+];
+---
+
+<section class="py-14 bg-white">
+    <div class="mx-auto max-w-6xl px-6">
+        <!-- TITLE -->
+        <h2 class="text-center text-[36px] font-semibold text-[#A3599D] mb-10">
+            Our Partners
+        </h2>
+
+        <!-- CARD CONTAINER -->
+        <div class="bg-[#EFEFEF] rounded-lg p-8">
+            <div class="flex flex-wrap justify-center gap-8">
+                {
+                    partners.map((partner) => (
+                        <PartnerCard
+                            name={partner.name}
+                            image={partner.image}
+                            description={partner.description}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
