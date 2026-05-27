@@ -49,6 +49,7 @@
                             <li><a href="/complaints-procedure">Complaints Procedure</a></li>
                             <li><a href="/privacy-policy">Privacy Policy</a></li>
                             <li><a href="/equality-policy">Equality Policy</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
                         </ul>
 
                     </div>
