@@ -134,7 +134,15 @@ get_header();
 
     <section class="main-content mx-auto py-10 bg-white">
         <div class="mx-auto max-w-6xl px-6">
-            <?php the_content() ?>
+            <div class="main-content__collapse" data-collapse>
+                <div class="main-content__inner">
+                    <?php the_content(); ?>
+                </div>
+                <div class="main-content__fade" aria-hidden="true"></div>
+                <button type="button" class="main-content__toggle" data-collapse-toggle aria-expanded="false">
+                    Read more
+                </button>
+            </div>
         </div>
     </section>
 
@@ -281,4 +289,47 @@ get_header();
         });
     });
 });
+
+/* "Read more" collapse for long article-style content. Only enabled when the
+   inner content actually exceeds the CSS-defined preview height — short posts
+   get no fade and no button. Re-checked on resize because line-wrapping
+   changes the effective content height. */
+(function () {
+    const wrappers = document.querySelectorAll('[data-collapse]');
+    if (!wrappers.length) return;
+
+    function measure(wrapper) {
+        const inner = wrapper.querySelector('.main-content__inner');
+        if (!inner) return;
+        if (wrapper.classList.contains('is-expanded')) return;
+        // Temporarily clear data-overflow so we can read the natural height.
+        wrapper.removeAttribute('data-overflow');
+        const previewHeight = parseInt(getComputedStyle(inner).maxHeight, 10) || 520;
+        if (inner.scrollHeight > previewHeight + 40) {
+            wrapper.setAttribute('data-overflow', 'true');
+        }
+    }
+
+    wrappers.forEach(function (wrapper) {
+        measure(wrapper);
+        const btn = wrapper.querySelector('[data-collapse-toggle]');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+            const expanded = wrapper.classList.toggle('is-expanded');
+            btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            btn.textContent = expanded ? 'Show less' : 'Read more';
+            if (!expanded) {
+                wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            wrappers.forEach(measure);
+        }, 200);
+    });
+})();
 </script>

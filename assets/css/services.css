@@ -61,3 +61,63 @@
 .main-content strong {
     color: #884A83;
 }
+
+/* ---- Collapsible "Read more" for long article-style content ---------------
+   Default state: content is clipped to a comfortable preview height with a
+   white fade over the lower edge. Clicking the toggle expands to full height.
+   JS adds .is-expanded to .main-content__collapse; it also sets
+   data-overflow="true" on the wrapper only when the content actually exceeds
+   the preview height, so short posts skip the fade/button entirely. */
+.main-content__collapse {
+    position: relative;
+}
+
+.main-content__inner {
+    overflow: hidden;
+    max-height: none;
+    transition: max-height 0.4s ease;
+}
+
+.main-content__collapse[data-overflow="true"] .main-content__inner {
+    max-height: 520px;
+}
+
+.main-content__collapse[data-overflow="true"] .main-content__fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 56px;
+    height: 140px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 90%);
+    pointer-events: none;
+}
+
+.main-content__toggle {
+    display: none;
+    margin: 16px auto 0;
+    padding: 10px 28px;
+    background: #884A83;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.main-content__toggle:hover {
+    background: #6D3B69;
+}
+
+.main-content__collapse[data-overflow="true"] .main-content__toggle {
+    display: block;
+}
+
+.main-content__collapse.is-expanded .main-content__inner {
+    max-height: none;
+}
+
+.main-content__collapse.is-expanded .main-content__fade {
+    display: none;
+}
