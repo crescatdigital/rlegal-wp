@@ -102,8 +102,8 @@ get_header();
                     <div class="bg-[#A3599D] rounded-3xl p-3 pt-4 h-[470px] w-full">
 
                         <!-- Form Heading -->
-                        <h3 class="text-center text-white font-bold text-[30px] mb-6">
-                            <?php echo esc_html($hero['form_heading'] ?? 'Request a callback from our immigration experts'); ?>
+                        <h3 class="text-center text-white font-bold text-[20px] mb-2">
+                            <?php echo esc_html($hero['form_heading'] ?? 'Get in touch with our lawyers'); ?>
                         </h3>
 
                         <!-- Form -->

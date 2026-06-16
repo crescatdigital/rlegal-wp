@@ -61,8 +61,8 @@ get_header();
                 <div class="relative flex items-center order-1 lg:order-2 min-h-[500px] lg:min-h-[550px] mx-6 lg:mx-0 lg:bg-[linear-gradient(270deg,#6D3B69_0.64%,#FFFFFF_99.11%)]" <?php echo $bg_style; ?>>
                     <div class="w-[550px] flex justify-center lg:justify-end px-0 lg:pr-[10px] lg:pl-[135px]">
                         <div class="bg-[#A3599D] rounded-3xl p-3 pt-4 h-[470px] w-full">
-                            <h3 class="text-center text-white font-bold text-[30px] mb-6">
-                                Request a callback from our immigration experts
+                            <h3 class="text-center text-white font-bold text-[20px] mb-2">
+                                Get in touch with our lawyers
                             </h3>
                             <?php echo do_shortcode('[contact-form-7 id="144c137" title="Top Banner Form"]'); ?>
                         </div>

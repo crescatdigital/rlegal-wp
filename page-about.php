@@ -168,9 +168,9 @@ get_header();
                         <p class="text-[18px] text-left leading-relaxed text-[#000000] mb-4">
                             <?php echo wp_kses_post( nl2br( esc_html( $bio ) ) ); ?></p>
                         <!-- CTA -->
-                        <a href="<?php echo esc_attr( $link ); ?>" class="inline-block lg:w-[220px] rounded-xl bg-[#884A83]
+                        <!-- <a href="<?php echo esc_attr( $link ); ?>" class="inline-block lg:w-[220px] rounded-xl bg-[#884A83]
                         px-4 py-1.5 mt-[16px] mb-[22px] text-[18px] font-medium text-white
-                        hover:bg-[#73366f] transition">Find out more</a>
+                        hover:bg-[#73366f] transition">Find out more</a> -->
                     </div>
                     <?php
                     }

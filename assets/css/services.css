@@ -79,7 +79,7 @@
 }
 
 .main-content__collapse[data-overflow="true"] .main-content__inner {
-    max-height: 520px;
+    max-height: 820px;
 }
 
 .main-content__collapse[data-overflow="true"] .main-content__fade {

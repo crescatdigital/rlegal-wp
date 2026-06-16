@@ -65,7 +65,7 @@ function ri_legal_register_homepage_acf_fields() {
                 'label' => 'Form Heading',
                 'name' => 'services_form_heading',
                 'type' => 'text',
-                'default_value' => 'Request a callback from our immigration experts',
+                'default_value' => 'Get in touch with our lawyers',
             ),
             // array(
             //     'key' => 'field_services_form_button_text',
@@ -115,7 +115,7 @@ function ri_legal_register_homepage_acf_fields() {
                 'label' => 'Form Request Title',
                 'name' => 'form_request_title',
                 'type' => 'text',
-                'default_value' => 'Request a callback from our immigration experts',
+                'default_value' => 'Get in touch with our lawyers',
             ),
             array(
                 'key' => 'field_services_business',
