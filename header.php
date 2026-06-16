@@ -135,7 +135,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-messages-square h-5 w-5 stroke-white mr-2">
                             <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"></path>
                         </svg>
-                        Free Consultation
+                        Book Consultation
                     </a>
                 </div>
             </div>
@@ -177,7 +177,7 @@
                         <?php echo esc_html( $ri_phone ); ?>
                     </a>
 
-                    <?php $cta_text = get_ri_field( 'hero_cta_text', '', 'option' ); if ( ! $cta_text ) { $cta_text = 'Free Consultation'; } ?>
+                    <?php $cta_text = get_ri_field( 'hero_cta_text', '', 'option' ); if ( ! $cta_text ) { $cta_text = 'Book Consultation'; } ?>
                     <a href="/contact-us" class="inline-flex items-center justify-center rounded-lg font-bold transition duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-[#884A83] text-white hover:bg-[#7a4275] px-4 py-2 text-[18px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-messages-square h-4 w-4 stroke-white mr-2">
                             <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"></path>

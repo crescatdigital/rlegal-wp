@@ -4,11 +4,13 @@
 	padding: 0;
 }
 
-@media(max-width: 545px){
-	header {
-		position: sticky !important;
-		top: 0;
-	}
+/* Sticky header across all breakpoints (desktop + mobile) */
+header {
+	position: sticky !important;
+	top: 0;
+	z-index: 50;
+	background: #fff;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .menu > li {
@@ -74,7 +76,7 @@
 }
 
 ul#menu-main-menu-1 > li > a {
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1.2;
 	display: inline-block;
 }
@@ -85,15 +87,19 @@ header div.flex > a {
 }
 
 ul#menu-main-menu-1 {
-	gap: 20px;
+	gap: 14px;
 }
 
+/* Phone number + CTA: keep side by side, never wrap or stack */
 header div.flex.items-center.gap-3 {
-    flex-direction: column;
+    flex-direction: row;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
 }
 
 header .flex.items-center.gap-3 > a {
-    width: 100%;
+    width: auto;
+    white-space: nowrap;
 }
 
 .visa-mega-menu .sub-menu {
@@ -117,7 +123,7 @@ header .flex.items-center.gap-3 > a {
 }
 
 nav .menu li a {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 @media (max-width:768px){
@@ -150,11 +156,15 @@ nav .menu li a {
 
 @media (max-width:1300px) and (min-width:1024px){
     nav .menu li a {
-        font-size: 15px;
+        font-size: 14px;
     }
-    
+
+    ul#menu-main-menu-1 {
+        gap: 10px;
+    }
+
     header {
         padding: 0 10px!important;
         width: 100%!important;
-    }    
+    }
 }

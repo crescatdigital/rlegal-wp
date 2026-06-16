@@ -28,32 +28,7 @@ get_header();
                             <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'services_hero_heading', "The UK's Leading\nExperts in Immigration\nfor Over 20 Years" ) ) ) ); ?>
                         </p>
 
-                        <!-- CTA -->
-                        <?php 
-                            $cta        = get_ri_field( 'services_hero_cta' );
-                            $cta_url    = $cta['url']    ?? '#';
-                            $cta_text   = $cta['title']  ?? 'Get a Free Consultation';
-                            $cta_target = $cta['target'] ?? '_self';
-                        ?>
-                            <div class="flex justify-center lg:justify-start">
-
-                                <a href="<?php echo esc_url( $cta_url ); ?>"
-                                    target="<?php echo esc_attr( $cta_target ); ?>"
-                                    class="inline-flex items-center gap-2
-                                        rounded-lg bg-[#4A884F]
-                                        px-5 py-2.5
-                                        text-[16px] lg:text-[18px] font-semibold text-white
-                                        hover:bg-[#3d7242] transition">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-messages-square h-4 w-4 stroke-white">
-                                        <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                                        <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"></path>
-                                    </svg>
-                                    <?php echo esc_html( $cta_text ); ?>
-                                </a>
-
-                            </div>
+                        <!-- CTA removed from hero; the primary "Book Consultation" CTA lives in the sticky header. -->
 
                         <!-- REVIEWS -->
                         <div class="mt-8 flex flex-col items-center lg:items-start gap-2">
