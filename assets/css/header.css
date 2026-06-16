@@ -4,13 +4,22 @@
 	padding: 0;
 }
 
-/* Sticky header across all breakpoints (desktop + mobile) */
+/* Sticky, full-width header across all breakpoints (desktop + mobile).
+   The <header> itself is full width so its box-shadow spans the viewport;
+   the .header-inner wrapper holds the centered page container. */
 header {
 	position: sticky !important;
 	top: 0;
 	z-index: 50;
 	background: #fff;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.header-inner {
+	width: 100%;
+	max-width: 1440px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .menu > li {
@@ -100,6 +109,8 @@ header div.flex.items-center.gap-3 {
 header .flex.items-center.gap-3 > a {
     width: auto;
     white-space: nowrap;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 .visa-mega-menu .sub-menu {
@@ -150,9 +161,27 @@ nav .menu li a {
 
 	header {
 		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-	}	
+	}
 }
 
+
+/* Desktop: gutters on the inner container, and keep the logo small enough
+   that it always sits inside the header row (even when sticky). */
+@media (min-width:1024px){
+    .header-inner {
+        padding-left: 51px;
+        padding-right: 51px;
+    }
+
+    header a.custom-logo-link img,
+    header .custom-logo-link img {
+        max-width: 80px;
+        max-height: 56px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+}
 
 @media (max-width:1300px) and (min-width:1024px){
     nav .menu li a {
@@ -163,8 +192,8 @@ nav .menu li a {
         gap: 10px;
     }
 
-    header {
-        padding: 0 10px!important;
-        width: 100%!important;
+    .header-inner {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }

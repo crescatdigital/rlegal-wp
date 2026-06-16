@@ -43,6 +43,13 @@
 .fc-assurance__item { display: inline-flex; align-items: center; gap: 8px; color: #333; font-size: 15px; font-weight: 500; }
 .fc-assurance__dot { width: 8px; height: 8px; border-radius: 9999px; background: #4A884F; flex: 0 0 auto; }
 
+/* ---- Social proof + assurances (relocated below the form) ----------------- */
+.fc-proof { background: #fff; padding: 36px 24px 28px; }
+.fc-proof .fc-hero__reviews { margin-bottom: 20px; }
+@media (min-width: 1024px) {
+    .fc-proof { padding: 48px 24px 32px; }
+}
+
 /* ---- Central form --------------------------------------------------------- */
 .fc-form { background: #F9F4F8; padding: 44px 24px; }
 .fc-form__inner { max-width: 640px; margin: 0 auto; }

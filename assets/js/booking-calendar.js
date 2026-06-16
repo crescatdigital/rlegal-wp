@@ -5,18 +5,23 @@
  *
  *   <div class="ri-booking" data-ri-booking
  *        data-max-advance="4" data-work-start="9" data-work-end="17"
- *        data-slot-mins="30" data-lead-hours="2">
+ *        data-block-hours="2" data-lead-hours="2">
  *     <div data-ri-calendar></div>
  *     <div data-ri-slots></div>
  *     [text* consultation-date readonly]
  *     [text* consultation-time readonly]
  *   </div>
  *
+ * The two text fields are hidden on load and the chosen day/time is shown as a
+ * plain-text summary instead, so visitors don't try to type into them — the
+ * values are still submitted with the form.
+ *
  * Rules (all configurable via the data-* attributes above):
  *   - Bookable only up to `max-advance` calendar days ahead.
  *   - Weekdays only (Mon–Fri).
- *   - Times within working hours [work-start, work-end), in `slot-mins` steps.
- *   - A `lead-hours` buffer means same-day slots inside that window are hidden.
+ *   - Times offered as `block-hours` blocks within [work-start, work-end),
+ *     e.g. 9am–11am, 11am–1pm, 1pm–3pm, 3pm–5pm.
+ *   - A `lead-hours` buffer means same-day blocks inside that window are hidden.
  *
  * No external dependencies. Styles are injected once, scoped to .ri-booking,
  * so the widget renders correctly regardless of the theme's compiled CSS.
@@ -30,6 +35,17 @@
     var DOW_MON_FIRST = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
     function pad(n) { return (n < 10 ? "0" : "") + n; }
+    /* 9 -> "9am", 13 -> "1pm", 17 -> "5pm" */
+    function fmtHour(h) {
+        var period = (h % 24) < 12 ? "am" : "pm";
+        var hr = h % 12; if (hr === 0) hr = 12;
+        return hr + period;
+    }
+    function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, function (c) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+    }
     function startOfDay(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
     function addDays(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
     function monthIndex(d) { return d.getFullYear() * 12 + d.getMonth(); }
@@ -62,16 +78,20 @@
             ".ri-cal__day.is-selected{background:#6D3B69;color:#fff;font-weight:700}" +
             ".ri-slots{margin-top:12px}" +
             ".ri-slots__hint{color:#fff;font-size:13px;opacity:.92;margin:2px 2px 0}" +
-            ".ri-slots__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}" +
-            ".ri-slot{border:none;border-radius:8px;background:#fff;color:#6D3B69;font-size:14px;font-weight:600;padding:9px 0;cursor:pointer;transition:background .15s,color .15s}" +
+            ".ri-slots__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}" +
+            ".ri-slot{border:none;border-radius:8px;background:#fff;color:#6D3B69;font-size:14px;font-weight:600;padding:11px 6px;cursor:pointer;transition:background .15s,color .15s}" +
             ".ri-slot:hover{background:#4A884F;color:#fff}" +
             ".ri-slot.is-selected{background:#4A884F;color:#fff}" +
+            ".ri-booking__summary{margin-top:14px;background:#fff;border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:3px}" +
+            ".ri-booking__summary-empty{color:#6D3B69;font-size:13px;font-weight:500}" +
+            ".ri-booking__summary-label{color:#9A5B9D;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}" +
+            ".ri-booking__summary-value{color:#222;font-size:15px;font-weight:700}" +
             ".ri-booking__fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}" +
             ".ri-booking__fl{display:flex;flex-direction:column;gap:4px;color:#fff;font-size:12px;font-weight:600}" +
             ".ri-booking__field,.ri-booking input[readonly]{width:100%;background:#fff;color:#333;border:2px solid transparent;border-radius:8px;padding:10px 12px;font-size:13px}" +
             ".ri-booking .wpcf7-form-control-wrap{display:block;width:100%}" +
             ".ri-fieldnote{margin:6px 2px 0;font-size:12px;line-height:1.4;color:rgba(255,255,255,.92)}" +
-            "@media(max-width:480px){.ri-booking__fields{grid-template-columns:1fr}.ri-slots__grid{grid-template-columns:repeat(3,1fr)}}";
+            "@media(max-width:480px){.ri-slots__grid{grid-template-columns:repeat(2,1fr)}}";
         var el = document.createElement("style");
         el.id = "ri-booking-styles";
         el.textContent = css;
@@ -86,7 +106,7 @@
             maxAdvance: parseInt(root.getAttribute("data-max-advance") || "4", 10),
             workStart: parseInt(root.getAttribute("data-work-start") || "9", 10),
             workEnd: parseInt(root.getAttribute("data-work-end") || "17", 10),
-            slotMins: parseInt(root.getAttribute("data-slot-mins") || "30", 10),
+            blockHours: parseInt(root.getAttribute("data-block-hours") || "2", 10),
             leadHours: parseFloat(root.getAttribute("data-lead-hours") || "2")
         };
 
@@ -106,11 +126,12 @@
         function availableSlots(d) {
             var slots = [];
             if (isWeekend(d) || d < today || d > maxDate) return slots;
-            var lastStart = cfg.workEnd * 60 - cfg.slotMins;       // last slot must finish by close
             var nowCutoff = now.getHours() * 60 + now.getMinutes() + cfg.leadHours * 60;
-            for (var m = cfg.workStart * 60; m <= lastStart; m += cfg.slotMins) {
-                if (sameDay(d, today) && m < nowCutoff) continue;  // same-day lead-time buffer
-                slots.push(pad(Math.floor(m / 60)) + ":" + pad(m % 60));
+            // Offer time as 2-hour blocks (configurable) inside the working day.
+            for (var h = cfg.workStart; h + cfg.blockHours <= cfg.workEnd; h += cfg.blockHours) {
+                var startMin = h * 60;
+                if (sameDay(d, today) && startMin < nowCutoff) continue;  // same-day lead-time buffer
+                slots.push({ start: h, end: h + cfg.blockHours, label: fmtHour(h) + " – " + fmtHour(h + cfg.blockHours) });
             }
             return slots;
         }
@@ -120,6 +141,41 @@
         function setField(input, value) {
             input.value = value;
             input.dispatchEvent(new Event("change", { bubbles: true }));
+            updateSummary();
+        }
+
+        /* The two CF7 text fields are hidden; the selection is shown as plain text
+           instead, so visitors don't think they need to type into them. Values
+           still submit because hiding an ancestor doesn't stop a field being sent. */
+        var summaryEl = null;
+        function hideRawFields() {
+            [dateInput, timeInput].forEach(function (inp) {
+                inp.tabIndex = -1;
+                inp.setAttribute("aria-hidden", "true");
+                var wrap = inp.closest(".ri-booking__fl") || inp.closest(".wpcf7-form-control-wrap") || inp;
+                wrap.style.display = "none";
+            });
+        }
+        function ensureSummary() {
+            if (summaryEl) return summaryEl;
+            summaryEl = document.createElement("div");
+            summaryEl.className = "ri-booking__summary";
+            slotEl.parentNode.insertBefore(summaryEl, slotEl.nextSibling);
+            return summaryEl;
+        }
+        function updateSummary() {
+            ensureSummary();
+            var d = dateInput.value, t = timeInput.value;
+            if (!d && !t) {
+                summaryEl.innerHTML = '<span class="ri-booking__summary-empty">No date &amp; time selected yet — choose a day above, then a time.</span>';
+                return;
+            }
+            summaryEl.innerHTML =
+                '<span class="ri-booking__summary-label">Your consultation slot</span>' +
+                '<span class="ri-booking__summary-value">' +
+                (d ? escapeHtml(d) : "Select a date") +
+                (t ? " &middot; " + escapeHtml(t) : (d ? " &middot; now pick a time" : "")) +
+                "</span>";
         }
 
         function renderSlots() {
@@ -134,14 +190,14 @@
             var slots = availableSlots(selectedDate);
             var grid = document.createElement("div");
             grid.className = "ri-slots__grid";
-            slots.forEach(function (label) {
+            slots.forEach(function (slot) {
                 var b = document.createElement("button");
                 b.type = "button";
                 b.className = "ri-slot";
-                b.textContent = label;
-                if (timeInput.value === label) b.classList.add("is-selected");
+                b.textContent = slot.label;
+                if (timeInput.value === slot.label) b.classList.add("is-selected");
                 b.addEventListener("click", function () {
-                    setField(timeInput, label);
+                    setField(timeInput, slot.label);
                     grid.querySelectorAll(".ri-slot").forEach(function (s) { s.classList.remove("is-selected"); });
                     b.classList.add("is-selected");
                 });
@@ -243,8 +299,10 @@
         }
 
         injectStyles();
+        hideRawFields();
         renderCalendar();
         renderSlots();
+        updateSummary();
 
         /* Clear the picker after a successful CF7 submission */
         document.addEventListener("wpcf7mailsent", function (e) {

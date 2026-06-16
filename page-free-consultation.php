@@ -31,26 +31,8 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
             <p class="fc-hero__subtext">
                 <?php echo esc_html( $fc['intro'] ?? 'Book a free, no-obligation call with a qualified solicitor. You\'ll get honest advice, a realistic timeline and a clear next step — whether you go on to instruct us or not.' ); ?>
             </p>
-
-            <div class="fc-hero__reviews">
-                <div class="fc-hero__reviews-imgs">
-                    <img class="io" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp" alt="Reviews.io rating">
-                    <img class="g" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp" alt="Google reviews">
-                </div>
-                <p class="fc-hero__reviews-text">
-                    <?php echo esc_html( $fc['reviews_text'] ?? 'Rated 4.9/5 from 515 verified reviews' ); ?>
-                </p>
-            </div>
         </div>
     </section>
-
-    <!-- Quick reassurance row -->
-    <div class="fc-assurance">
-        <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>20-minute call</span>
-        <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Completely free</span>
-        <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Solicitor-led</span>
-        <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Strictly confidential</span>
-    </div>
 
     <!-- ============================================================
          CENTRAL FORM
@@ -58,27 +40,40 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
     <section id="book" class="fc-form">
         <div class="fc-form__inner">
 
-            <div class="fc-form__head">
-                <p class="fc-form__eyebrow">Book your consultation</p>
-                <h2 class="fc-form__title">Get in touch with our lawyers</h2>
-                <p class="fc-form__sub">
-                    Pick a day and time that suits you. Add your phone number for a callback, or we'll reply by email.
-                </p>
-            </div>
-
             <div class="fc-form__card">
                 <?php
                 /*
-                 * TODO: replace 144c137 with the ID of the new "Free Consultation
-                 * Booking" form once it has been created in Contact > Contact Forms
-                 * using the markup supplied for this page. The calendar picker only
-                 * appears when the form contains the [data-ri-booking] block.
+                 * The "Free Consultation Booking" CF7 form (ID 929) must contain the
+                 * [data-ri-booking] block — the calendar + 2-hour time-block picker in
+                 * assets/js/booking-calendar.js only renders when that markup is present.
                  */
-                echo do_shortcode('[contact-form-7 id="144c137" title="Free Consultation Booking"]');
+                echo do_shortcode('[contact-form-7 id="929" title="Free Consultation Booking"]');
                 ?>
             </div>
 
             <p class="fc-form__foot">Your details are held in confidence and never shared.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SOCIAL PROOF + ASSURANCES (relocated below the form)
+         ============================================================ -->
+    <section class="fc-proof">
+        <div class="fc-hero__reviews">
+            <div class="fc-hero__reviews-imgs">
+                <img class="io" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp" alt="Reviews.io rating">
+                <img class="g" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp" alt="Google reviews">
+            </div>
+            <p class="fc-hero__reviews-text">
+                <?php echo esc_html( $fc['reviews_text'] ?? 'Rated 4.9/5 from 515 verified reviews' ); ?>
+            </p>
+        </div>
+
+        <div class="fc-assurance">
+            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>20-minute call</span>
+            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Completely free</span>
+            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Solicitor-led</span>
+            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Strictly confidential</span>
         </div>
     </section>
 

@@ -17,7 +17,8 @@
 <body <?php body_class( 'min-h-screen flex flex-col font-sans' ); ?>>
     <?php wp_body_open(); ?>
 
-    <header class="lg:px-[51px] w-full lg:w-[1440px] mx-auto bg-white relative z-50">
+    <header class="w-full bg-white relative z-50">
+        <div class="header-inner w-full max-w-[1440px] mx-auto">
         <!-- ================= MOBILE HEADER ================= -->
         <div class="flex items-center justify-between px-4 py-4 lg:hidden">
             
@@ -131,7 +132,7 @@
                         </svg>
                         Call Us
                     </a>
-                    <a href="/contact-us" class="inline-flex items-center justify-center rounded-lg font-bold transition duration-200 cursor-pointer bg-[#884A83] text-white hover:bg-[#7a4275] px-4 py-3 text-[16px] w-full">
+                    <a href="/free-consultation/" class="inline-flex items-center justify-center rounded-lg font-bold transition duration-200 cursor-pointer bg-[#884A83] text-white hover:bg-[#7a4275] px-4 py-3 text-[16px] w-full">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-messages-square h-5 w-5 stroke-white mr-2">
                             <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"></path>
                         </svg>
@@ -142,7 +143,7 @@
         </div>
 
         <!-- ================= DESKTOP HEADER ================= -->
-        <div class="mx-auto max-w-screen px-5 pt-10 hidden lg:block">
+        <div class="mx-auto max-w-screen px-5 py-4 hidden lg:block">
             <div class="flex h-[72px] items-center justify-between">
                 <!-- LOGO -->
                 <div class="relative z-50 pr-1">
@@ -150,7 +151,7 @@
                     if ( has_custom_logo() ) {
                         the_custom_logo();
                     } else {
-                        echo '<img src="' . esc_url( ri_legal_image_url( 'logo.webp' ) ) . '" alt="' . esc_attr( bloginfo( 'name' ) ) . '" class="h-[120px]">';
+                        echo '<img src="' . esc_url( ri_legal_image_url( 'logo.webp' ) ) . '" alt="' . esc_attr( bloginfo( 'name' ) ) . '" class="max-w-[80px] max-h-[56px] w-auto h-auto object-contain">';
                     }
                     ?>
                 </div>
@@ -178,7 +179,7 @@
                     </a>
 
                     <?php $cta_text = get_ri_field( 'hero_cta_text', '', 'option' ); if ( ! $cta_text ) { $cta_text = 'Book Consultation'; } ?>
-                    <a href="/contact-us" class="inline-flex items-center justify-center rounded-lg font-bold transition duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-[#884A83] text-white hover:bg-[#7a4275] px-4 py-2 text-[18px]">
+                    <a href="/free-consultation/" class="inline-flex items-center justify-center rounded-lg font-bold transition duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-[#884A83] text-white hover:bg-[#7a4275] px-4 py-2 text-[18px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-messages-square h-4 w-4 stroke-white mr-2">
                             <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"></path>
                         </svg>
@@ -186,5 +187,6 @@
                     </a>
                 </div>
             </div>
+        </div>
         </div>
     </header>
