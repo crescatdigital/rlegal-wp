@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Free Consultation page layout
+   Hand-written CSS (not Tailwind utilities) so the responsive grids work
+   regardless of which utility classes made it into the compiled build.
+   Loaded only on page-free-consultation.php (see functions.php).
+   ========================================================================== */
+
+.fc-main { width: 100%; }
+
+/* ---- Hero (centered) ------------------------------------------------------ */
+.fc-hero {
+    background: #fff;
+    text-align: center;
+    padding: 48px 24px 24px;
+}
+.fc-hero__inner { max-width: 760px; margin: 0 auto; }
+.fc-hero__eyebrow { color: #884A83; font-size: 18px; font-weight: 500; margin-bottom: 12px; }
+.fc-hero__title { color: #000; font-size: 32px; line-height: 1.2; margin: 0 0 16px; }
+.fc-hero__subtext { color: #333; font-size: 16px; line-height: 1.7; margin: 0 auto 24px; max-width: 620px; }
+.fc-hero__reviews { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.fc-hero__reviews-imgs { display: flex; align-items: center; gap: 16px; }
+.fc-hero__reviews-imgs .io { height: 45px; width: auto; }
+.fc-hero__reviews-imgs .g { height: 78px; width: auto; }
+.fc-hero__reviews-text { color: #000; font-size: 16px; }
+
+@media (min-width: 1024px) {
+    .fc-hero { padding: 64px 24px 28px; }
+    .fc-hero__title { font-size: 40px; }
+    .fc-hero__subtext { font-size: 18px; }
+}
+
+/* ---- Assurance inline row ------------------------------------------------- */
+.fc-assurance {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 22px;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 8px;
+}
+.fc-assurance__item { display: inline-flex; align-items: center; gap: 8px; color: #333; font-size: 15px; font-weight: 500; }
+.fc-assurance__dot { width: 8px; height: 8px; border-radius: 9999px; background: #4A884F; flex: 0 0 auto; }
+
+/* ---- Central form --------------------------------------------------------- */
+.fc-form { background: #F9F4F8; padding: 44px 24px; }
+.fc-form__inner { max-width: 640px; margin: 0 auto; }
+.fc-form__head { text-align: center; margin-bottom: 26px; }
+.fc-form__eyebrow { color: #884A83; font-size: 18px; font-weight: 500; margin-bottom: 8px; }
+.fc-form__title { color: #000; font-size: 28px; font-weight: 600; margin: 0 0 12px; }
+.fc-form__sub { color: #333; font-size: 16px; line-height: 1.6; margin: 0 auto; max-width: 520px; }
+.fc-form__card {
+    background: #A3599D;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 20px 45px rgba(109, 59, 105, 0.25);
+}
+.fc-form__foot { text-align: center; color: #666; font-size: 14px; margin-top: 18px; }
+
+@media (min-width: 1024px) {
+    .fc-form { padding: 64px 24px; }
+    .fc-form__title { font-size: 34px; }
+    .fc-form__card { padding: 30px; }
+}
+
+/* ---- How it works (3 across on desktop) ----------------------------------- */
+.fc-steps-section { background: #fff; padding: 52px 24px; }
+.fc-steps-section__head { text-align: center; max-width: 720px; margin: 0 auto 40px; }
+.fc-steps-section__eyebrow { color: #884A83; font-size: 18px; font-weight: 500; margin-bottom: 8px; }
+.fc-steps-section__title { color: #000; font-size: 28px; font-weight: 600; margin: 0; }
+
+.fc-steps {
+    display: grid;
+    grid-template-columns: 1fr;          /* mobile: stacked */
+    gap: 40px 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.fc-step {
+    position: relative;
+    background: #F9F4F8;
+    border: 1px solid #E8D9E6;
+    border-radius: 16px;
+    padding: 40px 26px 26px;
+    text-align: center;
+}
+.fc-step__num {
+    position: absolute; top: -24px; left: 50%; transform: translateX(-50%);
+    width: 48px; height: 48px; border-radius: 9999px;
+    background: #884A83; color: #fff; font-size: 20px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.fc-step__icon { margin: 4px 0 14px; display: flex; justify-content: center; }
+.fc-step__title { color: #6D3B69; font-size: 20px; font-weight: 600; margin: 0 0 8px; }
+.fc-step__text { color: #333; font-size: 15px; line-height: 1.6; margin: 0; }
+
+@media (min-width: 768px) {
+    .fc-steps { grid-template-columns: repeat(3, 1fr); } /* desktop: horizontal */
+}
+@media (min-width: 1024px) {
+    .fc-steps-section { padding: 80px 24px; }
+    .fc-steps-section__title { font-size: 36px; }
+}
+
+/* ---- Trust strip (4 across on desktop) ------------------------------------ */
+.fc-trust { background: #6D3B69; padding: 32px 24px; }
+.fc-trust__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* mobile: 2 up */
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.fc-trust__item { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; color: #fff; }
+.fc-trust__label { font-size: 15px; font-weight: 600; line-height: 1.25; }
+
+@media (min-width: 768px) {
+    .fc-trust__grid { grid-template-columns: repeat(4, 1fr); } /* desktop: 4 up */
+    .fc-trust__label { font-size: 17px; }
+}
+
+/* ---- Phone fallback ------------------------------------------------------- */
+.fc-phone { background: #fff; padding: 40px 24px; text-align: center; }
+.fc-phone__lead { color: #333; font-size: 18px; margin: 0 0 10px; }
+.fc-phone__num {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #884A83; font-size: 24px; font-weight: 700; text-decoration: none;
+    transition: color 0.2s;
+}
+.fc-phone__num:hover { color: #6D3B69; }
+.fc-phone__hours { color: #666; font-size: 14px; margin: 10px 0 0; }
+
+@media (min-width: 1024px) {
+    .fc-phone { padding: 48px 24px; }
+    .fc-phone__lead { font-size: 22px; }
+    .fc-phone__num { font-size: 32px; }
+}

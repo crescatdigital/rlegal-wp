@@ -113,6 +113,12 @@ function ri_legal_theme_scripts() {
     wp_enqueue_style( 'page-category', get_template_directory_uri() . '/assets/css/category-page.css', array(), $theme_version, 'all');
     }
 
+    // Enqueue free consultation template assets (layout + booking calendar)
+    if ( is_page_template('page-free-consultation.php') ) {
+        wp_enqueue_style( 'page-free-consultation', get_template_directory_uri() . '/assets/css/free-consultation.css', array(), $theme_version, 'all');
+        wp_enqueue_script( 'ri-legal-booking-calendar', get_template_directory_uri() . '/assets/js/booking-calendar.js', array(), $theme_version, true );
+    }
+
 }
 
 add_action( 'wp_enqueue_scripts', 'ri_legal_theme_scripts' );
