@@ -44,12 +44,12 @@
 
                         <ul>
                             <li><a href="/contact-us/">Contact Us</a></li>
-                            <li><a href="/faq">FAQs</a></li>
-                            <li><a href="/how-to-instruct">How To Instruct</a></li>
-                            <li><a href="/complaints-procedure">Complaints Procedure</a></li>
-                            <li><a href="/privacy-policy">Privacy Policy</a></li>
-                            <li><a href="/equality-policy">Equality Policy</a></li>
-                            <li><a href="/sitemap">Sitemap</a></li>
+                            <li><a href="/faq/">FAQs</a></li>
+                            <li><a href="/how-to-instruct/">How To Instruct</a></li>
+                            <li><a href="/complaints-procedure/">Complaints Procedure</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/equality-policy/">Equality Policy</a></li>
+                            <li><a href="/sitemap/">Sitemap</a></li>
                         </ul>
 
                     </div>

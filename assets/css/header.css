@@ -137,6 +137,10 @@ nav .menu li a {
     font-size: 16px;
 }
 
+ul#menu-main-menu.gap-8 {
+    gap: 1.25rem;
+}
+
 @media (max-width:768px){
 	.menu {
 		display: flex;
@@ -175,8 +179,7 @@ nav .menu li a {
 
     header a.custom-logo-link img,
     header .custom-logo-link img {
-        max-width: 80px;
-        max-height: 56px;
+        max-height: 70px;
         width: auto;
         height: auto;
         object-fit: contain;

@@ -5,7 +5,7 @@ get_header();
 
     <!-- HERO SECTION -->
     <section class="relative bg-white overflow-hidden mb-10">
-        <div class="mx-auto py-10 max-w-[1440px]">
+        <div class="mx-auto py-0 max-w-[1440px]">
             <div class="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-8 lg:gap-0 items-center">
 
                 <!-- LEFT CONTENT -->

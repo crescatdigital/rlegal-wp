@@ -4,7 +4,7 @@ get_header();
 
 <main class="flex-grow">
     <section class="relative bg-white overflow-hidden mb-10">
-        <div class="mx-auto py-10 max-w-[1440px]">
+        <div class="mx-auto py-0 max-w-[1440px]">
             <div class="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-8 lg:gap-0 items-center">
                 <!-- LEFT CONTENT (SECOND ON MOBILE) -->
                 <div class="px-6 lg:pl-[165px] lg:pr-8">
@@ -20,7 +20,7 @@ get_header();
                             years\nsupporting visitor visas\nfor businesses" ) ) ) ); ?>
                         </h1>
                         <!-- CTA -->
-                        <div class="flex justify-center lg:justify-start">
+                        <!-- <div class="flex justify-center lg:justify-start">
                             <button
                                 type="button"
                                 class="inline-flex items-center gap-2 rounded-lg bg-[#4A884F] px-5 py-2.5 text-[16px] lg:text-[18px] font-semibold text-white hover:bg-[#3d7242] transition"
@@ -47,7 +47,7 @@ get_header();
                                 <?php echo esc_html( get_ri_field( 'services_hero_cta_text', 'Get a Free Consultation' )
                                 ); ?>
                             </button>
-                        </div>
+                        </div> -->
                         <!-- REVIEWS -->
                         <div class="mt-8 flex flex-col items-center lg:items-start gap-2">
                             <div class="flex items-center gap-4">

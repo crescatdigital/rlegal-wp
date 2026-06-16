@@ -143,7 +143,7 @@
         </div>
 
         <!-- ================= DESKTOP HEADER ================= -->
-        <div class="mx-auto max-w-screen px-5 py-4 hidden lg:block">
+        <div class="mx-auto max-w-screen px-5 py-2 hidden lg:block">
             <div class="flex h-[72px] items-center justify-between">
                 <!-- LOGO -->
                 <div class="relative z-50 pr-1">

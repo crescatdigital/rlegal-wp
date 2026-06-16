@@ -9,7 +9,7 @@ get_header();
 <main class="flex-grow">
 
     <section class="relative bg-white overflow-hidden">
-        <div class="mx-auto py-10 max-w-[1440px]">
+        <div class="mx-auto py-0 max-w-[1440px]">
             <div class="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-8 lg:gap-0 items-center">
                 <!-- LEFT CONTENT (SECOND ON MOBILE) -->
                 <div class="px-6 lg:pl-[165px] lg:pr-8">
@@ -36,7 +36,7 @@ get_header();
                         $services_cta_target = $services_cta['target'] ?? '_self';
                         ?>
 
-                        <div class="flex justify-center lg:justify-start">
+                        <!-- <div class="flex justify-center lg:justify-start">
                             <a href="<?php echo esc_url( $services_cta_url ); ?>"
                                 target="<?php echo esc_attr( $services_cta_target ); ?>"
                                 class="inline-flex items-center gap-2
@@ -52,7 +52,7 @@ get_header();
                                 </svg>
                                 <?php echo esc_html( $services_cta_text ); ?>
                             </a>
-                        </div>
+                        </div> -->
 
                         <!-- REVIEWS -->
                         <div class="mt-8 flex flex-col items-center lg:items-start gap-2">
