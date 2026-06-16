@@ -71,7 +71,7 @@
             ".ri-cal__dow{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px}" +
             ".ri-cal__dow span{text-align:center;font-size:11px;color:#999;font-weight:600}" +
             ".ri-cal__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}" +
-            ".ri-cal__day{width:100%;aspect-ratio:1/1;border:none;border-radius:8px;background:#F7F2F6;color:#333;font-size:14px;cursor:pointer;transition:background .15s,color .15s}" +
+            ".ri-cal__day{width:100%;aspect-ratio:1/1;height:30px;border:none;border-radius:8px;background:#F7F2F6;color:#333;font-size:14px;cursor:pointer;transition:background .15s,color .15s}" +
             ".ri-cal__day:hover:not(:disabled){background:#884A83;color:#fff}" +
             ".ri-cal__day:disabled{background:transparent;color:#d2d2d2;cursor:not-allowed}" +
             ".ri-cal__day.is-empty{background:transparent;cursor:default}" +
