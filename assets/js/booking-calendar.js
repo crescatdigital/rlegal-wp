@@ -17,11 +17,16 @@
  * values are still submitted with the form.
  *
  * Rules (all configurable via the data-* attributes above):
- *   - Bookable only up to `max-advance` calendar days ahead.
+ *   - Bookable from TODAY up to `max-advance` calendar days ahead (default 14).
  *   - Weekdays only (Mon–Fri).
  *   - Times offered as `block-hours` blocks within [work-start, work-end),
  *     e.g. 9am–11am, 11am–1pm, 1pm–3pm, 3pm–5pm.
- *   - A `lead-hours` buffer means same-day blocks inside that window are hidden.
+ *   - A `lead-hours` buffer hides same-day blocks that start within that window
+ *     (default 2h). The buffer only ever applies to today.
+ *
+ * Every data-attr is sanitised against NaN — a typo'd attribute falls back to
+ * the default rather than silently disabling the bound check (which previously
+ * made every future day bookable).
  *
  * No external dependencies. Styles are injected once, scoped to .ri-booking,
  * so the widget renders correctly regardless of the theme's compiled CSS.
@@ -35,6 +40,14 @@
     var DOW_MON_FIRST = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
     function pad(n) { return (n < 10 ? "0" : "") + n; }
+    function safeInt(v, fallback) {
+        var n = parseInt(v, 10);
+        return (isFinite(n) && n > 0) ? n : fallback;
+    }
+    function safeFloat(v, fallback) {
+        var n = parseFloat(v);
+        return (isFinite(n) && n >= 0) ? n : fallback;
+    }
     /* 9 -> "9am", 13 -> "1pm", 17 -> "5pm" */
     function fmtHour(h) {
         var period = (h % 24) < 12 ? "am" : "pm";
@@ -103,11 +116,11 @@
         root.__riBookingInit = true;
 
         var cfg = {
-            maxAdvance: parseInt(root.getAttribute("data-max-advance") || "4", 10),
-            workStart: parseInt(root.getAttribute("data-work-start") || "9", 10),
-            workEnd: parseInt(root.getAttribute("data-work-end") || "17", 10),
-            blockHours: parseInt(root.getAttribute("data-block-hours") || "2", 10),
-            leadHours: parseFloat(root.getAttribute("data-lead-hours") || "2")
+            maxAdvance: safeInt(root.getAttribute("data-max-advance"), 14),
+            workStart: safeInt(root.getAttribute("data-work-start"), 9),
+            workEnd: safeInt(root.getAttribute("data-work-end"), 17),
+            blockHours: safeInt(root.getAttribute("data-block-hours"), 2),
+            leadHours: safeFloat(root.getAttribute("data-lead-hours"), 2)
         };
 
         var calEl = root.querySelector("[data-ri-calendar]");
