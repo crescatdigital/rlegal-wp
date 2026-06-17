@@ -56,10 +56,12 @@
                 </div>
 
 
-                <!-- SRA BADGE -->
+                <!-- SRA BADGE — dynamic Yoshki embed (clickable, always reflects current regulator status) -->
                 <div class="md:mt-12 flex flex-col items-center md:items-end gap-3 text-white">
-                    <div class="bg-white p-2">
-                        <img src="<?php echo esc_url( ri_legal_image_url( 'solicitors.webp' ) ); ?>" alt="Solicitors Regulation Authority" class="h-[120px] md:h-[139px] w-auto object-contain">
+                    <div class="sra-iframe bg-white p-2 w-[200px] md:w-[235px]">
+                        <div style="position: relative; padding-bottom: 59.1%; height: auto; overflow: hidden;">
+                            <iframe frameborder="0" scrolling="no" allowtransparency="true" src="https://cdn.yoshki.com/iframe/55847r.html" title="Solicitors Regulation Authority" style="border: 0px; margin: 0px; padding: 0px; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%; position: absolute;"></iframe>
+                        </div>
                     </div>
                     <p class="text-[14px] md:text-[18px] leading-tight md:text-right">
                         Regulated by the SRA.<br>
