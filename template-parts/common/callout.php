@@ -11,8 +11,7 @@
                 class="bg-[#A3599D] rounded-3xl p-3 pt-4  w-full lg:pt-[44px] lg:p-10 lg:w-[618px] lg:h-[500px] callout__form"
             >
                 <h3 class="text-center text-white font-bold text-[20px] mb-2 lg:text-[32px]">
-                    <?php echo esc_html( get_ri_field( 'form_request_title', 'Request a callback from our immigration
-                    experts' ) ); ?>
+                    <?php echo esc_html( get_ri_field( 'form_request_title', 'Get in touch with our lawyers' ) ); ?>
                 </h3>
                 <?php echo do_shortcode('[contact-form-7 id="144c137" title="Top Banner Form"]'); ?>
             </div>

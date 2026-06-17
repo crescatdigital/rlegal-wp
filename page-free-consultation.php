@@ -15,75 +15,19 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
 <main class="flex-grow fc-main">
 
     <!-- ============================================================
-         HERO — centered overview
+         HOW IT WORKS — page lead, 3 across on desktop
          ============================================================ -->
-    <section class="fc-hero">
-        <div class="fc-hero__inner">
-
-            <p class="fc-hero__eyebrow">
+    <section class="fc-steps-section fc-steps-section--lead">
+        <div class="fc-steps-section__head">
+            <p class="fc-steps-section__eyebrow">
                 <?php echo esc_html( $fc['eyebrow'] ?? 'Free Consultation' ); ?>
             </p>
-
-            <h1 class="fc-hero__title">
-                <?php echo wp_kses_post( nl2br( esc_html( $fc['heading'] ?? 'Speak to a UK immigration expert' ) ) ); ?>
+            <h1 class="fc-steps-section__title">
+                <?php echo esc_html( $fc['steps_heading'] ?? 'How your free consultation works' ); ?>
             </h1>
-
-            <p class="fc-hero__subtext">
-                <?php echo esc_html( $fc['intro'] ?? 'Book a free, no-obligation call with a qualified solicitor. You\'ll get honest advice, a realistic timeline and a clear next step — whether you go on to instruct us or not.' ); ?>
+            <p class="fc-steps-section__sub">
+                <?php echo esc_html( $fc['steps_sub'] ?? 'Book a free, no-obligation call with a qualified solicitor — honest advice, a realistic timeline and a clear next step.' ); ?>
             </p>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         CENTRAL FORM
-         ============================================================ -->
-    <section id="book" class="fc-form">
-        <div class="fc-form__inner">
-
-            <div class="fc-form__card">
-                <?php
-                /*
-                 * The "Free Consultation Booking" CF7 form (ID 929) must contain the
-                 * [data-ri-booking] block — the calendar + 2-hour time-block picker in
-                 * assets/js/booking-calendar.js only renders when that markup is present.
-                 */
-                echo do_shortcode('[contact-form-7 id="929" title="Free Consultation Booking"]');
-                ?>
-            </div>
-
-            <p class="fc-form__foot">Your details are held in confidence and never shared.</p>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         SOCIAL PROOF + ASSURANCES (relocated below the form)
-         ============================================================ -->
-    <section class="fc-proof">
-        <div class="fc-hero__reviews">
-            <div class="fc-hero__reviews-imgs">
-                <img class="io" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp" alt="Reviews.io rating">
-                <img class="g" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp" alt="Google reviews">
-            </div>
-            <p class="fc-hero__reviews-text">
-                <?php echo esc_html( $fc['reviews_text'] ?? 'Rated 4.9/5 from 515 verified reviews' ); ?>
-            </p>
-        </div>
-
-        <div class="fc-assurance">
-            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>20-minute call</span>
-            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Completely free</span>
-            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Solicitor-led</span>
-            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Strictly confidential</span>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         HOW IT WORKS — 3 across on desktop
-         ============================================================ -->
-    <section class="fc-steps-section">
-        <div class="fc-steps-section__head">
-            <p class="fc-steps-section__eyebrow">Simple, three-step process</p>
-            <h2 class="fc-steps-section__title">How your free consultation works</h2>
         </div>
 
         <div class="fc-steps">
@@ -127,6 +71,53 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
                 <p class="fc-step__text">Honest advice, an upfront fee estimate and concrete next steps — with no obligation.</p>
             </div>
 
+        </div>
+
+        <div class="fc-steps-section__cta">
+            <a href="#book" class="fc-steps-section__cta-btn">Book your consultation</a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CENTRAL FORM
+         ============================================================ -->
+    <section id="book" class="fc-form">
+        <div class="fc-form__inner">
+
+            <div class="fc-form__card">
+                <?php
+                /*
+                 * The "Free Consultation Booking" CF7 form (ID 929) must contain the
+                 * [data-ri-booking] block — the calendar + 2-hour time-block picker in
+                 * assets/js/booking-calendar.js only renders when that markup is present.
+                 */
+                echo do_shortcode('[contact-form-7 id="929" title="Free Consultation Booking"]');
+                ?>
+            </div>
+
+            <p class="fc-form__foot">Your details are held in confidence and never shared.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SOCIAL PROOF + ASSURANCES (relocated below the form)
+         ============================================================ -->
+    <section class="fc-proof">
+        <div class="fc-hero__reviews">
+            <div class="fc-hero__reviews-imgs">
+                <img class="io" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp" alt="Reviews.io rating">
+                <img class="g" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp" alt="Google reviews">
+            </div>
+            <p class="fc-hero__reviews-text">
+                <?php echo esc_html( $fc['reviews_text'] ?? 'Rated 4.9/5 from 515 verified reviews' ); ?>
+            </p>
+        </div>
+
+        <div class="fc-assurance">
+            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>20-minute call</span>
+            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Completely free</span>
+            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Solicitor-led</span>
+            <span class="fc-assurance__item"><span class="fc-assurance__dot"></span>Strictly confidential</span>
         </div>
     </section>
 
@@ -181,7 +172,7 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
             <div class="space-y-4">
 
                 <div class="overflow-hidden rounded-md" data-accordion>
-                    <button type="button" class="accordion-trigger w-full flex items-center justify-between p-4 text-left text-[18px] lg:text-[22px] font-semibold text-white bg-[#6D3B69]" aria-expanded="true">
+                    <button type="button" class="accordion-trigger w-full flex items-center justify-between p-4 text-left text-[18px] lg:text-[20px] font-semibold text-white bg-[#6D3B69]" aria-expanded="true">
                         <span class="max-w-[90%]">Is it really free, with no obligation?</span>
                         <span class="accordion-icon flex lg:h-[44px] lg:w-[44px] h-[30px] w-[30px] items-center justify-center bg-[#A3599D] rounded-full border border-white text-white text-sm lg:text-[20px]">↑</span>
                     </button>
@@ -191,7 +182,7 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
                 </div>
 
                 <div class="overflow-hidden rounded-md" data-accordion>
-                    <button type="button" class="accordion-trigger w-full flex items-center justify-between p-4 text-left text-[18px] lg:text-[22px] font-semibold text-white bg-[#6D3B69]" aria-expanded="false">
+                    <button type="button" class="accordion-trigger w-full flex items-center justify-between p-4 text-left text-[18px] lg:text-[20px] font-semibold text-white bg-[#6D3B69]" aria-expanded="false">
                         <span class="max-w-[90%]">How long does it take and who will I speak to?</span>
                         <span class="accordion-icon flex lg:h-[44px] lg:w-[44px] h-[30px] w-[30px] items-center justify-center bg-[#A3599D] rounded-full border border-white text-white text-sm lg:text-[20px]">↓</span>
                     </button>
@@ -201,7 +192,7 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
                 </div>
 
                 <div class="overflow-hidden rounded-md" data-accordion>
-                    <button type="button" class="accordion-trigger w-full flex items-center justify-between p-4 text-left text-[18px] lg:text-[22px] font-semibold text-white bg-[#6D3B69]" aria-expanded="false">
+                    <button type="button" class="accordion-trigger w-full flex items-center justify-between p-4 text-left text-[18px] lg:text-[20px] font-semibold text-white bg-[#6D3B69]" aria-expanded="false">
                         <span class="max-w-[90%]">Do I have to give my phone number?</span>
                         <span class="accordion-icon flex lg:h-[44px] lg:w-[44px] h-[30px] w-[30px] items-center justify-center bg-[#A3599D] rounded-full border border-white text-white text-sm lg:text-[20px]">↓</span>
                     </button>
@@ -211,7 +202,7 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
                 </div>
 
                 <div class="overflow-hidden rounded-md" data-accordion>
-                    <button type="button" class="accordion-trigger w-full flex items-center justify-between p-4 text-left text-[18px] lg:text-[22px] font-semibold text-white bg-[#6D3B69]" aria-expanded="false">
+                    <button type="button" class="accordion-trigger w-full flex items-center justify-between p-4 text-left text-[18px] lg:text-[20px] font-semibold text-white bg-[#6D3B69]" aria-expanded="false">
                         <span class="max-w-[90%]">Is what I share confidential?</span>
                         <span class="accordion-icon flex lg:h-[44px] lg:w-[44px] h-[30px] w-[30px] items-center justify-center bg-[#A3599D] rounded-full border border-white text-white text-sm lg:text-[20px]">↓</span>
                     </button>

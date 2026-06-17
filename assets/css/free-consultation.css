@@ -73,9 +73,25 @@
 
 /* ---- How it works (3 across on desktop) ----------------------------------- */
 .fc-steps-section { background: #fff; padding: 52px 24px; }
-.fc-steps-section__head { text-align: center; max-width: 720px; margin: 0 auto 40px; }
+.fc-steps-section__head { text-align: center; max-width: 760px; margin: 0 auto 40px; }
 .fc-steps-section__eyebrow { color: #884A83; font-size: 18px; font-weight: 500; margin-bottom: 8px; }
-.fc-steps-section__title { color: #000; font-size: 28px; font-weight: 600; margin: 0; }
+.fc-steps-section__title { color: #000; font-size: 28px; font-weight: 600; margin: 0; line-height: 1.2; }
+.fc-steps-section__sub { color: #333; font-size: 16px; line-height: 1.65; margin: 14px auto 0; max-width: 620px; }
+
+/* Lead variant — used when "How it works" is the first section on the page.
+   Adds breathing room above and a primary CTA pointing at the booking form. */
+.fc-steps-section--lead { padding-top: 64px; }
+.fc-steps-section__cta { text-align: center; margin-top: 36px; }
+.fc-steps-section__cta-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #884A83; color: #fff;
+    font-size: 16px; font-weight: 700;
+    padding: 12px 28px; border-radius: 9999px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(109, 59, 105, 0.25);
+    transition: background 0.15s, transform 0.15s;
+}
+.fc-steps-section__cta-btn:hover { background: #6D3B69; transform: translateY(-1px); }
 
 .fc-steps {
     display: grid;
@@ -109,6 +125,9 @@
 @media (min-width: 1024px) {
     .fc-steps-section { padding: 80px 24px; }
     .fc-steps-section__title { font-size: 36px; }
+    .fc-steps-section__sub { font-size: 18px; }
+    .fc-steps-section--lead { padding-top: 88px; }
+    .fc-steps-section__cta-btn { font-size: 18px; padding: 14px 36px; }
 }
 
 /* ---- Trust strip (4 across on desktop) ------------------------------------ */

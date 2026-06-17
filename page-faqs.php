@@ -103,7 +103,7 @@ get_header();
                 <div class="overflow-hidden rounded-md" data-accordion>
                     <button
                         type="button"
-                        class="accordion-trigger w-full flex items-center justify-between p-4 text-left text-[24px] lg:text-[30px] font-semibold text-white transition bg-[#6D3B69]"
+                        class="accordion-trigger w-full flex items-center justify-between p-4 text-left text-[18px] lg:text-[20px] font-semibold text-white transition bg-[#6D3B69]"
                         aria-expanded="<?php echo $i === 0 ? 'true' : 'false'; ?>"
                     >
                         <span class="max-w-[90%]"> <?php echo esc_html( get_sub_field('question') ); ?> </span>
