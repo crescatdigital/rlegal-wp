@@ -4,7 +4,8 @@
  * Enhances a Contact Form 7 form that contains:
  *
  *   <div class="ri-booking" data-ri-booking
- *        data-max-advance="4" data-work-start="9" data-work-end="17"
+ *        data-min-advance="2" data-max-advance="14"
+ *        data-work-start="9" data-work-end="17"
  *        data-block-hours="2" data-lead-hours="2">
  *     <div data-ri-calendar></div>
  *     <div data-ri-slots></div>
@@ -17,12 +18,14 @@
  * values are still submitted with the form.
  *
  * Rules (all configurable via the data-* attributes above):
- *   - Bookable from TODAY up to `max-advance` calendar days ahead (default 14).
+ *   - Bookable from `today + min-advance` up to `today + max-advance` calendar
+ *     days (defaults: 0 and 14). `min-advance="2"` means today and tomorrow are
+ *     not bookable — earliest slot is the day after tomorrow.
  *   - Weekdays only (Mon–Fri).
  *   - Times offered as `block-hours` blocks within [work-start, work-end),
  *     e.g. 9am–11am, 11am–1pm, 1pm–3pm, 3pm–5pm.
  *   - A `lead-hours` buffer hides same-day blocks that start within that window
- *     (default 2h). The buffer only ever applies to today.
+ *     (default 2h). Only meaningful when `min-advance` is 0.
  *
  * Every data-attr is sanitised against NaN — a typo'd attribute falls back to
  * the default rather than silently disabling the bound check (which previously
@@ -43,6 +46,12 @@
     function safeInt(v, fallback) {
         var n = parseInt(v, 10);
         return (isFinite(n) && n > 0) ? n : fallback;
+    }
+    /* Same as safeInt but allows 0 — for offsets like `min-advance` where
+       "no delay" is a legitimate value, distinct from "attribute missing". */
+    function safeNonNegInt(v, fallback) {
+        var n = parseInt(v, 10);
+        return (isFinite(n) && n >= 0) ? n : fallback;
     }
     function safeFloat(v, fallback) {
         var n = parseFloat(v);
@@ -116,6 +125,7 @@
         root.__riBookingInit = true;
 
         var cfg = {
+            minAdvance: safeNonNegInt(root.getAttribute("data-min-advance"), 0),
             maxAdvance: safeInt(root.getAttribute("data-max-advance"), 14),
             workStart: safeInt(root.getAttribute("data-work-start"), 9),
             workEnd: safeInt(root.getAttribute("data-work-end"), 17),
@@ -131,14 +141,16 @@
 
         var now = new Date();
         var today = startOfDay(now);
+        var minDate = addDays(today, cfg.minAdvance);
         var maxDate = addDays(today, cfg.maxAdvance);
-        var viewYear = today.getFullYear();
-        var viewMonth = today.getMonth();
+        // Start the calendar on the month that holds the first bookable day.
+        var viewYear = minDate.getFullYear();
+        var viewMonth = minDate.getMonth();
         var selectedDate = null;
 
         function availableSlots(d) {
             var slots = [];
-            if (isWeekend(d) || d < today || d > maxDate) return slots;
+            if (isWeekend(d) || d < minDate || d > maxDate) return slots;
             var nowCutoff = now.getHours() * 60 + now.getMinutes() + cfg.leadHours * 60;
             // Offer time as 2-hour blocks (configurable) inside the working day.
             for (var h = cfg.workStart; h + cfg.blockHours <= cfg.workEnd; h += cfg.blockHours) {
@@ -237,7 +249,7 @@
 
             var prev = document.createElement("button");
             prev.type = "button"; prev.className = "ri-cal__nav"; prev.innerHTML = "&#8249;";
-            prev.disabled = monthIndex(new Date(viewYear, viewMonth, 1)) <= monthIndex(today);
+            prev.disabled = monthIndex(new Date(viewYear, viewMonth, 1)) <= monthIndex(minDate);
             prev.addEventListener("click", function () {
                 if (--viewMonth < 0) { viewMonth = 11; viewYear--; }
                 renderCalendar();
@@ -303,8 +315,8 @@
 
         function reset() {
             selectedDate = null;
-            viewYear = today.getFullYear();
-            viewMonth = today.getMonth();
+            viewYear = minDate.getFullYear();
+            viewMonth = minDate.getMonth();
             setField(dateInput, "");
             setField(timeInput, "");
             renderCalendar();
