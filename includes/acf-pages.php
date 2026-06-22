@@ -20,6 +20,9 @@ function ri_legal_register_pages_acf_fields() {
     acf_add_local_field_group(array(
         'key' => 'group_ri_services_page',
         'title' => 'Services Page Content',
+        'show_in_graphql' => true,
+        'graphql_field_name' => 'servicesPageContent',
+        'map_graphql_types_from_location_rules' => true,
         'fields' => array(
             array(
                 'key' => 'field_services_hero_eyebrow',
@@ -192,6 +195,9 @@ function ri_legal_register_pages_acf_fields() {
     acf_add_local_field_group(array(
         'key' => 'group_ri_service_post',
         'title' => 'Service Post Fields',
+        'show_in_graphql' => true,
+        'graphql_field_name' => 'serviceFields',
+        'map_graphql_types_from_location_rules' => true,
         'fields' => array(
             array(
                 'key' => 'field_service_type',
@@ -221,6 +227,9 @@ function ri_legal_register_pages_acf_fields() {
     acf_add_local_field_group(array(
         'key' => 'group_ri_about_page',
         'title' => 'About Page Content',
+        'show_in_graphql' => true,
+        'graphql_field_name' => 'aboutPageContent',
+        'map_graphql_types_from_location_rules' => true,
         'fields' => array(
             array(
                 'key' => 'field_about_hero_mob_image',
@@ -413,6 +422,9 @@ function ri_legal_register_pages_acf_fields() {
     acf_add_local_field_group(array(
         'key' => 'group_ri_news_page',
         'title' => 'News Page Content',
+        'show_in_graphql' => true,
+        'graphql_field_name' => 'newsPageContent',
+        'map_graphql_types_from_location_rules' => true,
         'fields' => array(
 
             // HERO FIELDS 
@@ -606,6 +618,9 @@ function ri_legal_register_pages_acf_fields() {
     acf_add_local_field_group(array(
     'key'    => 'group_ri_people_page',
     'title'  => 'People Page Content',
+    'show_in_graphql' => true,
+    'graphql_field_name' => 'peoplePageContent',
+    'map_graphql_types_from_location_rules' => true,
     'fields' => array(
 
         // Mobile Hero Image
@@ -711,6 +726,9 @@ function ri_legal_register_pages_acf_fields() {
     acf_add_local_field_group(array(
         'key'    => 'group_ri_faq_page',
         'title'  => 'FAQ Page Content',
+        'show_in_graphql' => true,
+        'graphql_field_name' => 'faqPageContent',
+        'map_graphql_types_from_location_rules' => true,
         'fields' => array(
         // Section heading
             array(
@@ -762,6 +780,9 @@ function ri_legal_register_pages_acf_fields() {
     acf_add_local_field_group(array(
         'key'   => 'group_ri_simple_page',
         'title' => 'Simple Page – Callout Section',
+        'show_in_graphql' => true,
+        'graphql_field_name' => 'simplePageContent',
+        'map_graphql_types_from_location_rules' => true,
         'fields' => array(
             array(
                 'key'          => 'field_simple_clear_advice_usps',
@@ -800,6 +821,9 @@ function ri_legal_register_pages_acf_fields() {
     acf_add_local_field_group(array(
         'key'   => 'group_ri_category_page',
         'title' => 'Category Page – Callout Section',
+        'show_in_graphql' => true,
+        'graphql_field_name' => 'categoryPageContent',
+        'map_graphql_types_from_location_rules' => true,
         'fields' => array(
             array(
                 'key'          => 'field_category_clear_advice_usps',
@@ -838,6 +862,9 @@ function ri_legal_register_pages_acf_fields() {
     acf_add_local_field_group(array(
         'key'   => 'group_ri_footer_service_page',
         'title' => 'Footer Service Page',
+        'show_in_graphql' => true,
+        'graphql_field_name' => 'footerServiceContent',
+        'map_graphql_types_from_location_rules' => true,
         'fields' => array(
 
             // Eyebrow
@@ -929,6 +956,9 @@ function ri_legal_register_pages_acf_fields() {
     acf_add_local_field_group(array(
     'key'   => 'group_single_post_usps',
     'title' => 'Single Post USPs',
+    'show_in_graphql' => true,
+    'graphql_field_name' => 'singlePostFields',
+    'map_graphql_types_from_location_rules' => true,
     'fields' => array(
 
         array(

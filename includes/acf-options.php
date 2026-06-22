@@ -24,6 +24,8 @@ function ri_legal_register_options_acf_fields() {
             'capability'  => 'manage_options',
             'position'    => false,
             'redirect'    => false,
+            'show_in_graphql' => true,
+            'graphql_field_name' => 'siteOptions',
         ));
     }
 
@@ -38,6 +40,9 @@ function ri_legal_register_options_acf_fields() {
     acf_add_local_field_group(array(
         'key' => 'group_ri_options',
         'title' => 'Custom Options',
+        'show_in_graphql' => true,
+        'graphql_field_name' => 'optionsContent',
+        'map_graphql_types_from_location_rules' => true,
         'fields' => array(
             array(
                 'key' => 'field_opt_phone_number',

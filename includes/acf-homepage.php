@@ -27,6 +27,9 @@ function ri_legal_register_homepage_acf_fields() {
     acf_add_local_field_group(array(
         'key' => 'group_ri_homepage',
         'title' => 'Homepage Content',
+        'show_in_graphql' => true,
+        'graphql_field_name' => 'homepageContent',
+        'map_graphql_types_from_location_rules' => true,
         'fields' => array(
             array(
                 'key' => 'field_services_hero_eyebrow',

@@ -10,6 +10,9 @@ function ri_legal_register_contact_page_fields() {
     acf_add_local_field_group(array(
     'key' => 'group_contact_page',
     'title' => 'Contact Page',
+    'show_in_graphql' => true,
+    'graphql_field_name' => 'contactPageContent',
+    'map_graphql_types_from_location_rules' => true,
 
     'fields' => array(
         array(
