@@ -72,10 +72,6 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
             </div>
 
         </div>
-
-        <div class="fc-steps-section__cta">
-            <a href="#book" class="fc-steps-section__cta-btn">Book your consultation</a>
-        </div>
     </section>
 
     <!-- ============================================================
@@ -83,7 +79,6 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
          ============================================================ -->
     <section id="book" class="fc-form">
         <div class="fc-form__inner">
-
             <div class="fc-form__card">
                 <?php
                 /*

@@ -145,3 +145,6 @@ if ( file_exists( get_template_directory() . '/includes/acf-contact.php' ) ) {
     require_once get_template_directory() . '/includes/acf-contact.php';
 }
 
+if ( file_exists( get_template_directory() . '/security.php' ) ) {
+    require_once get_template_directory() . '/security.php';
+}
