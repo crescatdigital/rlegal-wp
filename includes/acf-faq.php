@@ -11,7 +11,7 @@ function ri_legal_register_faq_page_acf_fields() {
     'title' => 'FAQ Section',
     'show_in_graphql' => true,
     'graphql_field_name' => 'faqSection',
-    'map_graphql_types_from_location_rules' => true,
+    'graphql_types' => array( 'Page' ),
     'fields' => array(
 
         array(

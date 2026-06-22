@@ -12,7 +12,7 @@ function ri_legal_register_contact_page_fields() {
     'title' => 'Contact Page',
     'show_in_graphql' => true,
     'graphql_field_name' => 'contactPageContent',
-    'map_graphql_types_from_location_rules' => true,
+    'graphql_types' => array( 'Page' ),
 
     'fields' => array(
         array(

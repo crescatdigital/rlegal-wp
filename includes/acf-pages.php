@@ -22,7 +22,7 @@ function ri_legal_register_pages_acf_fields() {
         'title' => 'Services Page Content',
         'show_in_graphql' => true,
         'graphql_field_name' => 'servicesPageContent',
-        'map_graphql_types_from_location_rules' => true,
+        'graphql_types' => array( 'Page', 'Service' ),
         'fields' => array(
             array(
                 'key' => 'field_services_hero_eyebrow',
@@ -229,7 +229,7 @@ function ri_legal_register_pages_acf_fields() {
         'title' => 'About Page Content',
         'show_in_graphql' => true,
         'graphql_field_name' => 'aboutPageContent',
-        'map_graphql_types_from_location_rules' => true,
+        'graphql_types' => array( 'Page' ),
         'fields' => array(
             array(
                 'key' => 'field_about_hero_mob_image',
@@ -424,7 +424,7 @@ function ri_legal_register_pages_acf_fields() {
         'title' => 'News Page Content',
         'show_in_graphql' => true,
         'graphql_field_name' => 'newsPageContent',
-        'map_graphql_types_from_location_rules' => true,
+        'graphql_types' => array( 'Page' ),
         'fields' => array(
 
             // HERO FIELDS 
@@ -620,7 +620,7 @@ function ri_legal_register_pages_acf_fields() {
     'title'  => 'People Page Content',
     'show_in_graphql' => true,
     'graphql_field_name' => 'peoplePageContent',
-    'map_graphql_types_from_location_rules' => true,
+    'graphql_types' => array( 'Page' ),
     'fields' => array(
 
         // Mobile Hero Image
@@ -728,7 +728,7 @@ function ri_legal_register_pages_acf_fields() {
         'title'  => 'FAQ Page Content',
         'show_in_graphql' => true,
         'graphql_field_name' => 'faqPageContent',
-        'map_graphql_types_from_location_rules' => true,
+        'graphql_types' => array( 'Page' ),
         'fields' => array(
         // Section heading
             array(
@@ -782,7 +782,7 @@ function ri_legal_register_pages_acf_fields() {
         'title' => 'Simple Page – Callout Section',
         'show_in_graphql' => true,
         'graphql_field_name' => 'simplePageContent',
-        'map_graphql_types_from_location_rules' => true,
+        'graphql_types' => array( 'Page' ),
         'fields' => array(
             array(
                 'key'          => 'field_simple_clear_advice_usps',
@@ -823,7 +823,7 @@ function ri_legal_register_pages_acf_fields() {
         'title' => 'Category Page – Callout Section',
         'show_in_graphql' => true,
         'graphql_field_name' => 'categoryPageContent',
-        'map_graphql_types_from_location_rules' => true,
+        'graphql_types' => array( 'Page' ),
         'fields' => array(
             array(
                 'key'          => 'field_category_clear_advice_usps',
@@ -864,7 +864,7 @@ function ri_legal_register_pages_acf_fields() {
         'title' => 'Footer Service Page',
         'show_in_graphql' => true,
         'graphql_field_name' => 'footerServiceContent',
-        'map_graphql_types_from_location_rules' => true,
+        'graphql_types' => array( 'Page' ),
         'fields' => array(
 
             // Eyebrow
