@@ -119,6 +119,11 @@ function ri_legal_theme_scripts() {
         wp_enqueue_script( 'ri-legal-booking-calendar', get_template_directory_uri() . '/assets/js/booking-calendar.js', array(), $theme_version, true );
     }
 
+    // Enqueue homepage template assets (Specialists checklist + team section)
+    if ( is_front_page() ) {
+        wp_enqueue_style( 'page-homepage', get_template_directory_uri() . '/assets/css/homepage.css', array(), $theme_version, 'all');
+    }
+
 }
 
 add_action( 'wp_enqueue_scripts', 'ri_legal_theme_scripts' );
