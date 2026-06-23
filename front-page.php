@@ -149,7 +149,7 @@ get_header();
                 <?php endforeach; ?>
             </div>
             <div class="hp-team__cta">
-                <a href="/free-consultation/" class="hp-team__btn">Book <u>Free</u> Consultation</a>
+                <a href="/free-consultation/" class="hp-team__btn">BOOK&nbsp;<u>FREE</u>&nbsp;CONSULTATION</a>
             </div>
         </div>
     </section>
