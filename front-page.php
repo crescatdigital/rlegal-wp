@@ -83,29 +83,73 @@ get_header();
     <!-- SPECIALISTS SECTION -->
     <section class="py-12 bg-white">
         <div class="mx-auto max-w-7xl px-6 lg:pl-[60px]">
-            <div class="grid grid-cols-1 gap-16 items-start">
-                <!-- LEFT CONTENT -->
-                <div class="w-full">
-                    <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] lg:mb-[22px] mb-4 text-center">
-                        <?php echo esc_html( get_ri_field( 'specialists_heading', 'Seasoned Specialists in Immigration Law' ) ); ?>
-                    </h2>
-                    <p class="text-[18px] leading-relaxed text-[#000000] mb-8">
-                        <?php echo esc_html( get_ri_field( 'specialists_paragraph', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' ) ); ?>
-                    </p>
+            <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] lg:mb-[22px] mb-4 text-center">
+                <?php echo esc_html( get_ri_field( 'specialists_heading', 'Specialists in Immigration Law' ) ); ?>
+            </h2>
+            <p class="text-[18px] leading-relaxed text-[#000000]">
+                <?php echo esc_html( get_ri_field( 'specialists_paragraph', 'Our immigration solicitors provide expert legal advice across all areas of UK immigration law, supporting individuals and businesses with visa applications, extensions, and settlement routes. We take a structured, detail-focused approach to every case, ensuring applications are prepared accurately and in line with current Home Office requirements.' ) ); ?>
+            </p>
 
-                    <!-- TRUST BADGES -->
-                    <div class="flex justify-center items-center gap-8 w-[262px] h-[141px] md:h-[183px] w-full">
-                        <?php $trust1 = get_ri_field( 'trust_image_1', '' ); $trust2 = get_ri_field( 'trust_image_2', '' ); 
-                        $trust_image_1_link  = get_field('trust_image_1_link');
-                        ?>
-						<div class="sra-iframe">							
-                        <div style="position: relative; padding-bottom: 59.1%; height: auto; overflow: hidden;"><iframe frameborder="0" scrolling="no" allowtransparency="true" src="https://cdn.yoshki.com/iframe/55847r.html" style="border: 0px; margin: 0px; padding: 0px; backgroundcolor: transparent; top: 0px; left: 0px; width: 100%; height: 100%; position: absolute;"></iframe></div>
-						</div>
-
-                        <img src="<?php echo esc_url( $trust2 ? $trust2 : ri_legal_image_url( 'legal-500.webp' ) ); ?>"
-                            alt="Legal 500 Leading Firm" class="h-[157px]  object-contain">
-                    </div>
+            <div class="hp-specialists">
+                <!-- LEFT: how we help -->
+                <div class="hp-specialists__main">
+                    <p class="hp-specialists__lead">Our team carefully reviews your circumstances:</p>
+                    <?php
+                    $hp_checklist = array(
+                        array( 'Identifies the most suitable ', 'immigration pathway' ),
+                        array( 'Manages the process from ', 'start to finish' ),
+                        array( 'Clear communication & ', 'practical guidance' ),
+                        array( 'Strong record of ', 'successful outcomes' ),
+                        array( 'Help clients move forward with ', 'confidence and clarity' ),
+                    );
+                    ?>
+                    <ul class="hp-checklist">
+                        <?php foreach ( $hp_checklist as $hp_item ) : ?>
+                            <li>
+                                <span class="hp-checklist__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                                <span><?php echo esc_html( $hp_item[0] ); ?><span class="hp-hl"><?php echo esc_html( $hp_item[1] ); ?></span></span>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
                 </div>
+
+                <!-- RIGHT: regulatory + ranking badges -->
+                <div class="hp-badges-panel">
+                    <?php $trust2 = get_ri_field( 'trust_image_2', '' ); ?>
+                    <div class="sra-iframe">
+                        <div style="position: relative; padding-bottom: 59.1%; height: auto; overflow: hidden;"><iframe frameborder="0" scrolling="no" allowtransparency="true" src="https://cdn.yoshki.com/iframe/55847r.html" style="border: 0px; margin: 0px; padding: 0px; backgroundcolor: transparent; top: 0px; left: 0px; width: 100%; height: 100%; position: absolute;"></iframe></div>
+                    </div>
+                    <img src="<?php echo esc_url( $trust2 ? $trust2 : ri_legal_image_url( 'legal-500.webp' ) ); ?>" alt="Legal 500 Leading Firm" class="hp-legal500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RLEGAL TEAM SECTION -->
+    <section class="hp-team">
+        <div class="mx-auto max-w-7xl px-6 hp-team__inner">
+            <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] text-center">
+                <?php echo esc_html( get_ri_field( 'team_heading', 'RLegal Team of Immigration Experts' ) ); ?>
+            </h2>
+            <?php
+            $hp_team = array(
+                array( 'img' => 'partner-david.webp',  'first' => 'David',  'last' => 'Robinson' ),
+                array( 'img' => 'partner-evan.webp',   'first' => 'Evan',   'last' => 'Remedios' ),
+                array( 'img' => 'partner-julian.webp', 'first' => 'Julian', 'last' => 'Torreggiani' ),
+            );
+            ?>
+            <div class="hp-team__grid">
+                <?php foreach ( $hp_team as $member ) : ?>
+                    <figure class="hp-team__member">
+                        <div class="hp-team__photo">
+                            <img src="<?php echo esc_url( ri_legal_image_url( $member['img'] ) ); ?>" alt="<?php echo esc_attr( $member['first'] . ' ' . $member['last'] ); ?>" loading="lazy" decoding="async">
+                        </div>
+                        <figcaption class="hp-team__name"><span class="hp-team__fname"><?php echo esc_html( $member['first'] ); ?></span> <?php echo esc_html( $member['last'] ); ?></figcaption>
+                    </figure>
+                <?php endforeach; ?>
+            </div>
+            <div class="hp-team__cta">
+                <a href="/free-consultation/" class="hp-team__btn">Book <u>Free</u> Consultation</a>
             </div>
         </div>
     </section>
