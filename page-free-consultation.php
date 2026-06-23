@@ -100,11 +100,11 @@ $fc = function_exists('get_field') ? get_field('free_consultation') : null;
     <section class="fc-proof">
         <div class="fc-hero__reviews">
             <div class="fc-hero__reviews-imgs">
-                <img class="io" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp" alt="Reviews.io rating">
-                <img class="g" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp" alt="Google reviews">
+                <?php ri_review_link_open( 'reviewsio' ); ?><img class="io" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp" alt="Reviews.io rating"><?php ri_review_link_close(); ?>
+                <?php ri_review_link_open( 'google' ); ?><img class="g" src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp" alt="Google reviews"><?php ri_review_link_close(); ?>
             </div>
             <p class="fc-hero__reviews-text">
-                <?php echo esc_html( $fc['reviews_text'] ?? 'Rated 4.9/5 from 515 verified reviews' ); ?>
+                <?php echo esc_html( $fc['reviews_text'] ?? 'Rated 4.9/5 from 529 verified reviews' ); ?><?php ri_reviews_tooltip(); ?>
             </p>
         </div>
 

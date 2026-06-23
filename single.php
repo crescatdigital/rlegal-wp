@@ -41,10 +41,10 @@ get_header();
                         <!-- Reviews -->
                         <div class="mt-8 flex flex-col items-center lg:items-start gap-2">
                             <div class="flex items-center gap-4">
-                                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp" alt="Reviews.io rating" loading="lazy" width="156" height="45" class="h-[45px] w-auto">
-                                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp" alt="Google reviews" loading="lazy" width="149" height="78" class="h-[78px] w-auto">
+                                <?php ri_review_link_open( 'reviewsio' ); ?><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp" alt="Reviews.io rating" loading="lazy" width="156" height="45" class="h-[45px] w-auto"><?php ri_review_link_close(); ?>
+                                <?php ri_review_link_open( 'google' ); ?><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp" alt="Google reviews" loading="lazy" width="149" height="78" class="h-[78px] w-auto"><?php ri_review_link_close(); ?>
                             </div>
-                            <p class="text-[16px] text-[#000000]">Rated 4.9/5 from 515 verified reviews</p>
+                            <p class="text-[16px] text-[#000000]">Rated 4.9/5 from 529 verified reviews<?php ri_reviews_tooltip(); ?></p>
                         </div>
                     </div>
                 </div>

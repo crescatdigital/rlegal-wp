@@ -40,15 +40,15 @@ get_header();
                         <!-- REVIEWS -->
                         <div class="mt-8 flex flex-col items-center lg:items-start gap-2">
                             <div class="flex items-center gap-4">
-                                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp"
+                                <?php ri_review_link_open( 'reviewsio' ); ?><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp"
                                     alt="Reviews.io rating" loading="lazy" decoding="async" fetchpriority="auto"
-                                    width="156" height="45" class="h-[45px] w-auto">
-                                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp"
+                                    width="156" height="45" class="h-[45px] w-auto"><?php ri_review_link_close(); ?>
+                                <?php ri_review_link_open( 'google' ); ?><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp"
                                     alt="Google reviews" loading="lazy" decoding="async" fetchpriority="auto"
-                                    width="149" height="78" class="h-[78px] w-auto">
+                                    width="149" height="78" class="h-[78px] w-auto"><?php ri_review_link_close(); ?>
                             </div>
                             <p class="text-[16px] text-[#000000]">
-                                <?php echo esc_html( get_ri_field( 'services_reviews_text', 'Rated 4.9/5 from 515 verified reviews' ) ); ?>
+                                <?php echo esc_html( get_ri_field( 'services_reviews_text', 'Rated 4.9/5 from 529 verified reviews' ) ); ?><?php ri_reviews_tooltip(); ?>
                             </p>
                         </div>
                     </div>

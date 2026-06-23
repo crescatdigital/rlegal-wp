@@ -85,17 +85,17 @@ get_header();
                     <!-- REVIEWS -->
                     <div class="mt-8 flex flex-col items-center lg:items-start gap-2">
                         <div class="flex items-center gap-6">
-                            <div class="w-[156px] h-[45px] flex items-center"> <img
+                            <?php ri_review_link_open( 'reviewsio' ); ?><div class="w-[156px] h-[45px] flex items-center"> <img
                                     src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp"
                                     alt="Reviews.io rating" loading="lazy" decoding="async" fetchpriority="auto"
-                                    width="156" height="45" class="w-full h-full object-contain"> </div>
-                            <div class="w-[149px] h-[78px] flex items-center"> <img
+                                    width="156" height="45" class="w-full h-full object-contain"> </div><?php ri_review_link_close(); ?>
+                            <?php ri_review_link_open( 'google' ); ?><div class="w-[149px] h-[78px] flex items-center"> <img
                                     src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp"
                                     alt="Google reviews" loading="lazy" decoding="async" fetchpriority="auto"
-                                    width="149" height="78" class="w-full h-full object-contain"> </div>
+                                    width="149" height="78" class="w-full h-full object-contain"> </div><?php ri_review_link_close(); ?>
                         </div>
                         <p class="text-[16px] lg:text-[16px] text-[#000000]">
-                            <?php echo esc_html( get_ri_field( 'about_reviews_text', get_ri_field( 'reviews_rating_text', 'Rated 4.9/5 from 515 verified reviews' ), 'option' ) ); ?>
+                            <?php echo esc_html( get_ri_field( 'about_reviews_text', get_ri_field( 'reviews_rating_text', 'Rated 4.9/5 from 529 verified reviews' ), 'option' ) ); ?><?php ri_reviews_tooltip(); ?>
                         </p>
                     </div>
                 </div>

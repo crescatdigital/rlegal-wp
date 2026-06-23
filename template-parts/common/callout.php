@@ -183,19 +183,19 @@
                     <?php endif; ?>
                     <div>
                         <div class="flex items-center gap-3">
-                            <img
+                            <?php ri_review_link_open( 'reviewsio' ); ?><img
                                 src="<?php echo esc_url( get_template_directory_uri() . '/ui-source/dist/_astro/reviews-io.934vh-eS_Zp3Wh4.webp' ); ?>"
                                 alt="Reviews.io"
                                 class="h-[45px] w-auto"
-                            />
-                            <img
+                            /><?php ri_review_link_close(); ?>
+                            <?php ri_review_link_open( 'google' ); ?><img
                                 src="<?php echo esc_url( get_template_directory_uri() . '/ui-source/dist/_astro/google-rating.B9ne1Uc6_Z1ggsmn.webp' ); ?>"
                                 alt="Google Reviews"
                                 class="h-[63px] md:h-[78px] w-auto"
-                            />
+                            /><?php ri_review_link_close(); ?>
                         </div>
                         <p class="text-[16px] text-[#000000] mt-1">
-                            <?php echo esc_html( get_ri_field( 'reviews_rating_text', 'Rated 4.9/5 from 515 verified reviews', 'option' ) ); ?>
+                            <?php echo esc_html( get_ri_field( 'reviews_rating_text', 'Rated 4.9/5 from 529 verified reviews', 'option' ) ); ?><?php ri_reviews_tooltip(); ?>
                         </p>
                     </div>
                 </div>

@@ -145,6 +145,11 @@ if ( file_exists( get_template_directory() . '/includes/acf-contact.php' ) ) {
     require_once get_template_directory() . '/includes/acf-contact.php';
 }
 
+// Load review platform helpers (badge links + rating tooltip)
+if ( file_exists( get_template_directory() . '/includes/reviews.php' ) ) {
+    require_once get_template_directory() . '/includes/reviews.php';
+}
+
 if ( file_exists( get_template_directory() . '/security.php' ) ) {
     require_once get_template_directory() . '/security.php';
 }

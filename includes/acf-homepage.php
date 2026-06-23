@@ -68,7 +68,7 @@ function ri_legal_register_homepage_acf_fields() {
                 'label' => 'Reviews Text',
                 'name' => 'services_reviews_text',
                 'type' => 'text',
-                'default_value' => 'Rated 4.9/5 from 515 verified reviews',
+                'default_value' => 'Rated 4.9/5 from 529 verified reviews',
             ),
             array(
                 'key' => 'field_services_form_heading',

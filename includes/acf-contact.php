@@ -73,7 +73,7 @@ function ri_legal_register_contact_page_fields() {
                     'label' => 'Reviews Text',
                     'name' => 'reviews_text',
                     'type' => 'text',
-                    'default_value' => 'Rated 4.9/5 from 515 verified reviews',
+                    'default_value' => 'Rated 4.9/5 from 529 verified reviews',
                 ),
 
                 array(

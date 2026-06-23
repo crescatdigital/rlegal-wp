@@ -54,7 +54,7 @@ function ri_legal_register_pages_acf_fields() {
                 'label' => 'Reviews Rating Text',
                 'name' => 'services_reviews_text',
                 'type' => 'text',
-                'default_value' => 'Rated 4.9/5 from 515 verified reviews',
+                'default_value' => 'Rated 4.9/5 from 529 verified reviews',
             ),
             array(
                 'key' => 'field_services_section1_heading',
@@ -282,7 +282,7 @@ function ri_legal_register_pages_acf_fields() {
                 'label' => 'Reviews Rating Text',
                 'name' => 'about_reviews_text',
                 'type' => 'text',
-                'default_value' => 'Rated 4.9/5 from 515 verified reviews',
+                'default_value' => 'Rated 4.9/5 from 529 verified reviews',
             ),
             array(
                 'key' => 'field_about_intro_title',
@@ -479,7 +479,7 @@ function ri_legal_register_pages_acf_fields() {
                 'label'         => 'Reviews Rating Text',
                 'name'          => 'news_hero_reviews_text',
                 'type'          => 'text',
-                'default_value' => 'Rated 4.9/5 from 515 verified reviews',
+                'default_value' => 'Rated 4.9/5 from 529 verified reviews',
             ),
 
             // INTRO SECTION
@@ -900,7 +900,7 @@ function ri_legal_register_pages_acf_fields() {
                 'label'         => 'Reviews Text',
                 'name'          => 'services_reviews_text',
                 'type'          => 'text',
-                'default_value' => 'Rated 4.9/5 from 515 verified reviews',
+                'default_value' => 'Rated 4.9/5 from 529 verified reviews',
             ),
             array(
                 'key'           => 'field_footer_service_hero_cta_link',
