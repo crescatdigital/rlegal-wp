@@ -24,8 +24,12 @@ get_header();
                         </h1>
 
                         <!-- Heading -->
-                        <p class="text-[32px] lg:text-[40px] leading-tight text-black mb-6">
+                        <p class="text-[32px] lg:text-[40px] leading-tight text-black mb-6 hero-heading">
                             <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'services_hero_heading', "The UK's Leading\nExperts in Immigration\nfor Over 20 Years" ) ) ) ); ?>
+                        </p>
+
+                        <p class="text-[16px] lg:text-[16px] leading-tight text-black mb-6 hero-description">
+                            <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'services_hero_description', "Our immigration lawyers work with you to deal with visa issues." ) ) ) ); ?>
                         </p>
 
                         <!-- CTA removed from hero; the primary "Book Consultation" CTA lives in the sticky header. -->

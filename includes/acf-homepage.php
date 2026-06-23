@@ -46,6 +46,13 @@ function ri_legal_register_homepage_acf_fields() {
                 'default_value' => "The UK's Leading\nExperts in Immigration\nfor Over 20 Years",
             ),
             array(
+                'key' => 'field_services_hero_description',
+                'label' => 'Hero Description',
+                'name' => 'services_hero_description',
+                'type' => 'textarea',
+                'default_value' => "Our immigration lawyers work with you to deal with visa issues.",
+            ),
+            array(
                 'key'   => 'field_services_hero_cta',
                 'label' => 'Hero CTA',
                 'name'  => 'services_hero_cta',
