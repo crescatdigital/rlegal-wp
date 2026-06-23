@@ -61,21 +61,21 @@ get_header();
                         <div class="flex items-center gap-4">
 
                             <?php if (!empty($hero['reviews_io_image'])): ?>
-                                <img src="<?php echo esc_url($hero['reviews_io_image']); ?>"
+                                <?php ri_review_link_open( 'reviewsio' ); ?><img src="<?php echo esc_url($hero['reviews_io_image']); ?>"
                                      alt="Reviews.io rating"
-                                     class="h-[45px] w-auto">
+                                     class="h-[45px] w-auto"><?php ri_review_link_close(); ?>
                             <?php endif; ?>
 
                             <?php if (!empty($hero['google_reviews_image'])): ?>
-                                <img src="<?php echo esc_url($hero['google_reviews_image']); ?>"
+                                <?php ri_review_link_open( 'google' ); ?><img src="<?php echo esc_url($hero['google_reviews_image']); ?>"
                                      alt="Google reviews"
-                                     class="h-[78px] w-auto">
+                                     class="h-[78px] w-auto"><?php ri_review_link_close(); ?>
                             <?php endif; ?>
 
                         </div>
 
                         <p class="text-[16px] text-[#000000]">
-                            <?php echo esc_html($hero['reviews_text'] ?? 'Rated 4.9/5 from 515 verified reviews'); ?>
+                            <?php echo esc_html($hero['reviews_text'] ?? 'Rated 4.9/5 from 529 verified reviews'); ?><?php ri_reviews_tooltip(); ?>
                         </p>
                     </div>
 

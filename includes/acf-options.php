@@ -56,7 +56,7 @@ function ri_legal_register_options_acf_fields() {
                 'label' => 'Reviews Rating Text',
                 'name' => 'reviews_rating_text',
                 'type' => 'text',
-                'default_value' => 'Rated 4.9/5 from 515 verified reviews',
+                'default_value' => 'Rated 4.9/5 from 529 verified reviews',
             ),
             array(
                 'key' => 'field_opt_trust_image_1',
