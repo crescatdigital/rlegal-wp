@@ -178,7 +178,29 @@
 .hp-team__btn:hover { background: #3d7242; transform: translateY(-1px); }
 .hp-team__btn u { text-underline-offset: 3px; }
 
+/* ---- Reviews -> Services chevron divider (homepage only) ---------------- */
+.hp-reviews { position: relative; }
+.hp-reviews::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: #6d3b69; /* matches the reviews band, points down into Services */
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  z-index: 1;
+  pointer-events: none;
+}
+
 @media (max-width: 767px) {
-  .hp-team__photo { width: 140px; height: 140px; }
-  .hp-team__grid { gap: 28px 36px; }
+  /* Flat, horizontal section edges on mobile — drop the decorative chevrons */
+  .hp-team::before,
+  .hp-reviews::after { display: none; }
+
+  /* Keep the three founders in a single horizontal row */
+  .hp-team__grid { flex-wrap: nowrap; gap: 14px; margin-top: 24px; }
+  .hp-team__member { flex: 1 1 0; min-width: 0; gap: 10px; }
+  .hp-team__photo { width: 100%; max-width: 108px; height: auto; aspect-ratio: 1 / 1; }
+  .hp-team__name { font-size: 14px; }
 }

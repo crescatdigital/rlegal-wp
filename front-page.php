@@ -133,9 +133,9 @@ get_header();
             </h2>
             <?php
             $hp_team = array(
-                array( 'img' => 'partner-david.webp',  'first' => 'David',  'last' => 'Robinson' ),
-                array( 'img' => 'partner-evan.webp',   'first' => 'Evan',   'last' => 'Remedios' ),
-                array( 'img' => 'partner-julian.webp', 'first' => 'Julian', 'last' => 'Torreggiani' ),
+                array( 'img' => 'david.jpg',  'first' => 'David',  'last' => 'Robinson' ),
+                array( 'img' => 'evan.jpg',   'first' => 'Evan',   'last' => 'Remedios' ),
+                array( 'img' => 'julian.jpg', 'first' => 'Julian', 'last' => 'Torreggiani' ),
             );
             ?>
             <div class="hp-team__grid">
@@ -154,8 +154,10 @@ get_header();
         </div>
     </section>
 
-    <!-- REVIEWS CAROUSEL SECTION -->
-    <?php get_template_part( 'template-parts/common/testimonials' ); ?>
+    <!-- REVIEWS CAROUSEL SECTION (wrapped for the homepage-only chevron divider) -->
+    <div class="hp-reviews">
+        <?php get_template_part( 'template-parts/common/testimonials' ); ?>
+    </div>
 
     <!-- SERVICES SECTION -->
     <section class="py-12">
