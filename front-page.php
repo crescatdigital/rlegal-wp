@@ -84,10 +84,10 @@ get_header();
     <section class="py-12 bg-white">
         <div class="mx-auto max-w-7xl px-6 lg:pl-[60px]">
             <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] lg:mb-[22px] mb-4 text-center">
-                <?php echo esc_html( get_ri_field( 'specialists_heading', 'Specialists in Immigration Law' ) ); ?>
+                <?php echo wp_kses_post( get_ri_field( 'specialists_heading', 'Specialists <span class="hp-ink">in Immigration</span> Law' ) ); ?>
             </h2>
             <p class="text-[18px] leading-relaxed text-[#000000]">
-                <?php echo esc_html( get_ri_field( 'specialists_paragraph', 'Our immigration solicitors provide expert legal advice across all areas of UK immigration law, supporting individuals and businesses with visa applications, extensions, and settlement routes. We take a structured, detail-focused approach to every case, ensuring applications are prepared accurately and in line with current Home Office requirements.' ) ); ?>
+                <?php echo wp_kses_post( get_ri_field( 'specialists_paragraph', 'Our immigration solicitors provide <strong>expert legal advice across all areas of UK immigration law</strong>, supporting individuals and businesses with <a class="hp-link" href="/private-immigration/">visa applications</a>, <a class="hp-link" href="/corporate-immigration/">extensions</a>, and <a class="hp-link" href="/indefinite-leave-to-remain/">settlement routes</a>. We take a structured, detail-focused approach to every case, ensuring applications are prepared accurately and in line with current <a class="hp-link" href="/visa-refusal-appeals/">Home Office requirements</a>.' ) ); ?>
             </p>
 
             <div class="hp-specialists">

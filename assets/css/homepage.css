@@ -57,6 +57,15 @@
 .hp-checklist__icon svg { width: 13px; height: 13px; }
 .hp-checklist .hp-hl { color: #884a83; font-weight: 600; }
 
+/* Inline rich text in the Specialists heading + paragraph (ACF HTML) */
+.hp-ink { color: #1a1a1a; }
+.hp-link {
+  color: #884a83;
+  font-weight: 600;
+  text-decoration: none;
+}
+.hp-link:hover { text-decoration: underline; }
+
 /* Badge panel (SRA live embed + Legal 500) */
 .hp-badges-panel {
   display: flex;
