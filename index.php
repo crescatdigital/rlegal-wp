@@ -9,28 +9,47 @@ get_header();
 ?>
 
 <main id="main" class="site-main">
-    <?php
-    if ( have_posts() ) {
-        while ( have_posts() ) {
-            the_post();
-            ?>
+    <?php if ( have_posts() ) : ?>
+
+        <?php if ( ! is_singular() ) : ?>
+            <header class="page-header">
+                <h1 class="entry-title">
+                    <?php
+                    if ( is_search() ) {
+                        printf( esc_html__( 'Search results for: %s', 'ri-legal-theme' ), '<span>' . esc_html( get_search_query() ) . '</span>' );
+                    } elseif ( is_archive() ) {
+                        the_archive_title();
+                    } else {
+                        bloginfo( 'name' );
+                    }
+                    ?>
+                </h1>
+            </header>
+        <?php endif; ?>
+
+        <?php while ( have_posts() ) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <header class="entry-header">
-                    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                    <?php
+                    // A single post falling through to index.php keeps the H1;
+                    // in a listing each post title is an H2 under the page H1.
+                    if ( is_singular() ) {
+                        the_title( '<h1 class="entry-title">', '</h1>' );
+                    } else {
+                        the_title( sprintf( '<h2 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h2>' );
+                    }
+                    ?>
                 </header>
 
                 <div class="entry-content">
                     <?php the_content(); ?>
                 </div>
             </article>
-            <?php
-        }
-    } else {
-        ?>
+        <?php endwhile; ?>
+
+    <?php else : ?>
         <p><?php esc_html_e( 'No posts found.', 'ri-legal-theme' ); ?></p>
-        <?php
-    }
-    ?>
+    <?php endif; ?>
 </main>
 
 <?php

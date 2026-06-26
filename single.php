@@ -13,14 +13,14 @@ get_header();
                     <div class="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
 
                         <!-- Category -->
-                        <h1 class="text-[18px] lg:text-[20px] font-medium text-[#884A83] mb-3">
+                        <p class="text-[18px] lg:text-[20px] font-medium text-[#884A83] mb-3">
                             Immigration Insights
-                        </h1>
+                        </p>
 
                         <!-- Title -->
-                        <p class="text-[32px] lg:text-[40px] leading-tight text-black">
+                        <h1 class="text-[32px] lg:text-[40px] leading-tight text-black">
                             <?php the_title(); ?>
-                        </p>
+                        </h1>
 
                         <!-- Meta -->
                         <p class="text-[16px] text-[#555] mb-6">

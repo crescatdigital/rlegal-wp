@@ -58,9 +58,9 @@ $cards         = get_field('reviews_cards', 'option');
                     <div class="review-card bg-white rounded-[30px] p-4 w-full max-w-[355px] lg:max-w-[453px] h-full
                             flex flex-col border-[5px] border-[#A3599D]">
                         <!-- TITLE -->
-                        <h1 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
+                        <h3 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
                             <?php echo esc_html( $card['card_title'] ); ?>
-                        </h1>
+                        </h3>
                         <!-- BODY: flex-1 fills available space and pushes footer down -->
                         <p class="flex-1 text-[16px] lg:text-[18px] text-[#000000] leading-relaxed">
                             <?php echo esc_html( $card['card_body'] ); ?>

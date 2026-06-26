@@ -248,9 +248,9 @@ get_header();
                             class="bg-white rounded-[30px] p-4 w-full max-w-[355px] lg:max-w-[453px] h-[244px] flex flex-col border-[5px] border-[#A3599D]"
                         >
                             <!-- TITLE -->
-                            <h1 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
+                            <h3 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
                                 Excellent Service
-                            </h1>
+                            </h3>
                             <!-- BODY (flexible) -->
                             <p class="text-[16px] lg:text-[18px] text-[#000000] leading-relaxed">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -330,9 +330,9 @@ get_header();
                             class="bg-white rounded-[30px] p-4 w-full max-w-[355px] lg:max-w-[453px] h-[244px] flex flex-col border-[5px] border-[#A3599D]"
                         >
                             <!-- TITLE -->
-                            <h1 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
+                            <h3 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
                                 Highly Recommended
-                            </h1>
+                            </h3>
                             <!-- BODY (flexible) -->
                             <p class="text-[16px] lg:text-[18px] text-[#000000] leading-relaxed">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -413,9 +413,9 @@ get_header();
                             class="bg-white rounded-[30px] p-4 w-full max-w-[355px] lg:max-w-[453px] h-[244px] flex flex-col border-[5px] border-[#A3599D]"
                         >
                             <!-- TITLE -->
-                            <h1 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
+                            <h3 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
                                 Professional Team
-                            </h1>
+                            </h3>
                             <!-- BODY (flexible) -->
                             <p class="text-[16px] lg:text-[18px] text-[#000000] leading-relaxed">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -495,9 +495,9 @@ get_header();
                             class="bg-white rounded-[30px] p-4 w-full max-w-[355px] lg:max-w-[453px] h-[244px] flex flex-col border-[5px] border-[#A3599D]"
                         >
                             <!-- TITLE -->
-                            <h1 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
+                            <h3 class="text-[20px] lg:text-[22px] font-extrabold text-[#000000] mb-1">
                                 Outstanding Results
-                            </h1>
+                            </h3>
                             <!-- BODY (flexible) -->
                             <p class="text-[16px] lg:text-[18px] text-[#000000] leading-relaxed">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
