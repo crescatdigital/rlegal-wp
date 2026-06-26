@@ -33,10 +33,11 @@ get_header();
                     <?php
                     // A single post falling through to index.php keeps the H1;
                     // in a listing each post title is an H2 under the page H1.
+                    // (Markup kept identical to before aside from the tag level.)
                     if ( is_singular() ) {
                         the_title( '<h1 class="entry-title">', '</h1>' );
                     } else {
-                        the_title( sprintf( '<h2 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h2>' );
+                        the_title( '<h2 class="entry-title">', '</h2>' );
                     }
                     ?>
                 </header>
