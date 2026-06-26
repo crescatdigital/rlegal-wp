@@ -122,6 +122,7 @@ function ri_legal_theme_scripts() {
     // Enqueue homepage template assets (Specialists checklist + team section)
     if ( is_front_page() ) {
         wp_enqueue_style( 'page-homepage', get_template_directory_uri() . '/assets/css/homepage.css', array(), $theme_version, 'all');
+        wp_enqueue_script( 'page-homepage', get_template_directory_uri() . '/assets/js/homepage.js', array(), $theme_version, true );
     }
 
 }

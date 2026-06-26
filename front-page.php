@@ -15,18 +15,21 @@ get_header();
             <div class="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-8 lg:gap-0 items-center">
                
             <!-- LEFT CONTENT (SECOND ON MOBILE) -->
-                <div class="px-6 lg:pl-[165px] lg:pr-8">
+                <div class="px-6 lg:pl-[165px] lg:pr-8 py-8 lg:py-0 pb-0">
                     <div class="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
                         
                         <!-- Eyebrow -->
-                        <h1 class="text-[18px] lg:text-[20px] font-medium text-[#884A83] mb-3">
+                        <p class="text-[18px] lg:text-[20px] font-medium text-[#884A83] mb-3">
                             <?php echo esc_html( get_ri_field( 'services_hero_eyebrow', 'Immigration Solicitors In London' ) ); ?>
-                        </h1>
+</p>
 
                         <!-- Heading -->
-                        <p class="text-[32px] lg:text-[40px] leading-tight text-black mb-6 hero-heading">
-                            <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'services_hero_heading', "The UK's Leading\nExperts in Immigration\nfor Over 20 Years" ) ) ) ); ?>
-                        </p>
+                         <div class="banner-heading">
+                            <h1 class="text-[32px] lg:text-[40px] leading-tight text-black mb-6 hero-heading">
+                                <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'services_hero_heading', "The UK's Leading\nExperts in Immigration\nfor Over 20 Years" ) ) ) ); ?>
+                            </h1>
+                            <!-- <img src="/wp-content/uploads/2026/06/est_2022.png"> -->
+                        </div>
 
                         <p class="text-[16px] lg:text-[16px] leading-tight text-black mb-6 hero-description">
                             <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'services_hero_description', "Our immigration lawyers work with you to deal with visa issues." ) ) ) ); ?>
@@ -81,14 +84,17 @@ get_header();
     </section>
     
     <!-- SPECIALISTS SECTION -->
-    <section class="py-12 bg-white">
+    <section class="py-12 bg-white specialists-section">
         <div class="mx-auto max-w-7xl px-6 lg:pl-[60px]">
             <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] lg:mb-[22px] mb-4 text-center">
                 <?php echo wp_kses_post( get_ri_field( 'specialists_heading', 'Specialists <span class="hp-ink">in Immigration</span> Law' ) ); ?>
             </h2>
-            <p class="text-[18px] leading-relaxed text-[#000000]">
+            <p class="text-[18px] leading-relaxed text-[#000000] immigration-text">
                 <?php echo wp_kses_post( get_ri_field( 'specialists_paragraph', 'Our immigration solicitors provide <strong>expert legal advice across all areas of UK immigration law</strong>, supporting individuals and businesses with <a class="hp-link" href="/private-immigration/">visa applications</a>, <a class="hp-link" href="/corporate-immigration/">extensions</a>, and <a class="hp-link" href="/indefinite-leave-to-remain/">settlement routes</a>. We take a structured, detail-focused approach to every case, ensuring applications are prepared accurately and in line with current <a class="hp-link" href="/visa-refusal-appeals/">Home Office requirements</a>.' ) ); ?>
             </p>
+            <div class="read-more">
+                <button type="button">Read More <span>></span></button>
+            </div>
 
             <div class="hp-specialists">
                 <!-- LEFT: how we help -->
@@ -160,7 +166,7 @@ get_header();
     </div>
 
     <!-- SERVICES SECTION -->
-    <section class="py-12">
+    <section class="mt-8 py-12">
         <div class="mx-auto max-w-7xl">
             <h2 class="text-center text-[32px] lg:text-[36px] font-semibold text-[#884A83] mb-10 px-6">
                 Services We Provide
@@ -168,11 +174,11 @@ get_header();
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 <!-- FOR BUSINESSES -->
-                <div class="bg-[#A3599D] p-8" data-accordion="business">
+                <div class="bg-[#A3599D] py-8 px-4 lg:px-8" data-accordion="business">
                     <h3 class="text-center text-white text-[32px] lg:text-[36px] font-semibold mb-6">
                         For Businesses
                     </h3>
-                    <div class="flex flex-col items-center lg:grid lg:grid-cols-2 lg:justify-items-center gap-6 mb-4">
+                    <div class="grid items-center lg:grid grid-cols-2 lg:justify-items-center gap-6 mb-4">
                         <?php
                         $business_services_new  = get_field('services_business'); 
 
@@ -249,11 +255,11 @@ get_header();
                 </div>
 
                 <!-- FOR INDIVIDUALS -->
-                <div class="bg-[#6D3B69] p-8" data-accordion="individual">
+                <div class="bg-[#6D3B69] py-8 px-4 lg:px-8" data-accordion="individual">
                     <h3 class="text-center text-white text-[32px] lg:text-[36px] font-semibold mb-6">
                         For Individuals
                     </h3>
-                    <div class="flex flex-col items-center lg:grid lg:grid-cols-2 lg:justify-items-center gap-6 mb-4">
+                    <div class="grid items-center lg:grid grid-cols-2 lg:justify-items-center gap-6 mb-4">
                         <?php
 
                         $individual_service_new =  get_field('services_individual');

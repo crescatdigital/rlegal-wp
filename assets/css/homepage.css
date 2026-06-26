@@ -19,6 +19,52 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .specialists-section .read-more {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .specialists-section .immigration-text {
+      position: relative;
+      max-height: 235px;
+      overflow: hidden;
+  }
+
+  .specialists-section .immigration-text::after {
+      content: '';
+      width: 100%;
+      height: 70px;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      background: linear-gradient(to bottom, #ffffff8f, #fff);
+  }
+
+  .specialists-section .immigration-text.expanded::after {
+    opacity: 0;
+  }
+
+  .specialists-section .read-more {
+      text-align: center;
+      padding: 14px 0;
+  }
+
+  .specialists-section .read-more span {
+      display: inline-block;
+      transform: rotate(90deg);
+      position: relative;
+      right: -3px;
+  }
+
+  .specialists-section .immigration-text.expanded + .read-more span {
+      transform: rotate(-90deg);
+      position: relative;
+      right: 0;
+  }
+}
+
 .hp-specialists__lead {
   color: #884a83;
   font-size: 19px;
@@ -183,7 +229,7 @@
 .hp-reviews::after {
   content: "";
   position: absolute;
-  top: 100%;
+  top: calc(100% - 1px);
   left: 0;
   right: 0;
   height: 48px;
