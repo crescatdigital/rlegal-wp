@@ -16,7 +16,7 @@ get_header();
                     <div class="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
                         
                          <!-- Eyebrow -->
-                        <h1 class="text-[18px] lg:text-[30px] font-bold text-[#884A83] mb-3">
+                        <h1 class="text-[18px] lg:text-[30px] font-bold text-[#884A83] mb-3 mt-4 mg:mt-0 lg:mt-0">
                             <?php echo esc_html( get_ri_field( 'services_hero_eyebrow', 'Business Visitor Visas in London' ) ); ?>
                         </h1>
 
@@ -129,6 +129,36 @@ get_header();
     </section>
 
 
+    <!-- RLEGAL TEAM SECTION -->
+    <section class="hp-team">
+        <div class="mx-auto max-w-7xl px-6 hp-team__inner">
+            <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] text-center">
+                <?php echo esc_html( get_ri_field( 'team_heading', 'RLegal Team of Immigration Experts' ) ); ?>
+            </h2>
+            <?php
+            $hp_team = array(
+                array( 'img' => 'david.jpg',  'first' => 'David',  'last' => 'Robinson' ),
+                array( 'img' => 'evan.jpg',   'first' => 'Evan',   'last' => 'Remedios' ),
+                array( 'img' => 'julian.jpg', 'first' => 'Julian', 'last' => 'Torreggiani' ),
+            );
+            ?>
+            <div class="hp-team__grid">
+                <?php foreach ( $hp_team as $member ) : ?>
+                    <figure class="hp-team__member">
+                        <div class="hp-team__photo">
+                            <img src="<?php echo esc_url( ri_legal_image_url( $member['img'] ) ); ?>" alt="<?php echo esc_attr( $member['first'] . ' ' . $member['last'] ); ?>" loading="lazy" decoding="async">
+                        </div>
+                        <figcaption class="hp-team__name"><span class="hp-team__fname"><?php echo esc_html( $member['first'] ); ?></span> <?php echo esc_html( $member['last'] ); ?></figcaption>
+                    </figure>
+                <?php endforeach; ?>
+            </div>
+            <div class="hp-team__cta">
+                <a href="/free-consultation/" class="hp-team__btn">BOOK&nbsp;<u>FREE</u>&nbsp;CONSULTATION</a>
+            </div>
+        </div>
+    </section>
+
+
 
     <?php get_template_part( 'template-parts/common/testimonials' ); ?>
 
@@ -137,6 +167,48 @@ get_header();
             <div class="main-content__collapse" data-collapse>
                 <div class="main-content__inner">
                     <?php the_content(); ?>
+                    <?php 
+                    if (have_rows('page_content')) :
+                        while (have_rows('page_content')) : the_row();
+                        if (get_row_layout() == 'content_block') : ?>
+
+                            <div class="content-block">
+                                <?php echo wp_kses_post(get_sub_field('content')); ?>
+                            </div>
+                            
+                            <?php elseif (get_row_layout() == 'accordion_content') : if (have_rows('accordion_items')) : ?>
+
+                            <div class="accordion-wrapper">
+                                <?php while (have_rows('accordion_items')) : the_row(); ?>
+
+                                <div class="overflow-hidden rounded-md border-b border-gray-200" data-accordion="">
+                                    <button
+                                        type="button"
+                                        class="accordion-trigger w-full flex items-center justify-between px-4 lg:px-6 py-0 text-left text-[18px] lg:text-[20px] font-semibold text-[#884A83] transition"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="max-w-[90%] py-4">
+                                            <?php echo esc_html(get_sub_field('accordion_title')); ?>
+                                        </span>
+
+                                        <span
+                                            class="accordion-icon text-[#884A83] text-[20px] lg:text-[24px] font-normal"
+                                        >
+                                            ↓
+                                        </span>
+                                    </button>
+
+                                    <div
+                                        class="accordion-content px-4 lg:px-6 py-6 space-y-4 hidden"
+                                    >
+                                        <?php echo wp_kses_post(get_sub_field('accordion_content')); ?>
+                                    </div>
+                                </div>
+
+                                <?php endwhile; ?>
+                            </div>
+
+                    <?php endif; endif; endwhile; endif; ?>
                 </div>
                 <div class="main-content__fade" aria-hidden="true"></div>
                 <button type="button" class="main-content__toggle" data-collapse-toggle aria-expanded="false">
@@ -256,7 +328,7 @@ get_header();
             </div>
         </div>
         <!-- SCRIPT FRAGMENT -->
-        <script src="/scripts/accordion.js"></script>
+        <!-- <script src="/scripts/accordion.js"></script> -->
     </section>
 
     <?php get_template_part( 'template-parts/common/callout' ); ?>

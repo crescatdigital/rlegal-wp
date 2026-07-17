@@ -121,3 +121,118 @@
 .main-content__collapse.is-expanded .main-content__fade {
     display: none;
 }
+
+.service-accordion-wrapper td {
+    border: 1px solid #333;
+    padding: 6px 12px;
+}
+
+.accordion-wrapper>div {
+    max-width: 900px;
+    margin-bottom: 15px;
+    background-color: #f5f5f5;
+}
+
+.accordion-wrapper {
+    margin-top: 2em;
+}
+
+.accordion-wrapper .accordion-content {
+    padding-top: 10px;
+}
+
+.accordion-wrapper .accordion-content h3 {
+    font-size: 1.125rem;
+}
+
+.accordion-content {
+    overflow: auto;
+}
+
+.content-block h2 {
+    margin-top: 1.5em;
+}
+
+/* ---- RLegal team of experts -------------------------------------------- */
+.hp-team {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 8px 0 64px;
+}
+/* Soft diagonal motif echoing the mockup, kept subtle + behind content. */
+.hp-team::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 62%;
+  background: #f3f2f4;
+  clip-path: polygon(0 38%, 50% 0, 100% 38%, 100% 100%, 0 100%);
+  z-index: 0;
+}
+.hp-team__inner {
+  position: relative;
+  z-index: 1;
+}
+.hp-team__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px 64px;
+  margin-top: 36px;
+}
+.hp-team__member {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.hp-team__photo {
+  width: 168px;
+  height: 168px;
+  border-radius: 9999px;
+  padding: 6px;
+  border: 2px solid #884a83;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.hp-team__photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
+  object-position: top center;
+}
+.hp-team__name {
+  font-size: 19px;
+  color: #1a1a1a;
+}
+.hp-team__name .hp-team__fname { color: #884a83; font-weight: 600; }
+
+.hp-team__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.hp-team__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #4a884f;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 15px 40px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(74, 136, 79, 0.28);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.hp-team__btn:hover { background: #3d7242; transform: translateY(-1px); }
+.hp-team__btn u { text-underline-offset: 3px; }
+
