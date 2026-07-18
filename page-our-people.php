@@ -116,7 +116,7 @@ get_header();
                             $bio = isset( $p['partner_bio'] ) ? $p['partner_bio'] : '';
                             $link = isset( $p['partner_link'] ) ? $p['partner_link'] : '#';
                             ?>
-                    <div class="bg-white rounded-md p-6 w-[260px] lg:w-[320px] lg:h-[550px] shadow-sm text-center">
+                    <div class="bg-white rounded-md p-6 w-[260px] lg:w-[320px] lg:h-[400px] shadow-sm text-center">
                         <!-- IMAGE -->
                         <div class="mb-4">
                             <?php if ( $img ) : ?>

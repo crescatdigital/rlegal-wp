@@ -116,6 +116,83 @@ function ri_legal_register_pages_acf_fields() {
                 ),
             ),
             array(
+                'key' => 'field_page_flexible_content',
+                'label' => 'Page Content',
+                'name' => 'page_content',
+                'type' => 'flexible_content',
+
+                'layouts' => array(
+
+                    /**
+                     * Rich Content Layout
+                     */
+                    'layout_content_block' => array(
+                        'key' => 'layout_content_block',
+                        'name' => 'content_block',
+                        'label' => 'Content Block',
+                        'display' => 'block',
+
+                        'sub_fields' => array(
+
+                            array(
+                                'key' => 'field_content_block_editor',
+                                'label' => 'Content',
+                                'name' => 'content',
+                                'type' => 'wysiwyg',
+                                'toolbar' => 'full',
+                                'media_upload' => 1,
+                            ),
+
+                        ),
+                    ),
+
+
+                    /**
+                     * Accordion Layout
+                     */
+                    'layout_accordion_content' => array(
+                        'key' => 'layout_accordion_content',
+                        'name' => 'accordion_content',
+                        'label' => 'Accordion Content',
+                        'display' => 'block',
+
+                        'sub_fields' => array(
+
+                            array(
+                                'key' => 'field_accordion_items',
+                                'label' => 'Accordion Items',
+                                'name' => 'accordion_items',
+                                'type' => 'repeater',
+                                'layout' => 'row',
+                                'button_label' => 'Add Accordion',
+
+                                'sub_fields' => array(
+
+                                    array(
+                                        'key' => 'field_accordion_title',
+                                        'label' => 'Accordion Title',
+                                        'name' => 'accordion_title',
+                                        'type' => 'text',
+                                    ),
+
+                                    array(
+                                        'key' => 'field_accordion_content',
+                                        'label' => 'Accordion Content',
+                                        'name' => 'accordion_content',
+                                        'type' => 'wysiwyg',
+                                        'toolbar' => 'full',
+                                        'media_upload' => 1,
+                                    ),
+
+                                ),
+                            ),
+
+                        ),
+                    ),
+
+                ),
+            ),
+            array(
                 'key' => 'field_services_faqs',
                 'label' => 'FAQs',
                 'name' => 'services_faqs',
@@ -311,6 +388,186 @@ function ri_legal_register_pages_acf_fields() {
                 'name' => 'about_who_text',
                 'type' => 'textarea',
                 'default_value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            ),
+            array(
+                'key' => 'field_start_title',
+                'label' => 'The Start Title',
+                'name' => 'start_title',
+                'type' => 'text',
+                'default_value' => 'The start',
+            ),
+            array(
+                'key' => 'field_start_content',
+                'label' => 'The Start Content',
+                'name' => 'start_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'By 2002 both David and Evan had gained considerable and varied experience from working within specialist immigration practices and decided to establish RLegal.
+
+            The opportunity to provide clients with a professional, friendly, personal and honest approach to achieve successful affordable outcomes was the driving force. We have never looked back.',
+            ),
+
+            array(
+                'key' => 'field_challenges_title',
+                'label' => 'The Challenges Title',
+                'name' => 'challenges_title',
+                'type' => 'text',
+                'default_value' => 'The challenges',
+            ),
+            array(
+                'key' => 'field_challenges_content',
+                'label' => 'The Challenges Content',
+                'name' => 'challenges_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'Naturally, there were challenges; at the outset the challenge of just starting off – where were we going to get clients? The internet was still relatively young, then the 2008 crash, the hostile environment, Brexit (who can forget) and now the drive to get immigration numbers down – all uncertain times.',
+            ),
+
+            array(
+                'key' => 'field_addition_title',
+                'label' => 'Notable Addition Title',
+                'name' => 'addition_title',
+                'type' => 'text',
+                'default_value' => 'Notable addition',
+            ),
+            array(
+                'key' => 'field_addition_content',
+                'label' => 'Notable Addition Content',
+                'name' => 'addition_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'In 2008, Julian Torreggiani, a former journalist and editor, joined us and brought his assiduous attention to detail, not to mention his highly personable approach (just read his reviews) to help reshape the firm’s outlook.',
+            ),
+
+            array(
+                'key' => 'field_mission_title',
+                'label' => 'Mission Title',
+                'name' => 'mission_title',
+                'type' => 'text',
+                'default_value' => "RLegal's mission",
+            ),
+            array(
+                'key' => 'field_mission_content',
+                'label' => 'Mission Content',
+                'name' => 'mission_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'Our mission is far from accomplished, advising clients and attaining their goals has brought us more than we could have imagined. We cannot thank our clients enough in providing us with the opportunity to work with them - it has brought us so much – recognition through the Legal 500, the Law Society and, of course, the chance to work in what we want to do.',
+            ),
+
+            array(
+                'key' => 'field_evolve_title',
+                'label' => 'How We Have Evolved Title',
+                'name' => 'evolve_title',
+                'type' => 'text',
+                'default_value' => 'How we have evolved',
+            ),
+            array(
+                'key' => 'field_evolve_content',
+                'label' => 'How We Have Evolved Content',
+                'name' => 'evolve_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'Our clients are our business - their immigration journeys have become us. We understand how pivotal achieving a successful immigration outcome can be, whether you’re a worker, a business owner, or a family member. It is both gratifying and humbling to be given this responsibility daily.
+
+            We have learned that our successes are measured through what we achieve through each client and that will never change.',
+            ),
+
+            array(
+                'key' => 'field_work_title',
+                'label' => 'Who We Work With Title',
+                'name' => 'work_title',
+                'type' => 'text',
+                'default_value' => 'Who we work with',
+            ),
+            array(
+                'key' => 'field_work_content',
+                'label' => 'Who We Work With Content',
+                'name' => 'work_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'We have worked with businesses to obtain sponsorship licences and work permission under the Skilled Worker provisions (previously Tier 2 and, because we’ve been going that long, the work permit scheme), with individuals on family-related matters, for business-based entry, nationality, immigration appeals, and with EU Settlement Scheme residence routes.',
+            ),
+
+            array(
+                'key' => 'field_success_title',
+                'label' => 'Our Successes Title',
+                'name' => 'success_title',
+                'type' => 'text',
+                'default_value' => 'Our successes',
+            ),
+            array(
+                'key' => 'field_success_content',
+                'label' => 'Our Successes Content',
+                'name' => 'success_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'RLegal has served more than 5000 clients in London, nationally and internationally with distinction and we are proud of what our clients say about us through their positive reviews stretching back over a decade. Their positive stories and recommendations recognise the depth of our engagement with our clients.',
+            ),
+
+            array(
+                'key' => 'field_reviews_title',
+                'label' => 'Reviews Title',
+                'name' => 'reviews_title',
+                'type' => 'text',
+                'default_value' => 'Reviews',
+            ),
+            array(
+                'key' => 'field_reviews_content',
+                'label' => 'Reviews Content',
+                'name' => 'reviews_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'Over the past 10 plus years we have requested reviews from our client base but do not push them and respect our clients wishes to remain anonymous.
+
+            We invite you to read our Google and <a title="reviews.co.uk" href="https://www.reviews.co.uk/company-reviews/store/rlegal-solicitors" target="_blank" rel="noopener">Review.co.uk</a> reviews. They speak to our client satisfaction ratings.',
+            ),
+
+            array(
+                'key' => 'field_awards_title',
+                'label' => 'Recognition and Awards Title',
+                'name' => 'awards_title',
+                'type' => 'text',
+                'default_value' => 'Recognition and awards',
+            ),
+            array(
+                'key' => 'field_awards_content',
+                'label' => 'Recognition and Awards Content',
+                'name' => 'awards_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'RLegal have been recommended by the Legal 500 in both the personal and business immigration categories for immigration services consecutively since 2021 following rigorous independent testing.
+
+            RLegal do not claim to have won immigration awards and have chosen to decline accepting these when approached as we have not participated through a process, do not know who most of the awarding bodies are, and refuse to pay for the apparent privilege.
+
+            We believe it is important our clients understand our principles.',
+            ),
+
+            array(
+                'key' => 'field_offer_title',
+                'label' => 'What We Can Offer Title',
+                'name' => 'offer_title',
+                'type' => 'text',
+                'default_value' => 'What we can offer',
+            ),
+            array(
+                'key' => 'field_offer_content',
+                'label' => 'What We Can Offer Content',
+                'name' => 'offer_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'We are confident RLegal has the skills and experience you need to meet the challenges of the complexities of the UK immigration system which is based on our long history, recognition and client reviews.
+
+            We look forward to continuing to work with our clients to share, meet and overcome the obstacles they face. Of course new clients are always welcome as you will hopefully become part of the journey to fulfil our mission.
+
+            Thank you for taking the time to read this and we wish you the best of luck no matter which path you decide to take but of course hope you join us!',
+            ),
+
+            array(
+                'key' => 'field_contact_title',
+                'label' => 'Contact Us Title',
+                'name' => 'contact_title',
+                'type' => 'text',
+                'default_value' => 'Contact us',
+            ),
+            array(
+                'key' => 'field_contact_content',
+                'label' => 'Contact Us Content',
+                'name' => 'contact_content',
+                'type' => 'wysiwyg',
+                'default_value' => 'Please do contact us for an honest appraisal of your case on 020 7038 3980, via e-mail to <a href="mailto:info@rlegal.com">info@rlegal.com</a> or click here to complete our <a href="http://www.rlegal.com/contact-us">online form</a>.
+
+            You can read more about our individual service areas on this site.',
             ),
             array(
                 'key' => 'field_about_partners_heading',
@@ -678,13 +935,13 @@ function ri_legal_register_pages_acf_fields() {
                     'type'         => 'text',
                     'instructions' => 'Full name of the person.',
                 ),
+                
                 array(
-                    'key'          => 'field_ri_partner_bio',
-                    'label'        => 'Bio',
-                    'name'         => 'partner_bio',
-                    'type'         => 'textarea',
-                    'rows'         => 5,
-                    'instructions' => 'Short biography shown on the card.',
+                    'key'          => 'field_ri_partner_link',
+                    'label'        => 'CTA Button Link',
+                    'name'         => 'partner_link',
+                    'type'         => 'url',
+                    'instructions' => 'Button Link',
                 ),
             ),
         ),

@@ -159,3 +159,7 @@ if ( file_exists( get_template_directory() . '/includes/reviews.php' ) ) {
 if ( file_exists( get_template_directory() . '/security.php' ) ) {
     require_once get_template_directory() . '/security.php';
 }
+
+if ( file_exists( get_template_directory() . '/includes/acf-team-profile.php' ) ) {
+    require_once get_template_directory() . '/includes/acf-team-profile.php';
+}
