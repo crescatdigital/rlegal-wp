@@ -139,17 +139,20 @@ get_header();
             </h2>
             <?php
             $hp_team = array(
-                array( 'img' => 'david.jpg',  'first' => 'David',  'last' => 'Robinson' ),
-                array( 'img' => 'evan.jpg',   'first' => 'Evan',   'last' => 'Remedios' ),
-                array( 'img' => 'julian.jpg', 'first' => 'Julian', 'last' => 'Torreggiani' ),
+                array( 'img' => 'david.jpg',  'first' => 'David',  'last' => 'Robinson', 'link'  => home_url( '/team-profile-david-robinson/' ), ),
+                array( 'img' => 'evan.jpg',   'first' => 'Evan',   'last' => 'Remedios', 'link'  => home_url( '/team-profile-evan-remedios/' ), ),
+                array( 'img' => 'julian.jpg', 'first' => 'Julian', 'last' => 'Torreggiani', 'link'  => home_url( '/team-profile-julian-torreggiani/' ), ),
             );
             ?>
             <div class="hp-team__grid">
                 <?php foreach ( $hp_team as $member ) : ?>
                     <figure class="hp-team__member">
-                        <div class="hp-team__photo">
-                            <img src="<?php echo esc_url( ri_legal_image_url( $member['img'] ) ); ?>" alt="<?php echo esc_attr( $member['first'] . ' ' . $member['last'] ); ?>" loading="lazy" decoding="async">
-                        </div>
+                            <a href="<?php echo esc_url( $member['link'] ); ?>" class="hp-team__photo">
+                                <img src="<?php echo esc_url( ri_legal_image_url( $member['img'] ) ); ?>"
+                                        alt="<?php echo esc_attr( $member['first'] . ' ' . $member['last'] ); ?>"
+                                        loading="lazy"
+                                        decoding="async">
+                            </a>                        
                         <figcaption class="hp-team__name"><span class="hp-team__fname"><?php echo esc_html( $member['first'] ); ?></span> <?php echo esc_html( $member['last'] ); ?></figcaption>
                     </figure>
                 <?php endforeach; ?>
@@ -160,13 +163,71 @@ get_header();
         </div>
     </section>
 
+    <!-- Why choose RLegal immigration solicitors -->
+    <section class="mt-8 mb-8 py-12 bg-white why-choose-us-section">
+        <div class="mx-auto max-w-7xl px-6 lg:pl-[60px]">
+            <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] lg:mb-[22px] mb-4 text-center">
+                <?php echo wp_kses_post( get_ri_field( 'field_why_choose_title' ) ); ?>
+            </h2>
+            <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
+                <?php echo wp_kses_post( get_ri_field( 'field_why_choose_description_1' ) ); ?>
+            </p>
+            <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
+                <?php echo wp_kses_post( get_ri_field( 'field_why_choose_description_2' ) ); ?>
+            </p>
+            <div class="hp-specialists mb-10">
+                <!-- LEFT: how we help -->
+                <div class="why-choose-us-points">
+                    <?php 
+                    $why_choose_points = get_ri_field( 'field_why_choose_points' );
+
+                    if ( ! empty( $why_choose_points ) ) :
+                    ?>
+                    <ul class="hp-checklist">
+                        <?php foreach ( $why_choose_points as $point ) : ?>
+                        <li>
+                            <span class="hp-checklist__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span><?php echo wp_kses_post( $point['point'] ); ?></span>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <p class="text-[18px] leading-relaxed text-[#000000]">
+                <strong><?php echo wp_kses_post( get_ri_field( 'field_legal_500_title' ) ); ?></strong> "<?php echo wp_kses_post( get_ri_field( 'field_legal_500_quote' ) ); ?>"
+            </p>
+        </div>
+    </section>
+
     <!-- REVIEWS CAROUSEL SECTION (wrapped for the homepage-only chevron divider) -->
     <div class="hp-reviews">
         <?php get_template_part( 'template-parts/common/testimonials' ); ?>
     </div>
 
+    <!-- Why choose us for your UK visa application? -->
+    <section class="mt-10 py-12 bg-white why-choose-us-section">
+        <div class="mt-8 mx-auto max-w-7xl px-6 lg:pl-[60px]">
+            <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] lg.mb-[22px] mb-4 text-center">
+                <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_title' ) ); ?>
+            </h2>
+
+            <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
+                <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_content_1' ) ); ?>
+            </p>
+
+            <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
+                <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_content_2' ) ); ?>
+            </p>
+
+            <p class="text-[18px] leading-relaxed text-[#000000]">
+                <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_content_3' ) ); ?>
+            </p>
+        </div>
+    </section>
+
     <!-- SERVICES SECTION -->
-    <section class="mt-8 py-12">
+    <section class="py-4">
         <div class="mx-auto max-w-7xl">
             <h2 class="text-center text-[32px] lg:text-[36px] font-semibold text-[#884A83] mb-10 px-6">
                 Services We Provide

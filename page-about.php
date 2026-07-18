@@ -57,14 +57,14 @@ get_header();
                     order-1
                     text-center lg:text-left
                     mx-auto lg:mx-0
-                    lg:pl-[85px]
+                    lg:pl-[165px]
                     mt-8 lg:mt-0
                     lg:pt-[68px]">
                     <!-- Eyebrow -->
-                    <p class="text-[20px] sm:text-[16px] lg:text-[20px] text-[#884A83] mb-3">
+                    <p class="text-[18px] lg:text-[30px] font-bold text-[#884A83] leading-[1.4em] mb-3 mt-4 lg:mt-0">
                         <?php echo esc_html( get_ri_field( 'about_eyebrow', 'Welcome to RLegal Solicitors' ) ); ?></p>
                     <!-- Heading -->
-                    <h1 class="text-[36px] sm:text-[36px] lg:text-[40px] leading-tight text-[#000000]">
+                    <h1 class="text-[32px] lg:text-[30px] leading-tight text-black mb-6">
                         <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'about_heading', "About our immigration\nlaw firm, established\nin 2002" ) ) ) ); ?>
                     </h1> 
                     
@@ -103,19 +103,135 @@ get_header();
     </section>
 
     <section class="py-10 bg-white px-2 lg:px-0">
-        <div class="mx-auto max-w-5xl w-full">
+        <div class="mx-auto max-w-6xl px-6 w-full">
             <!-- TITLE -->
             <h2 class="text-[36px] font-semibold text-[#884A83] mb-6">
                 <?php echo esc_html( get_ri_field( 'about_intro_title', 'Welcome to RLegal Immigration Solicitors' ) ); ?>
             </h2> <!-- INTRO TEXT -->
-            <p class="text-[18px] leading-relaxed text-[#000000] mb-10 max-w-4xl">
+            <p class="text-[18px] leading-relaxed text-[#000000] mb-10">
                 <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'about_intro_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' ) ) ) ); ?>
             </p> <!-- SUB HEADING -->
-            <h3 class="text-[24px] font-semibold text-[#000000] mb-4">
+
+            <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
                 <?php echo esc_html( get_ri_field( 'about_who_heading', 'Who we are' ) ); ?></h3> <!-- BODY TEXT -->
-            <p class="text-[18px] leading-relaxed text-[#000000] mb-14 max-w-4xl">
+            <p class="text-[18px] leading-relaxed text-[#000000] mb-8">
                 <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'about_who_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' ) ) ) ); ?>
-            </p> <!-- TRUST BADGES -->
+            </p> 
+
+            <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                <?php echo esc_html( get_ri_field( 'field_start_title', 'The Start' ) ); ?>
+            </h3>
+            <div class="text-[18px] leading-relaxed text-[#000000]">
+                <?php echo wp_kses_post( get_ri_field( 'field_start_content' ) ); ?>
+            </div>
+            
+
+            <!-- Who We Are Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10 mb-10">
+
+                <!-- The Challenges -->
+                <div>
+                    <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                        <?php echo esc_html( get_ri_field( 'challenges_title', 'The challenges' ) ); ?>
+                    </h3>
+                    <div class="text-[18px] leading-relaxed text-[#000000]">
+                        <?php echo wp_kses_post( get_ri_field( 'challenges_content' ) ); ?>
+                    </div>
+                </div>
+
+                <!-- Notable Addition -->
+                <div>
+                    <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                        <?php echo esc_html( get_ri_field( 'addition_title', 'Notable addition' ) ); ?>
+                    </h3>
+                    <div class="text-[18px] leading-relaxed text-[#000000]">
+                        <?php echo wp_kses_post( get_ri_field( 'addition_content' ) ); ?>
+                    </div>
+                </div>
+
+                <!-- RLegal's Mission -->
+                <div>
+                    <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                        <?php echo esc_html( get_ri_field( 'mission_title', "RLegal's mission" ) ); ?>
+                    </h3>
+                    <div class="text-[18px] leading-relaxed text-[#000000]">
+                        <?php echo wp_kses_post( get_ri_field( 'mission_content' ) ); ?>
+                    </div>
+                </div>
+
+                <!-- How We Have Evolved -->
+                <div>
+                    <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                        <?php echo esc_html( get_ri_field( 'evolve_title', 'How we have evolved' ) ); ?>
+                    </h3>
+                    <div class="text-[18px] leading-relaxed text-[#000000]">
+                        <?php echo wp_kses_post( get_ri_field( 'evolve_content' ) ); ?>
+                    </div>
+                </div>
+
+                <!-- Who We Work With -->
+                <div>
+                    <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                        <?php echo esc_html( get_ri_field( 'work_title', 'Who we work with' ) ); ?>
+                    </h3>
+                    <div class="text-[18px] leading-relaxed text-[#000000]">
+                        <?php echo wp_kses_post( get_ri_field( 'work_content' ) ); ?>
+                    </div>
+                </div>
+
+                <!-- Our Successes -->
+                <div>
+                    <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                        <?php echo esc_html( get_ri_field( 'success_title', 'Our successes' ) ); ?>
+                    </h3>
+                    <div class="text-[18px] leading-relaxed text-[#000000]">
+                        <?php echo wp_kses_post( get_ri_field( 'success_content' ) ); ?>
+                    </div>
+                </div>
+
+                <!-- Reviews -->
+                <div>
+                    <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                        <?php echo esc_html( get_ri_field( 'reviews_title', 'Reviews' ) ); ?>
+                    </h3>
+                    <div class="text-[18px] leading-relaxed text-[#000000]">
+                        <?php echo wp_kses_post( get_ri_field( 'reviews_content' ) ); ?>
+                    </div>
+                </div>
+
+                <!-- Recognition and Awards -->
+                <div>
+                    <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                        <?php echo esc_html( get_ri_field( 'awards_title', 'Recognition and awards' ) ); ?>
+                    </h3>
+                    <div class="text-[18px] leading-relaxed text-[#000000]">
+                        <?php echo wp_kses_post( get_ri_field( 'awards_content' ) ); ?>
+                    </div>
+                </div>
+
+                <!-- What We Can Offer -->
+                <div>
+                    <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                        <?php echo esc_html( get_ri_field( 'offer_title', 'What we can offer' ) ); ?>
+                    </h3>
+                    <div class="text-[18px] leading-relaxed text-[#000000]">
+                        <?php echo wp_kses_post( get_ri_field( 'offer_content' ) ); ?>
+                    </div>
+                </div>
+
+                <!-- Contact Us -->
+                <div>
+                    <h3 class="text-[24px] font-semibold text-[#884A83] mb-4">
+                        <?php echo esc_html( get_ri_field( 'contact_title', 'Contact us' ) ); ?>
+                    </h3>
+                    <div class="text-[18px] leading-relaxed text-[#000000] mb-8">
+                        <?php echo wp_kses_post( get_ri_field( 'contact_content' ) ); ?>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TRUST BADGES -->
             <div class="flex justify-center">
                 <div class="flex items-center gap-10">
                     <?php $t1 = get_ri_field( 'trust_image_1', '', 'option' ); $t2 = get_ri_field( 'trust_image_2', '', 'option' ); ?>
@@ -168,9 +284,9 @@ get_header();
                         <p class="text-[18px] text-left leading-relaxed text-[#000000] mb-4">
                             <?php echo wp_kses_post( nl2br( esc_html( $bio ) ) ); ?></p>
                         <!-- CTA -->
-                        <!-- <a href="<?php echo esc_attr( $link ); ?>" class="inline-block lg:w-[220px] rounded-xl bg-[#884A83]
+                        <a href="<?php echo esc_attr( $link ); ?>" class="inline-block lg:w-[220px] rounded-xl bg-[#884A83]
                         px-4 py-1.5 mt-[16px] mb-[22px] text-[18px] font-medium text-white
-                        hover:bg-[#73366f] transition">Find out more</a> -->
+                        hover:bg-[#73366f] transition">Find out more</a>
                     </div>
                     <?php
                     }
