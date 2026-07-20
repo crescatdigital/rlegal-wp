@@ -274,8 +274,10 @@ get_header();
                         <!-- IMAGE -->
                         <div class="mb-4">
                             <?php if ( $img ) : ?>
-                            <img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $name ); ?>"
-                                class="object-cover rounded-sm partner__image">
+                                <a href="<?php echo esc_attr( $link ); ?>">
+                                    <img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $name ); ?>"
+                                        class="object-cover rounded-sm partner__image">
+                                </a>
                             <?php endif; ?>
                         </div>
                         <!-- NAME -->

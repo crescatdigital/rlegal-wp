@@ -137,17 +137,20 @@ get_header();
             </h2>
             <?php
             $hp_team = array(
-                array( 'img' => 'david.jpg',  'first' => 'David',  'last' => 'Robinson' ),
-                array( 'img' => 'evan.jpg',   'first' => 'Evan',   'last' => 'Remedios' ),
-                array( 'img' => 'julian.jpg', 'first' => 'Julian', 'last' => 'Torreggiani' ),
+                array( 'img' => 'david.jpg',  'first' => 'David',  'last' => 'Robinson', 'link'  => home_url( '/team-profile-david-robinson/' ), ),
+                array( 'img' => 'evan.jpg',   'first' => 'Evan',   'last' => 'Remedios', 'link'  => home_url( '/team-profile-evan-remedios/' ), ),
+                array( 'img' => 'julian.jpg', 'first' => 'Julian', 'last' => 'Torreggiani', 'link'  => home_url( '/team-profile-julian-torreggiani/' ), ),
             );
             ?>
             <div class="hp-team__grid">
                 <?php foreach ( $hp_team as $member ) : ?>
                     <figure class="hp-team__member">
-                        <div class="hp-team__photo">
-                            <img src="<?php echo esc_url( ri_legal_image_url( $member['img'] ) ); ?>" alt="<?php echo esc_attr( $member['first'] . ' ' . $member['last'] ); ?>" loading="lazy" decoding="async">
-                        </div>
+                            <a href="<?php echo esc_url( $member['link'] ); ?>" class="hp-team__photo">
+                                <img src="<?php echo esc_url( ri_legal_image_url( $member['img'] ) ); ?>"
+                                        alt="<?php echo esc_attr( $member['first'] . ' ' . $member['last'] ); ?>"
+                                        loading="lazy"
+                                        decoding="async">
+                            </a>                        
                         <figcaption class="hp-team__name"><span class="hp-team__fname"><?php echo esc_html( $member['first'] ); ?></span> <?php echo esc_html( $member['last'] ); ?></figcaption>
                     </figure>
                 <?php endforeach; ?>
@@ -157,6 +160,7 @@ get_header();
             </div>
         </div>
     </section>
+
 
 
 

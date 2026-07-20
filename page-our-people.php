@@ -120,8 +120,10 @@ get_header();
                         <!-- IMAGE -->
                         <div class="mb-4">
                             <?php if ( $img ) : ?>
-                            <img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $name ); ?>"
-                                class="h-[140px] lg:h-[197px] w-full object-cover rounded-sm">
+                                <a href="<?php echo esc_attr( $link ); ?>">
+                                    <img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $name ); ?>"
+                                        class="h-[140px] lg:h-[197px] w-full object-cover rounded-sm">
+                                </a>
                             <?php endif; ?>
                         </div>
                         <!-- NAME -->
