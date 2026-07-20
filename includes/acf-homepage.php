@@ -39,11 +39,13 @@ function ri_legal_register_homepage_acf_fields() {
                 'default_value' => 'Immigration Solicitors In London',
             ),
             array(
-                'key' => 'field_services_hero_heading',
-                'label' => 'Hero Heading (each line on new line)',
-                'name' => 'services_hero_heading',
-                'type' => 'textarea',
-                'default_value' => "The UK's Leading\nExperts in Immigration\nfor Over 20 Years",
+                'key'           => 'field_services_hero_heading',
+                'label'         => 'Hero Heading',
+                'name'          => 'services_hero_heading',
+                'type'          => 'textarea',
+                'instructions'  => 'Each line on a new line. Wrap words in <span class="accent">…</span> for purple, add "underline" (class="accent underline") for the underlined purple, and <strong>…</strong> for bold black.',
+                'new_lines'     => '', // we handle line breaks ourselves via nl2br
+                'default_value' => "The <span class=\"accent\">UK</span>'s Leading\n<strong>Experts in Immigration</strong>\nfor Over <span class=\"accent underline\">20 Years</span>",
             ),
             array(
                 'key' => 'field_services_hero_description',
@@ -131,6 +133,80 @@ function ri_legal_register_homepage_acf_fields() {
                 'default_value' => 'Get in touch with our lawyers',
             ),
             array(
+                'key' => 'field_why_choose_title',
+                'label' => 'Why Choose Us Title',
+                'name' => 'why_choose_title',
+                'type' => 'text',
+                'default_value' => 'Why choose RLegal immigration solicitors?',
+            ),
+
+            array(
+                'key' => 'field_why_choose_description_1',
+                'label' => 'Description 1',
+                'name' => 'why_choose_description_1',
+                'type' => 'textarea',
+                'rows' => 3,
+                'default_value' => 'We are consistently ranked among the best immigration solicitors in London, trusted by individuals and businesses. Our immigration lawyers are known for their personal approach, legal expertise, and a proven track record of success.',
+            ),
+
+            array(
+                'key' => 'field_why_choose_description_2',
+                'label' => 'Description 2',
+                'name' => 'why_choose_description_2',
+                'type' => 'textarea',
+                'rows' => 3,
+                'default_value' => 'Our senior lawyers have provided legal advice and representation for UK immigration visas to countless clients for more than 20 years. Many of our past clients recommend our solicitors to friends and family seeking assistance with UK visa applications.',
+            ),
+
+            array(
+                'key' => 'field_why_choose_points',
+                'label' => 'Why Choose Us Points',
+                'name' => 'why_choose_points',
+                'type' => 'repeater',
+                'layout' => 'table',
+                'button_label' => 'Add Point',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_why_choose_point_text',
+                        'label' => 'Point',
+                        'name' => 'point',
+                        'type' => 'text',
+                    ),
+                ),
+                'min' => 0,
+                'default_value' => array(
+                    array(
+                        'point' => 'Recommended by Legal 500 for business and personal immigration.',
+                    ),
+                    array(
+                        'point' => 'Over 5,000 successful cases handled since 2002.',
+                    ),
+                    array(
+                        'point' => '99% 5-star reviews on Google and Reviews.co.uk.',
+                    ),
+                    array(
+                        'point' => 'Clear, honest advice with a bespoke strategy for your case.',
+                    ),
+                ),
+            ),
+
+            array(
+                'key' => 'field_legal_500_title',
+                'label' => 'Legal 500 Title',
+                'name' => 'legal_500_title',
+                'type' => 'text',
+                'default_value' => 'According to The Legal 500:',
+            ),
+
+            array(
+                'key' => 'field_legal_500_quote',
+                'label' => 'Legal 500 Quote',
+                'name' => 'legal_500_quote',
+                'type' => 'textarea',
+                'rows' => 3,
+                'default_value' => 'The team is very knowledgeable and helpful in dealing with immigration concerns. They go through every step of the process patiently and are very attentive to clients\' needs.',
+            ),
+            array(
                 'key' => 'field_services_business',
                 'label' => 'Services - Business (repeater)',
                 'name' => 'services_business',
@@ -195,6 +271,40 @@ function ri_legal_register_homepage_acf_fields() {
                     )
                 ),
                 'default_value' => array(array('service_title' => 'Service A'), array('service_title' => 'Service A'), array('service_title' => 'Service A'), array('service_title' => 'Service A')),
+            ),
+            array(
+                'key' => 'field_why_uk_visa_title',
+                'label' => 'Why choose us for your UK visa application Title',
+                'name' => 'why_uk_visa_title',
+                'type' => 'text',
+                'default_value' => 'Why choose us for your UK visa application?',
+            ),
+
+            array(
+                'key' => 'field_why_uk_visa_content_1',
+                'label' => 'Why UK Visa Content 1',
+                'name' => 'why_uk_visa_content_1',
+                'type' => 'textarea',
+                'rows' => 4,
+                'default_value' => 'Immigration law and the evidential burden in applications are complex. With Home Office fees higher than ever, mistakes can be costly. Located in Central London, our immigration solicitors will work to ensure that your immigration application is successful.',
+            ),
+
+            array(
+                'key' => 'field_why_uk_visa_content_2',
+                'label' => 'Why UK Visa Content 2',
+                'name' => 'why_uk_visa_content_2',
+                'type' => 'textarea',
+                'rows' => 4,
+                'default_value' => 'Our lawyers will thoroughly review your case and provide immigration advice based on the law and our extensive experience. Our UK immigration solicitors will then prepare and file your case with the correct documentation to ensure your UK visa application meets the legal requirements.',
+            ),
+
+            array(
+                'key' => 'field_why_uk_visa_content_3',
+                'label' => 'Why UK Visa Content 3',
+                'name' => 'why_uk_visa_content_3',
+                'type' => 'textarea',
+                'rows' => 4,
+                'default_value' => 'The lead lawyers at RLegal have over 85 years of combined experience. Each immigration solicitor has practised for at least 25 years, and our wealth of experience in unusual and difficult cases is second to none, making us one of the best immigration solicitors in London.',
             ),
             array(
                 'key' => 'field_clear_advice_heading',
