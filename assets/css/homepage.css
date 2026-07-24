@@ -4,26 +4,7 @@
    components are styled here with explicit CSS rather than new utilities.
    ========================================================================= */
 
-.hero-heading {
-    font-weight: 400;      /* base lines stay regular weight */
-    color: #000;
-}
 
-.hero-heading .accent {
-    color: #a0459b;        /* the purple — tweak to match your brand exactly */
-    font-weight: 700;
-}
-
-.hero-heading .accent.underline {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-}
-
-.hero-heading strong {
-    font-weight: 700;
-    color: #000;
-}
 
 /* ---- Specialists: intro + checklist + badge panel ----------------------- */
 .hp-specialists {

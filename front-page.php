@@ -15,36 +15,24 @@ get_header();
             <div class="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-8 lg:gap-0 items-center">
                
             <!-- LEFT CONTENT (SECOND ON MOBILE) -->
-                <div class="px-6 lg:pl-[165px] lg:pr-8 py-8 lg:py-0 pb-0">
+                <div class="px-6 lg:pl-[135px] lg:pr-8 py-8 lg:py-0 pb-0">
                     <div class="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
                         
                         <!-- Eyebrow -->
-                        <p class="text-[18px] lg:text-[20px] font-medium text-[#884A83] mb-3">
-                            <?php echo esc_html( get_ri_field( 'services_hero_eyebrow', 'Immigration Solicitors In London' ) ); ?>
+                        <p class="text-[18px] lg:text-[18px] font-medium text-[#884A83] mb-3">
+                            <?php echo esc_html( get_ri_field( 'services_hero_eyebrow', 'Successfully representing clients globaly since 2002' ) ); ?>
                         </p>
 
                         <!-- Heading -->
                          <div class="banner-heading">
                             <h1 class="text-[32px] lg:text-[40px] leading-tight text-black mb-6 hero-heading">
-                                <?php
-                                echo wp_kses_post(
-                                    nl2br(
-                                        get_ri_field(
-                                            'services_hero_heading',
-                                            "The <span class=\"accent\">UK</span>'s Leading\n<strong>Experts in Immigration</strong>\nfor Over <span class=\"accent underline\">20 Years</span>"
-                                        )
-                                    )
-                                );
-                                ?>
+                                <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'services_hero_heading', "Established Immigration Solicitors,London" ) ) ) ); ?>
                             </h1>
                         </div>
 
-                        <?php $desc = get_field( 'services_hero_description' ); ?>
-                        <?php if ( ! empty( $desc ) ) : ?>
-                            <p class="text-[16px] lg:text-[16px] leading-tight text-black mb-6 hero-description">
-                                <?php echo wp_kses_post( nl2br( esc_html( $desc ) ) ); ?>
-                            </p>
-                        <?php endif; ?>
+                        <p class="text-[16px] lg:text-[16px] leading-tight text-black mb-6 hero-description">
+                            <?php echo wp_kses_post( nl2br( esc_html( get_ri_field( 'services_hero_description', "Our immigration lawyers work with you to deal with visa issues." ) ) ) ); ?>
+                        </p>
 
                         <!-- CTA removed from hero; the primary "Book Consultation" CTA lives in the sticky header. -->
 

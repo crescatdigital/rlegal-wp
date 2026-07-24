@@ -39,13 +39,11 @@ function ri_legal_register_homepage_acf_fields() {
                 'default_value' => 'Immigration Solicitors In London',
             ),
             array(
-                'key'           => 'field_services_hero_heading',
-                'label'         => 'Hero Heading',
-                'name'          => 'services_hero_heading',
-                'type'          => 'textarea',
-                'instructions'  => 'Each line on a new line. Wrap words in <span class="accent">…</span> for purple, add "underline" (class="accent underline") for the underlined purple, and <strong>…</strong> for bold black.',
-                'new_lines'     => '', // we handle line breaks ourselves via nl2br
-                'default_value' => "The <span class=\"accent\">UK</span>'s Leading\n<strong>Experts in Immigration</strong>\nfor Over <span class=\"accent underline\">20 Years</span>",
+                 'key' => 'field_services_hero_heading',
+                'label' => 'Hero Heading (each line on new line)',
+                'name' => 'services_hero_heading',
+                'type' => 'textarea',
+                'default_value' => "Established Immigration Solicitors,London",
             ),
             array(
                 'key' => 'field_services_hero_description',
