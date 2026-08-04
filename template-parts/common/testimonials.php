@@ -2,37 +2,16 @@
 $clients_count = get_field('reviews_clients_count', 'option');
 $reviews_count = get_field('reviews_count', 'option');
 $cards         = get_field('reviews_cards', 'option');
+
+// Homepage gets the redesigned layered background; every other page keeps
+// the original solid-purple section, byte-for-byte identical.
+$section_class = is_front_page()
+    ? 'bg-[#6D3B69] py-12 lg:py-16 relative hp-reviews'
+    : 'bg-[#6D3B69] py-12 lg:py-16 overflow-hidden';
 ?>
 
-<section class="bg-[#6D3B69] py-12 lg:py-16 overflow-hidden">
+<section class="<?php echo esc_attr( $section_class ); ?>">
     <div class="mx-auto max-w-7xl lg:px-10">
-        <!-- HEADER -->
-        <div class="mb-8 lg:mb-10 px-4 lg:px-0 text-left lg:text-center">
-            <p class="text-white text-[32px] leading-tight lg:text-[36px] font-semibold">
-                <?php echo esc_html( $clients_count ); ?> Clients Served,
-                <span class="inline-flex items-center gap-1">
-                    <?php echo esc_html( $reviews_count ); ?>
-                    <span class="inline-flex">
-                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/Star-with-border.C0egjQLc_Z1Xc59b.webp"
-                            alt="Star" loading="lazy" decoding="async" fetchpriority="auto" width="40" height="38"
-                            class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain"><img
-                            src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/Star-with-border.C0egjQLc_Z1Xc59b.webp"
-                            alt="Star" loading="lazy" decoding="async" fetchpriority="auto" width="40" height="38"
-                            class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain"><img
-                            src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/Star-with-border.C0egjQLc_Z1Xc59b.webp"
-                            alt="Star" loading="lazy" decoding="async" fetchpriority="auto" width="40" height="38"
-                            class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain"><img
-                            src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/Star-with-border.C0egjQLc_Z1Xc59b.webp"
-                            alt="Star" loading="lazy" decoding="async" fetchpriority="auto" width="40" height="38"
-                            class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain"><img
-                            src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/Star-with-border.C0egjQLc_Z1Xc59b.webp"
-                            alt="Star" loading="lazy" decoding="async" fetchpriority="auto" width="40" height="38"
-                            class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain">
-                    </span>
-                    Reviews
-                </span>
-            </p>
-        </div>
         <!-- CARDS + NAVIGATION -->
         <div class="relative flex items-center justify-center px-4 lg:px-0" data-carousel>
             <!-- PREV BUTTON -->
@@ -44,7 +23,7 @@ $cards         = get_field('reviews_cards', 'option');
 
             <!-- CARDS WRAPPER -->
             <!-- items-stretch: makes all carousel-items grow to the tallest sibling's height -->
-            <div class="flex items-stretch gap-6 w-full justify-center px-8 lg:px-0" data-track>
+            <div class=" card-wrapper flex items-stretch gap-6 w-full justify-center px-8 lg:px-0" data-track>
 
                 <?php foreach ( $cards as $index => $card ) : ?>
                 <!--
@@ -105,6 +84,33 @@ $cards         = get_field('reviews_cards', 'option');
                     alt="Next" loading="lazy" decoding="async" fetchpriority="auto" width="36" height="42"
                     class="w-[40px] lg:w-[48px] h-[40px] lg:h-[48px] rotate-180">
             </button>
+        </div>
+        <!-- HEADER -->
+        <div class="mt-8 lg:mt-10 px-4 lg:px-0 text-left lg:text-center">
+            <p class="text-white text-[32px] leading-tight lg:text-[36px] font-semibold">
+                <?php echo esc_html( $clients_count ); ?> Clients Served,
+                <span class="inline-flex items-center gap-1">
+                    <?php echo esc_html( $reviews_count ); ?>
+                    <span class="inline-flex">
+                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/Star-with-border.C0egjQLc_Z1Xc59b.webp"
+                            alt="Star" loading="lazy" decoding="async" fetchpriority="auto" width="40" height="38"
+                            class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain"><img
+                            src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/Star-with-border.C0egjQLc_Z1Xc59b.webp"
+                            alt="Star" loading="lazy" decoding="async" fetchpriority="auto" width="40" height="38"
+                            class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain"><img
+                            src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/Star-with-border.C0egjQLc_Z1Xc59b.webp"
+                            alt="Star" loading="lazy" decoding="async" fetchpriority="auto" width="40" height="38"
+                            class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain"><img
+                            src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/Star-with-border.C0egjQLc_Z1Xc59b.webp"
+                            alt="Star" loading="lazy" decoding="async" fetchpriority="auto" width="40" height="38"
+                            class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain"><img
+                            src="<?php echo esc_url( get_template_directory_uri() ); ?>/ui-source/dist/_astro/Star-with-border.C0egjQLc_Z1Xc59b.webp"
+                            alt="Star" loading="lazy" decoding="async" fetchpriority="auto" width="40" height="38"
+                            class="lg:w-[41px] lg:h-[41px] w-[32px] h-[32px] object-contain">
+                    </span>
+                    Reviews
+                </span>
+            </p>
         </div>
     </div>
     <script src="/scripts/reviewsCarrousel.js"></script>

@@ -144,24 +144,30 @@
 }
 
 /* ---- RLegal team of experts -------------------------------------------- */
+/* Soft diagonal motif echoing the mockup, kept subtle + behind content. */
 .hp-team {
   position: relative;
   overflow: hidden;
   background: #ffffff;
-  padding: 8px 0 64px;
+  padding: 8px 0 0;
+  z-index:2;
 }
-/* Soft diagonal motif echoing the mockup, kept subtle + behind content. */
-.hp-team::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 62%;
-  background: #f3f2f4;
-  clip-path: polygon(0 38%, 50% 0, 100% 38%, 100% 100%, 0 100%);
-  z-index: 0;
+
+.team-review-divider{
+  width:100%;
+  height:220px;
+  line-height:0;
+  margin-bottom:0;
+  position:relative;
+  z-index:1;
 }
+
+.team-review-divider svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
 .hp-team__inner {
   position: relative;
   z-index: 1;
@@ -226,26 +232,96 @@
 .hp-team__btn:hover { background: #3d7242; transform: translateY(-1px); }
 .hp-team__btn u { text-underline-offset: 3px; }
 
-/* ---- Reviews -> Services chevron divider (homepage only) ---------------- */
-.hp-reviews { position: relative; }
+.hp-reviews {
+  position: relative;
+  background: #6d3b69;
+  z-index: 1;
+  padding-bottom: 120px;
+}
+
+.hp-reviews .card-wrapper {
+  margin-top: -150px;
+}
+
 .hp-reviews::after {
   content: "";
   position: absolute;
-  top: calc(100% - 1px);
   left: 0;
-  right: 0;
-  height: 48px;
-  background: #6d3b69; /* matches the reviews band, points down into Services */
-  clip-path: polygon(0 0, 50% 100%, 100% 0);
-  z-index: 1;
-  pointer-events: none;
+  bottom: -1px;
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  clip-path: polygon(
+      0 100%,   /* bottom left */
+      50% 0,    /* top center (^ point) */
+      100% 100%,/* bottom right */
+      100% 100%,
+      0 100%
+  );
+}
+
+@media (max-width:1024px) {
+  .hp-reviews::after{
+    bottom: -2px;
+  }
+}
+
+/* =========================
+   MOBILE (768px and below)
+========================= */
+
+@media (max-width:768px){
+
+  .team-review-divider{
+    height:80px;
+  }
+
+  .hp-team{
+    padding:15px 0;
+  }
+
+  .hp-team__grid{
+    gap:24px;
+  }
+
+  .hp-team__photo{
+    width:110px;
+    height:110px;
+    padding:4px;
+  }
+
+  .hp-team__name{
+    font-size:16px;
+    text-align:center;
+  }
+
+  .hp-team__cta{
+    margin-top:28px;
+  }
+
+  .hp-team__btn{
+    width:90%;
+    max-width:320px;
+    font-size:15px;
+    padding:13px 24px;
+  }
+
+  .hp-reviews{
+    padding-bottom:70px;
+  }
+
+  .hp-reviews .card-wrapper{
+    margin-top:-70px;
+  }
+
+  .hp-reviews::after{
+    height:60px;
+    bottom: -2px;
+  }
+
 }
 
 @media (max-width: 767px) {
-  /* Flat, horizontal section edges on mobile — drop the decorative chevrons */
-  .hp-team::before,
-  .hp-reviews::after { display: none; }
-
   /* Keep the three founders in a single horizontal row */
   .hp-team__grid { flex-wrap: nowrap; gap: 14px; margin-top: 24px; }
   .hp-team__member { flex: 1 1 0; min-width: 0; gap: 10px; }

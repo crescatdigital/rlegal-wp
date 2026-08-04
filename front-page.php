@@ -161,72 +161,82 @@ get_header();
             </div>
         </div>
     </section>
+    <div class="team-review-divider">
+        <svg viewBox="0 0 1920 180" preserveAspectRatio="none">
+            <polygon points="0,0 0,180 980,180" fill="#f3f2f4"/>
+            <polygon points="1920,0 940,180 1920,180" fill="#f3f2f4"/>
+        </svg>
+    </div>
 
     <!-- Why choose RLegal immigration solicitors -->
-    <section class="mt-8 mb-8 py-12 bg-white why-choose-us-section">
-        <div class="mx-auto max-w-7xl px-6 lg:pl-[60px]">
-            <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] lg:mb-[22px] mb-4 text-center">
-                <?php echo wp_kses_post( get_ri_field( 'field_why_choose_title' ) ); ?>
-            </h2>
-            <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
-                <?php echo wp_kses_post( get_ri_field( 'field_why_choose_description_1' ) ); ?>
-            </p>
-            <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
-                <?php echo wp_kses_post( get_ri_field( 'field_why_choose_description_2' ) ); ?>
-            </p>
-            <div class="hp-specialists mb-10">
-                <!-- LEFT: how we help -->
-                <div class="why-choose-us-points">
-                    <?php 
-                    $why_choose_points = get_ri_field( 'field_why_choose_points' );
+     <?php if ( get_ri_field( 'field_why_choose_title' ) ) : ?>
+        <section class="mt-8 mb-8 py-12 bg-white why-choose-us-section">
+            <div class="mx-auto max-w-7xl px-6 lg:pl-[60px]">
+                <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] lg:mb-[22px] mb-4 text-center">
+                    <?php echo wp_kses_post( get_ri_field( 'field_why_choose_title' ) ); ?>
+                </h2>
+                <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
+                    <?php echo wp_kses_post( get_ri_field( 'field_why_choose_description_1' ) ); ?>
+                </p>
+                <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
+                    <?php echo wp_kses_post( get_ri_field( 'field_why_choose_description_2' ) ); ?>
+                </p>
+                <div class="hp-specialists mb-10">
+                    <!-- LEFT: how we help -->
+                    <div class="why-choose-us-points">
+                        <?php 
+                        $why_choose_points = get_ri_field( 'field_why_choose_points' );
 
-                    if ( ! empty( $why_choose_points ) ) :
-                    ?>
-                    <ul class="hp-checklist">
-                        <?php foreach ( $why_choose_points as $point ) : ?>
-                        <li>
-                            <span class="hp-checklist__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                            <span><?php echo wp_kses_post( $point['point'] ); ?></span>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
-                    <?php endif; ?>
+                        if ( ! empty( $why_choose_points ) ) :
+                        ?>
+                        <ul class="hp-checklist">
+                            <?php foreach ( $why_choose_points as $point ) : ?>
+                            <li>
+                                <span class="hp-checklist__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                                <span><?php echo wp_kses_post( $point['point'] ); ?></span>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <?php endif; ?>
+                    </div>
                 </div>
+                <p class="text-[18px] leading-relaxed text-[#000000]">
+                    <strong><?php echo wp_kses_post( get_ri_field( 'field_legal_500_title' ) ); ?></strong> <?php echo wp_kses_post( get_ri_field( 'field_legal_500_quote' ) ); ?>
+                </p>
             </div>
-            <p class="text-[18px] leading-relaxed text-[#000000]">
-                <strong><?php echo wp_kses_post( get_ri_field( 'field_legal_500_title' ) ); ?></strong> "<?php echo wp_kses_post( get_ri_field( 'field_legal_500_quote' ) ); ?>"
-            </p>
-        </div>
-    </section>
+        </section>
+    <?php endif; ?>
 
     <!-- REVIEWS CAROUSEL SECTION (wrapped for the homepage-only chevron divider) -->
-    <div class="hp-reviews">
+    <div class="hp-review-section">
         <?php get_template_part( 'template-parts/common/testimonials' ); ?>
     </div>
 
     <!-- Why choose us for your UK visa application? -->
-    <section class="mt-10 py-12 bg-white why-choose-us-section">
-        <div class="mt-8 mx-auto max-w-7xl px-6 lg:pl-[60px]">
-            <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] lg.mb-[22px] mb-4 text-center">
-                <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_title' ) ); ?>
-            </h2>
+     <?php if ( get_ri_field( 'field_why_uk_visa_title' ) ) : ?>
+        <section class="mt-10 py-12 bg-white why-choose-us-section">
+            <div class="mt-8 mx-auto max-w-7xl px-6 lg:pl-[60px]">
+                <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] lg.mb-[22px] mb-4 text-center">
+                    <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_title' ) ); ?>
+                </h2>
 
-            <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
-                <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_content_1' ) ); ?>
-            </p>
+                <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
+                    <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_content_1' ) ); ?>
+                </p>
 
-            <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
-                <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_content_2' ) ); ?>
-            </p>
+                <p class="text-[18px] leading-relaxed text-[#000000] mb-4">
+                    <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_content_2' ) ); ?>
+                </p>
 
-            <p class="text-[18px] leading-relaxed text-[#000000]">
-                <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_content_3' ) ); ?>
-            </p>
-        </div>
-    </section>
+                <p class="text-[18px] leading-relaxed text-[#000000]">
+                    <?php echo wp_kses_post( get_ri_field( 'field_why_uk_visa_content_3' ) ); ?>
+                </p>
+            </div>
+        </section>
+    <?php endif; ?>
 
     <!-- SERVICES SECTION -->
-    <section class="py-4">
+    <section class="py-4 mt-10">
         <div class="mx-auto max-w-7xl">
             <h2 class="text-center text-[32px] lg:text-[36px] font-semibold text-[#884A83] mb-10 px-6">
                 Services We Provide
