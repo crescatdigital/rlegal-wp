@@ -134,30 +134,37 @@ get_header();
     <section class="hp-team">
         <div class="mx-auto max-w-7xl px-6 hp-team__inner">
             <h2 class="text-[32px] lg:text-[36px] font-semibold text-[#884A83] text-center">
-                <?php echo esc_html( get_ri_field( 'team_heading', 'RLegal Team of Immigration Experts' ) ); ?>
+                <?php echo esc_html( get_field( 'team_heading', 'option' ) ); ?>
             </h2>
-            <?php
-            $hp_team = array(
-                array( 'img' => 'david.jpg',  'first' => 'David',  'last' => 'Robinson', 'link'  => home_url( '/team-profile-david-robinson/' ), ),
-                array( 'img' => 'evan.jpg',   'first' => 'Evan',   'last' => 'Remedios', 'link'  => home_url( '/team-profile-evan-remedios/' ), ),
-                array( 'img' => 'julian.jpg', 'first' => 'Julian', 'last' => 'Torreggiani', 'link'  => home_url( '/team-profile-julian-torreggiani/' ), ),
-            );
-            ?>
-            <div class="hp-team__grid">
-                <?php foreach ( $hp_team as $member ) : ?>
-                    <figure class="hp-team__member">
+            <?php $hp_team = get_field( 'team_members', 'option' ); ?>
+            <?php if ( $hp_team ) : ?>
+                <div class="hp-team__grid">
+                    <?php foreach ( $hp_team as $member ) : ?>
+                        <figure class="hp-team__member">
+
                             <a href="<?php echo esc_url( $member['link'] ); ?>" class="hp-team__photo">
-                                <img src="<?php echo esc_url( ri_legal_image_url( $member['img'] ) ); ?>"
-                                        alt="<?php echo esc_attr( $member['first'] . ' ' . $member['last'] ); ?>"
-                                        loading="lazy"
-                                        decoding="async">
-                            </a>                        
-                        <figcaption class="hp-team__name"><span class="hp-team__fname"><?php echo esc_html( $member['first'] ); ?></span> <?php echo esc_html( $member['last'] ); ?></figcaption>
-                    </figure>
-                <?php endforeach; ?>
-            </div>
+                                <img
+                                    src="<?php echo esc_url( $member['image'] ); ?>"
+                                    alt="<?php echo esc_attr( $member['first_name'] . ' ' . $member['last_name'] ); ?>"
+                                    loading="lazy"
+                                    decoding="async">
+                            </a>
+
+                            <figcaption class="hp-team__name">
+                                <span class="hp-team__fname">
+                                    <?php echo esc_html( $member['first_name'] ); ?>
+                                </span>
+                                <?php echo esc_html( $member['last_name'] ); ?>
+                            </figcaption>
+
+                        </figure>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
             <div class="hp-team__cta">
-                <a href="/free-consultation/" class="hp-team__btn">BOOK&nbsp;<u>FREE</u>&nbsp;CONSULTATION</a>
+                <a href="<?php echo esc_url( get_field( 'team_button_link', 'option' ) ); ?>" class="hp-team__btn">
+                <?php echo wp_kses_post( get_field( 'team_button_text', 'option' ) ); ?>
+            </a>
             </div>
         </div>
     </section>

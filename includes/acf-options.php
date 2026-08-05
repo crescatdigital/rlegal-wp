@@ -169,6 +169,67 @@ function ri_legal_register_options_acf_fields() {
                     ),
                 ),
             ),
+            array(
+                'key' => 'field_opt_team_heading',
+                'label' => 'Team Heading',
+                'name' => 'team_heading',
+                'type' => 'text',
+                'default_value' => 'RLegal Team of Immigration Experts',
+            ),
+
+            array(
+                'key' => 'field_opt_team_members',
+                'label' => 'Team Members',
+                'name' => 'team_members',
+                'type' => 'repeater',
+                'layout' => 'block',
+                'button_label' => 'Add Team Member',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_opt_team_member_image',
+                        'label' => 'Image',
+                        'name' => 'image',
+                        'type' => 'image',
+                        'return_format' => 'url',
+                        'preview_size' => 'medium',
+                        'library' => 'all',
+                    ),
+                    array(
+                        'key' => 'field_opt_team_member_first_name',
+                        'label' => 'First Name',
+                        'name' => 'first_name',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_opt_team_member_last_name',
+                        'label' => 'Last Name',
+                        'name' => 'last_name',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_opt_team_member_link',
+                        'label' => 'Profile Link',
+                        'name' => 'link',
+                        'type' => 'url',
+                    ),
+                ),
+            ),
+
+            array(
+                'key' => 'field_opt_team_button_text',
+                'label' => 'Team Button Text',
+                'name' => 'team_button_text',
+                'type' => 'text',
+                'default_value' => 'BOOK FREE CONSULTATION',
+            ),
+
+            array(
+                'key' => 'field_opt_team_button_link',
+                'label' => 'Team Button Link',
+                'name' => 'team_button_link',
+                'type' => 'url',
+                'default_value' => home_url('/free-consultation/'),
+            ),
         ),
         'location' => array(
             array(
