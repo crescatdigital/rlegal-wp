@@ -163,8 +163,8 @@ get_header();
             <?php endif; ?>
             <div class="hp-team__cta">
                 <a href="<?php echo esc_url( get_field( 'team_button_link', 'option' ) ); ?>" class="hp-team__btn">
-                <?php echo wp_kses_post( get_field( 'team_button_text', 'option' ) ); ?>
-            </a>
+                    BOOK&nbsp;<u>FREE</u>&nbsp;CONSULTATION
+                </a>
             </div>
         </div>
     </section>

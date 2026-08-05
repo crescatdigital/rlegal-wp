@@ -214,15 +214,6 @@ function ri_legal_register_options_acf_fields() {
                     ),
                 ),
             ),
-
-            array(
-                'key' => 'field_opt_team_button_text',
-                'label' => 'Team Button Text',
-                'name' => 'team_button_text',
-                'type' => 'text',
-                'default_value' => 'BOOK FREE CONSULTATION',
-            ),
-
             array(
                 'key' => 'field_opt_team_button_link',
                 'label' => 'Team Button Link',
